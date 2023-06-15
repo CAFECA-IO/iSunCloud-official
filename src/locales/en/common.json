@@ -1,14 +1,5 @@
 {
   "NAV_BAR": {
-    "TRADE": "Trade",
-    "LEADERBOARD": "Leaderboard",
-    "SUPPORT": "Support",
-    "TIDEBIT_UNIVERSITY": "TideBit University",
-    "HELP_CENTER": "Help Center",
-    "WALLET_CONNECT": "Wallet Connect",
-    "LANGUAGE": "Language",
-    "MENU": "Menu",
-    "NOTIFICATION_TITLE": "Notification",
-    "NOTIFICATION_READ_ALL": "Read All"
+    "CONTACT_US": "Contact Us"
   }
 }
