@@ -1,25 +1,8 @@
 import Image from 'next/image';
-
-const content = [
-  {
-    title: 'Blockchain',
-    description: 'BOLT Blockchain Technology Solutions',
-    img: '/elements/blockchain.png',
-  },
-  {
-    title: 'AI Auditing',
-    description: 'AI Forensic Accounting and Auditing Solutions',
-    img: '/elements/ai_auditing.png',
-  },
-  {
-    title: 'Fintech',
-    description: 'Fintech Services and Technology Consulting',
-    img: '/elements/fintech.png',
-  },
-];
+import {whatWeDoＣontent} from '../../constants/config';
 
 const WhatWeDo = () => {
-  const banner = content.map(({title, description, img}) => {
+  const banner = whatWeDoＣontent.map(({title, description, img}) => {
     return (
       <div className="group relative block w-300px transition-all duration-300 ease-in hover:scale-110 lg:w-500px">
         <div className="absolute">
