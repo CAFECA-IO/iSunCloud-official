@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import NavBar from '../components/nav_bar/nav_bar';
+import WhatWeDo from '../components/what_we_do/what_we_do';
 
 const Home = () => {
   return (
@@ -22,15 +23,15 @@ const Home = () => {
               Blockchain and Finance
             </p>
             <div className="mt-5 flex items-center whitespace-nowrap">
-              <Image src="/elements/buttonFrame.svg" width={40} height={10} alt="" />
+              <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
               <div className="ml-4 font-semibold">Contact Us</div>
             </div>
           </div>
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="flex h-auto w-full items-center justify-center bg-lightGray bg-divider bg-top1 bg-no-repeat px-24 py-32">
-          <div className="rounded-3xl bg-white px-20 py-12 shadow-2xl">
+        <div className="flex h-auto w-full items-center justify-center bg-lightGray bg-divider bg-top1 bg-no-repeat px-24 py-28">
+          <div className="rounded-3xl bg-lightWhite px-20 py-12 shadow-2xl">
             <h1 className="text-5xl font-semibold text-brandOrange">Important Notice</h1>
             <p className="mt-4 p-4 text-xl">
               Beware of fraudulent activities! We are aware of unauthorized entities using our
@@ -95,6 +96,29 @@ const Home = () => {
                   institutions, fosters innovation, and positions financial institutions at the
                   forefront of technological advancements in the industry.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Info: (20230615 - Julian) What we do */}
+        <WhatWeDo />
+
+        {/* Info: (20230615 - Julian) Why iSunCloud */}
+        <div className="flex h-auto w-full items-center justify-center px-24 py-24">
+          <div className="flex flex-col">
+            <div className="flex flex-col items-center space-y-4 text-darkBlue">
+              <h1 className="text-54 font-semibold">Why iSunCloud?</h1>
+              <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
+            </div>
+
+            <div className="mt-10 flex">
+              <div className="flex flex-col items-center space-y-3">
+                <Image src="/elements/smile.svg" width={40} height={40} alt="Happy_clients" />
+                <div className="flex flex-col items-center text-base text-darkBlue">
+                  <span className="text-2xl text-brandOrange">250+</span>
+                  Happy clients
+                </div>
               </div>
             </div>
           </div>

@@ -8,6 +8,8 @@ module.exports = {
 
         lightGray: '#FAFAFA',
 
+        lightWhite: '#FFFEFB',
+
         brandOrange: '#FFA502',
       },
       backgroundImage: {
