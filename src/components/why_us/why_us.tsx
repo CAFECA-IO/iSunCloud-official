@@ -54,7 +54,7 @@ const partners = [
 const WhyUs = () => {
   const advantages = contents.map(({title, description, image}) => {
     return (
-      <div className="flex w-1/4 flex-col items-center space-y-3 p-8">
+      <div className="flex flex-col items-center space-y-3 p-8 lg:w-1/4">
         <Image src={image} width={40} height={40} alt="Happy_clients" />
         <div className="flex flex-col items-center text-base text-darkBlue">
           <span className="text-2xl text-brandOrange">{description}</span>
@@ -100,16 +100,18 @@ const WhyUs = () => {
         </div>
 
         {/* Info: (20230615 - Julian) advantage */}
-        <div className="mt-10 flex w-full p-10">{advantages}</div>
+        <div className="mt-10 flex w-full flex-col items-center p-10 lg:flex-row">{advantages}</div>
 
         {/* Info: (20230615 - Julian) Our Partners */}
-        <div className="mt-10 flex w-full items-center p-16">
-          <div className="flex flex-1 flex-col items-start space-y-4">
+        <div className="mt-10 flex w-full flex-col items-center p-16 lg:flex-row">
+          <div className="mb-8 flex flex-1 flex-col items-center space-y-4 lg:items-start">
             <h1 className="text-5xl font-semibold text-darkBlue">Our Partners</h1>
             <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
           </div>
 
-          <div className="flex items-center space-x-5">{partnerList}</div>
+          <div className="flex flex-col items-center space-y-10 lg:flex-row lg:space-x-5 lg:space-y-0">
+            {partnerList}
+          </div>
         </div>
       </div>
     </div>

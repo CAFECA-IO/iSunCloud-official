@@ -21,7 +21,7 @@ const content = [
 const WhatWeDo = () => {
   const banner = content.map(({title, description, img}) => {
     return (
-      <div className="group relative block w-500px transition-all duration-300 ease-in hover:scale-110">
+      <div className="group relative block w-300px transition-all duration-300 ease-in hover:scale-110 lg:w-500px">
         <div className="absolute">
           <Image src={img} width={500} height={500} alt="blockchain" />
         </div>
@@ -47,7 +47,9 @@ const WhatWeDo = () => {
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 
-        <div className="mt-10 flex h-500px overflow-x-hidden overflow-y-hidden">{banner}</div>
+        <div className="mt-10 flex h-500px flex-col overflow-x-hidden overflow-y-hidden lg:flex-row">
+          {banner}
+        </div>
       </div>
     </div>
   );
