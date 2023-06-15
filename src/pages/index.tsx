@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import NavBar from '../components/nav_bar/nav_bar';
+import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
+import WhyUs from '../components/why_us/why_us';
 
 const Home = () => {
   return (
@@ -33,11 +35,9 @@ const Home = () => {
         <div className="flex h-auto w-full items-center justify-center bg-lightGray bg-divider bg-top1 bg-no-repeat px-24 py-28">
           <div className="rounded-3xl bg-lightWhite px-20 py-12 shadow-2xl">
             <h1 className="text-5xl font-semibold text-brandOrange">Important Notice</h1>
-            <p className="mt-4 p-4 text-xl">
-              Beware of fraudulent activities! We are aware of unauthorized entities using our
-              company name to deceive individuals into fraudulent investments. Please note that we
-              never solicit investments directly. Protect your funds and exercise caution. Contact
-              our verified channels for trusted information or any queries. Stay safe from scams.
+            <p className="text-darkblue mt-4 p-4 text-left text-xl">
+              近來詐騙手段層出不窮，提醒您：台灣陽光雲有限公司絕不會提供任何形式的「理財建議」、「基金投資」或「代客操盤」等服務，更不會向用戶擬定任何投資契約。若您收到任何通訊、簡訊、電話或社群軟體邀請您加入投資群組，並保證「高獲利、低風險」等投資回報，請您立即撥打
+              165 反詐騙專線進行查證。切勿向對方透露任何金融資料或個人資訊，以確保您的權益不受損害。
             </p>
           </div>
         </div>
@@ -105,36 +105,10 @@ const Home = () => {
         <WhatWeDo />
 
         {/* Info: (20230615 - Julian) Why iSunCloud */}
-        <div className="flex h-auto w-full items-center justify-center px-24 py-24">
-          <div className="flex flex-col">
-            <div className="flex flex-col items-center space-y-4 text-darkBlue">
-              <h1 className="text-54 font-semibold">Why iSunCloud?</h1>
-              <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
-            </div>
-
-            <div className="mt-10 flex">
-              <div className="flex flex-col items-center space-y-3">
-                <Image src="/elements/smile.svg" width={40} height={40} alt="Happy_clients" />
-                <div className="flex flex-col items-center text-base text-darkBlue">
-                  <span className="text-2xl text-brandOrange">250+</span>
-                  Happy clients
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <WhyUs />
       </main>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Footer @ Example
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };

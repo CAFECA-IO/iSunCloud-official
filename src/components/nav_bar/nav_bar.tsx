@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const NavBar = () => {
   return (
@@ -6,7 +7,10 @@ const NavBar = () => {
       <div className="fixed inset-0 z-50 h-80px w-screen overflow-x-hidden overflow-y-hidden">
         <div className="flex bg-white px-16 py-4">
           <div className="flex-1">
-            <Image src="/logo/isuncloud_logo.svg" alt="iSunCloud_logo" width={200} height={40} />
+            <Link href="/" className="flex flex-col">
+              <Image src="/logo/isuncloud_logo.svg" alt="iSunCloud_logo" width={200} height={40} />
+              <p className="ml-16 text-darkBlue">台灣陽光雲有限公司</p>
+            </Link>
           </div>
 
           <div className="flex space-x-4">

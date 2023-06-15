@@ -1,0 +1,22 @@
+import Image from 'next/image';
+
+const Footer = () => {
+  return (
+    <footer className="flex h-72px w-full items-center justify-center border-t px-16 text-darkBlue">
+      <div className="flex flex-1 space-x-3">
+        <div className="flex space-x-3 whitespace-nowrap">
+          <Image src="/elements/locale.svg" width={20} height={20} alt="" />
+          <p>8F.-7, No. 207, Dunhua N. Rd., Songshan Dist., Taipei City 105406, Taiwan</p>
+        </div>
+
+        <div className="flex space-x-3 whitespace-nowrap">
+          <Image src="/elements/phone.svg" width={20} height={20} alt="" />
+          <p>+886-2-27001979</p>
+        </div>
+      </div>
+      <div>iSunCloud. @ 2023. All rights reserved.</div>
+    </footer>
+  );
+};
+
+export default Footer;
