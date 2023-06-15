@@ -1,0 +1,14 @@
+{
+  "NAV_BAR": {
+    "TRADE": "交易",
+    "LEADERBOARD": "排行榜",
+    "SUPPORT": "协助",
+    "TIDEBIT_UNIVERSITY": "TideBit 大学",
+    "HELP_CENTER": "帮助中心",
+    "WALLET_CONNECT": "连接钱包",
+    "LANGUAGE": "语言",
+    "MENU": "菜单",
+    "NOTIFICATION_TITLE": "通知",
+    "NOTIFICATION_READ_ALL": "全部已读"
+  }
+}

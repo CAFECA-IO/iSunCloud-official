@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import NavBar from '../components/nav_bar/nav_bar';
 
 const Home = () => {
   return (
@@ -7,6 +8,8 @@ const Home = () => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <NavBar />
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
