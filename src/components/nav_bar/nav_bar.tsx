@@ -13,7 +13,7 @@ const NavBar = () => {
             </Link>
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex hidden space-x-4">
             <div className="p-3">Contact Us</div>
             <div className="p-3">Language</div>
           </div>

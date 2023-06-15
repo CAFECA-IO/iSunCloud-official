@@ -24,7 +24,8 @@ const Home = () => {
               iSunCloud: A Trailblazing Fintech Software Startup Driving the Advancement of
               Blockchain and Finance
             </p>
-            <div className="mt-5 flex items-center whitespace-nowrap">
+            {/* ToDo: (20230615 - Julian) Contact Us */}
+            <div className="mt-5 flex hidden items-center whitespace-nowrap">
               <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
               <div className="ml-4 font-semibold">Contact Us</div>
             </div>
