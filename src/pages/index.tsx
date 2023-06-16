@@ -11,6 +11,10 @@ const Home = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="title" content="iSunCloud_official_website" />
+        <meta name="keywords" content="iSunCloud" />
+
         <title>iSunCloud</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

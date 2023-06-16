@@ -42,7 +42,9 @@
     "ts-jest": "^29.1.0",
     "typescript": "5.1.3"
   },
-  "keywords": [],
+  "keywords": [
+    "iSunCloud"
+  ],
   "author": "CAFECA",
   "license": "GPL-3.0",
   "husky": {
