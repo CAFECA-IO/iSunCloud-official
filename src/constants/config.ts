@@ -42,27 +42,27 @@ export const advantageContents = [
 export const partnerContent = [
   {
     name: 'TideBit',
-    image: '/logo/Tidebit.svg',
-    imageHover: '/logo/Tidebit_Active.svg',
+    image: '/logo/tidebit.svg',
+    imageHover: '/logo/tidebit_active.svg',
   },
   {
     name: 'CAFECA',
-    image: '/logo/CAFECA.svg',
-    imageHover: '/logo/CAFECA_Active.svg',
+    image: '/logo/cafeca.svg',
+    imageHover: '/logo/cafeca_active.svg',
   },
   {
     name: 'BOLT',
-    image: '/logo/BOLT.svg',
-    imageHover: '/logo/BOLT_Active.svg',
+    image: '/logo/bolt.svg',
+    imageHover: '/logo/bolt_active.svg',
   },
   {
     name: 'BAIFAAA',
-    image: '/logo/BAIFAAA.svg',
-    imageHover: '/logo/BAIFAAA_Active.svg',
+    image: '/logo/baifaaa.svg',
+    imageHover: '/logo/baifaaa_active.svg',
   },
   {
     name: 'MerMer',
-    image: '/logo/MerMer.svg',
-    imageHover: '/logo/MerMer_Active.svg',
+    image: '/logo/mermer.svg',
+    imageHover: '/logo/mermer_active.svg',
   },
 ];
