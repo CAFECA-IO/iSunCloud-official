@@ -4,7 +4,10 @@ import {whatWeDoＣontent} from '../../constants/config';
 const WhatWeDo = () => {
   const banner = whatWeDoＣontent.map(({title, description, img}) => {
     return (
-      <div className="group relative block w-300px transition-all duration-300 ease-in hover:scale-110 lg:w-500px">
+      <div
+        key={title}
+        className="group relative block w-300px transition-all duration-300 ease-in hover:scale-110 lg:w-500px"
+      >
         <div className="absolute">
           <Image src={img} width={500} height={500} alt="blockchain" />
         </div>

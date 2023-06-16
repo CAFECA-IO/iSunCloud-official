@@ -12,6 +12,9 @@ module.exports = {
         lightWhite: '#FFFEFB',
 
         brandOrange: '#FFA502',
+        darkOrange: '#FF5403',
+
+        lightYellow: '#FCF300',
       },
       backgroundImage: {
         fintech: "url('/elements/KV.svg')",

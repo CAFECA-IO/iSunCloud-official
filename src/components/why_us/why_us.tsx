@@ -4,7 +4,7 @@ import {advantageContents, partnerContent} from '../../constants/config';
 const WhyUs = () => {
   const advantages = advantageContents.map(({title, description, image}) => {
     return (
-      <div className="flex flex-col items-center space-y-3 p-8 lg:w-1/4">
+      <div key={title} className="flex flex-col items-center space-y-3 p-8 lg:w-1/4">
         <Image src={image} width={40} height={40} alt="Happy_clients" />
         <div className="flex flex-col items-center text-base text-darkBlue">
           <span className="text-2xl text-brandOrange">{description}</span>
@@ -16,7 +16,7 @@ const WhyUs = () => {
 
   const partners = partnerContent.map(({name, image, imageHover}) => {
     return (
-      <div className="group relative block h-150px w-150px p-2">
+      <div key={name} className="group relative block h-150px w-150px p-2">
         <div className="absolute group-hover:opacity-100">
           <Image
             src={image}

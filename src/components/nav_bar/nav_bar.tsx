@@ -7,8 +7,14 @@ const NavBar = () => {
       <div className="fixed inset-0 z-50 h-80px w-screen overflow-x-hidden overflow-y-hidden">
         <div className="flex bg-white px-16 py-4">
           <div className="flex-1">
-            <Link href="/" className="flex flex-col">
-              <Image src="/logo/isuncloud_logo.svg" alt="iSunCloud_logo" width={200} height={40} />
+            <Link href="/" className="">
+              <Image
+                src="/logo/isuncloud_logo.svg"
+                alt="iSunCloud_logo"
+                width={0}
+                height={0}
+                style={{width: '200px', height: 'auto'}}
+              />
             </Link>
           </div>
 
