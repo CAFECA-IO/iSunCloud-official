@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import NavBar from '../components/nav_bar/nav_bar';
 import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
@@ -25,11 +26,16 @@ const Home = () => {
               iSunCloud: A Trailblazing Fintech Software Startup Driving the Advancement of
               Blockchain and Finance
             </p>
-            {/* ToDo: (20230615 - Julian) Contact Us */}
-            <div className="mt-5 hidden items-center whitespace-nowrap">
-              <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
-              <div className="ml-4 font-semibold">Contact Us</div>
-            </div>
+            <Link href="/#contact_us" className="group mt-5 flex items-center whitespace-nowrap">
+              <div className="flex items-center space-x-1">
+                <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
+              </div>
+              <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
+                Contact Us
+              </div>
+            </Link>
           </div>
         </div>
 

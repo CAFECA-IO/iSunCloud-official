@@ -1,4 +1,5 @@
 import {useEffect, useState, useRef} from 'react';
+import lottie from 'lottie-web';
 import useInputNumber from '../../lib/hooks/use_input_number';
 import Image from 'next/image';
 
@@ -6,13 +7,52 @@ const ContactUsForm = () => {
   // Info: (20230616 - Julian) the time when the email is sent
   const now = new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
 
+  const sendAnimContainer = useRef<HTMLDivElement>(null);
+  const successAnimContainer = useRef<HTMLDivElement>(null);
+  const errorAnimContainer = useRef<HTMLDivElement>(null);
+
   // Info: (20230616 - Julian) is Email sent successfully
   const [sendSuccess, setSendSuccess] = useState(false);
+  // Info: (20230616 - Julian) which animation to show
+  const [showAnim, setShowAnim] = useState(false);
+  const [animation, setAnimation] = useState<'sending' | 'success' | 'error' | null>(null);
 
   const [inputName, setInputName] = useState('');
   const [inputPhone, setInputPhone] = useInputNumber('');
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
+
+  useEffect(() => {
+    const animSend = lottie.loadAnimation({
+      container: sendAnimContainer.current!,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/sending.json',
+    });
+
+    const animSuccess = lottie.loadAnimation({
+      container: successAnimContainer.current!,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '/animations/success.json',
+    });
+
+    const animError = lottie.loadAnimation({
+      container: errorAnimContainer.current!,
+      renderer: 'svg',
+      loop: false,
+      autoplay: true,
+      path: '/animations/error.json',
+    });
+
+    return () => {
+      animSend.destroy();
+      animSuccess.destroy();
+      animError.destroy();
+    };
+  }, [sendSuccess, showAnim, animation]);
 
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputName(event.target.value);
@@ -29,6 +69,21 @@ const ContactUsForm = () => {
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
+
+    setAnimation('sending');
+    setShowAnim(true);
+
+    const failedProcess = async () => {
+      setSendSuccess(false);
+      setAnimation('error');
+      setShowAnim(true);
+
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
+      setShowAnim(false);
+      setAnimation(null);
+    };
+
     try {
       event.preventDefault();
 
@@ -50,28 +105,117 @@ const ContactUsForm = () => {
       const success = result.success;
       if (success) {
         setSendSuccess(true);
-        //setShowResult(true);
+        setAnimation('success');
+        setShowAnim(true);
         await new Promise(resolve => setTimeout(resolve, 3000));
-        //setSendAnimation(false);
         setSendSuccess(false);
-        //setShowResult(false);
+        setShowAnim(false);
         setInputName('');
         setInputPhone('');
         setInputEmail('');
         setInputMessage('');
       } else {
-        console.log('failed');
-        //await failedProcess();
+        await failedProcess();
       }
     } catch (error) {
-      console.log('failed');
+      await failedProcess();
     }
   };
+
+  const formPart = (
+    <div className="flex flex-col">
+      <div className="flex flex-col items-center">
+        <h1 className="text-42px font-bold">Get In Touch</h1>
+        <h2 className="mt-3 text-base">
+          Please fill the form below, we will reply you as soon as posible.
+        </h2>
+      </div>
+
+      {/* Info: (20230616 - Julian) input part */}
+      <form onSubmit={submitHandler} className="flex flex-col items-center space-y-5 py-10">
+        <div className="flex flex-col items-start">
+          <p className="text-sm">Name</p>
+          <input
+            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            id="name"
+            type="text"
+            onChange={nameChangeHandler}
+            value={inputName || ''}
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <p className="text-sm">Phone Number</p>
+          <input
+            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            id="phone"
+            type="text"
+            onChange={phoneChangeHandler}
+            value={inputPhone || ''}
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <p className="text-sm">*E-mail</p>
+          <input
+            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            id="email"
+            type="text"
+            required
+            onChange={emailChangeHandler}
+            value={inputEmail || ''}
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <p className="text-sm">Message</p>
+          <textarea
+            className="mt-2 w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            id="email"
+            rows={7}
+            wrap="soft"
+            placeholder="What do you want to say..."
+            required
+            onChange={messageChangeHandler}
+            value={inputMessage || ''}
+          />
+        </div>
+
+        <button id="submit" type="submit" className="group flex items-center p-5">
+          <div className="flex items-center space-x-1">
+            <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
+            <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
+            <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
+          </div>
+          <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
+            Send
+          </span>
+        </button>
+      </form>
+    </div>
+  );
+
+  // ToDo:(20230616 - Julian) fade in animation
+  const animPart = showAnim ? (
+    <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
+      {animation === 'sending' ? (
+        <div className="h-200px w-200px" ref={sendAnimContainer}></div>
+      ) : animation === 'success' ? (
+        <div className="h-200px w-200px" ref={successAnimContainer}></div>
+      ) : (
+        <div className="h-100px w-100px" ref={errorAnimContainer}></div>
+      )}
+      <p className="text-lg text-darkBlue">
+        {animation === 'success'
+          ? 'Sent!'
+          : animation === 'error'
+          ? 'Something went wrong ! Please try again.'
+          : ''}
+      </p>
+    </div>
+  ) : null;
 
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-36 py-24"
+      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-28 py-24"
     >
       <Image
         src={'/elements/devider.svg'}
@@ -94,72 +238,9 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        <div className="z-20 flex flex-col items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl">
-          <div className="flex flex-col items-center">
-            <h1 className="text-42px font-bold">Get In Touch</h1>
-            <h2 className="mt-3 text-base">
-              Please fill the form below, we will reply you as soon as posible.
-            </h2>
-          </div>
-
-          {/* Info: (20230616 - Julian) input part  */}
-          <form onSubmit={submitHandler} className="flex flex-col items-center space-y-5 py-10">
-            <div className="flex flex-col items-start">
-              <p className="text-sm">Name</p>
-              <input
-                className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
-                id="name"
-                type="text"
-                onChange={nameChangeHandler}
-                value={inputName || ''}
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <p className="text-sm">Phone Number</p>
-              <input
-                className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
-                id="phone"
-                type="text"
-                onChange={phoneChangeHandler}
-                value={inputPhone || ''}
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <p className="text-sm">*E-mail</p>
-              <input
-                className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
-                id="email"
-                type="text"
-                required
-                onChange={emailChangeHandler}
-                value={inputEmail || ''}
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <p className="text-sm">Message</p>
-              <textarea
-                className="mt-2 w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
-                id="email"
-                rows={7}
-                wrap="soft"
-                placeholder="What do you want to say..."
-                required
-                onChange={messageChangeHandler}
-                value={inputMessage || ''}
-              />
-            </div>
-
-            <button id="submit" type="submit" className="group flex items-center p-5">
-              <div className="flex items-center space-x-1">
-                <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-                <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-                <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
-              </div>
-              <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
-                Send
-              </span>
-            </button>
-          </form>
+        <div className="relative z-20 flex h-810px w-580px items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl">
+          {formPart}
+          {animPart}
         </div>
       </div>
     </div>

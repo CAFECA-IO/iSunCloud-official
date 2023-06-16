@@ -18,9 +18,11 @@ const NavBar = () => {
             </Link>
           </div>
 
-          <div className="hidden space-x-4">
-            <div className="p-3">Contact Us</div>
-            <div className="p-3">Language</div>
+          <div className="flex space-x-4">
+            <Link href="/#contact_us" className="p-3 text-darkBlue hover:text-brandOrange">
+              Contact Us
+            </Link>
+            <div className="hidden p-3">Language</div>
           </div>
         </div>
       </div>

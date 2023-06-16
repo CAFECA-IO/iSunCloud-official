@@ -12,6 +12,7 @@
     "validate": "npm run test && npm run check-format && npm run lint"
   },
   "dependencies": {
+    "lottie-web": "^5.12.2",
     "next": "13.4.5",
     "nodemailer": "^6.9.3",
     "prettier": "^2.8.8",
