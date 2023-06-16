@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className="flex bg-white px-16 py-4">
           <div className="flex-1">
             <Link href="/" className="flex flex-col">
-              <Image src="/logo/iSunCloud_Logo.svg" alt="iSunCloud_logo" width={200} height={40} />
+              <Image src="/logo/isuncloud_logo.svg" alt="iSunCloud_logo" width={200} height={40} />
             </Link>
           </div>
 

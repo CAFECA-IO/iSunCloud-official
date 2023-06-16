@@ -14,7 +14,6 @@ module.exports = {
       },
       backgroundImage: {
         fintech: "url('/elements/KV.svg')",
-        divider: 'url("/elements/divider.svg")',
       },
       backgroundPosition: {
         top1: 'center top -6rem',

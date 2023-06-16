@@ -23,7 +23,14 @@ const WhatWeDo = () => {
   });
 
   return (
-    <div className="flex h-auto w-full items-center justify-center bg-lightGray bg-divider bg-top1 bg-no-repeat px-24 py-24">
+    <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-24 py-24">
+      <Image
+        src={'/elements/devider.svg'}
+        width={0}
+        height={0}
+        style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
+        alt=""
+      />
       <div className="flex flex-col py-32 text-darkBlue">
         <div className="flex flex-col items-center space-y-4">
           <h1 className="text-5xl font-semibold">What we do</h1>

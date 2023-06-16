@@ -33,8 +33,15 @@ const Home = () => {
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="flex h-auto w-full items-center justify-center bg-lightGray bg-divider bg-top1 bg-no-repeat px-4 py-28 lg:px-24">
-          <div className="rounded-3xl bg-lightWhite px-4 py-12 shadow-2xl lg:px-20">
+        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray px-4 py-28 lg:px-24">
+          <Image
+            src={'/elements/devider.svg'}
+            width={0}
+            height={0}
+            style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
+            alt=""
+          />
+          <div className="z-20 rounded-3xl bg-lightWhite px-4 py-12 shadow-2xl lg:px-20">
             <h1 className="text-5xl font-semibold text-brandOrange">Important Notice</h1>
             <p className="mt-4 p-4 text-left text-xl text-darkBlue">
               近來詐騙手段層出不窮，提醒您：台灣陽光雲有限公司絕不會提供任何形式的「理財建議」、「基金投資」或「代客操盤」等服務，更不會向用戶擬定任何投資契約。若您收到任何通訊、簡訊、電話或社群軟體邀請您加入投資群組，並保證「高獲利、低風險」等投資回報，請您立即撥打
