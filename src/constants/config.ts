@@ -1,4 +1,4 @@
-export const whatWeDoＣontent = [
+export const whatWeDoContent = [
   {
     title: 'Blockchain',
     description: 'BOLT Blockchain Technology Solutions',
@@ -34,7 +34,7 @@ export const advantageContents = [
   },
   {
     title: 'Years of experience',
-    description: '11K+',
+    description: '7+',
     image: '/elements/target.svg',
   },
 ];

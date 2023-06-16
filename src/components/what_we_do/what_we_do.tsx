@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import {whatWeDoＣontent} from '../../constants/config';
+import {whatWeDoContent} from '../../constants/config';
 
 const WhatWeDo = () => {
-  const banner = whatWeDoＣontent.map(({title, description, img}) => {
+  //ToDo:(20230616 - Julian) Fix image size
+  const banner = whatWeDoContent.map(({title, description, img}) => {
     return (
       <div
         key={title}

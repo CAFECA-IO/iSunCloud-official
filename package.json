@@ -12,13 +12,15 @@
     "validate": "npm run test && npm run check-format && npm run lint"
   },
   "dependencies": {
+    "i18next": "^23.0.2",
     "lottie-web": "^5.12.2",
     "next": "13.4.5",
+    "next-i18next": "^14.0.0",
     "nodemailer": "^6.9.3",
     "prettier": "^2.8.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-i18next": "^12.3.1"
+    "react-i18next": "^13.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.2",

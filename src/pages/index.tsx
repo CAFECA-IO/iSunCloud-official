@@ -6,8 +6,12 @@ import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
 import WhyUs from '../components/why_us/why_us';
 import ContactUsForm from '../components/contact_us_form/contact_us_form';
+import {useTranslation} from 'next-i18next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 const Home = () => {
+  const {t} = useTranslation('common');
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>

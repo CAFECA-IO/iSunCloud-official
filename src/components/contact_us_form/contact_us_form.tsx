@@ -1,7 +1,8 @@
 import {useEffect, useState, useRef} from 'react';
 import lottie from 'lottie-web';
-import useInputNumber from '../../lib/hooks/use_input_number';
 import Image from 'next/image';
+import useInputNumber from '../../lib/hooks/use_input_number';
+import {IAnimationType, AnimationType} from '../../constants/animation_type';
 
 const ContactUsForm = () => {
   // Info: (20230616 - Julian) the time when the email is sent
@@ -15,7 +16,7 @@ const ContactUsForm = () => {
   const [sendSuccess, setSendSuccess] = useState(false);
   // Info: (20230616 - Julian) which animation to show
   const [showAnim, setShowAnim] = useState(false);
-  const [animation, setAnimation] = useState<'sending' | 'success' | 'error' | null>(null);
+  const [animation, setAnimation] = useState<IAnimationType>(AnimationType.NULL);
 
   const [inputName, setInputName] = useState('');
   const [inputPhone, setInputPhone] = useInputNumber('');
@@ -68,20 +69,18 @@ const ContactUsForm = () => {
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
-
-    setAnimation('sending');
+    setAnimation(AnimationType.SENDING);
     setShowAnim(true);
 
     const failedProcess = async () => {
       setSendSuccess(false);
-      setAnimation('error');
+      setAnimation(AnimationType.ERROR);
       setShowAnim(true);
 
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       setShowAnim(false);
-      setAnimation(null);
+      setAnimation(AnimationType.NULL);
     };
 
     try {
@@ -105,7 +104,7 @@ const ContactUsForm = () => {
       const success = result.success;
       if (success) {
         setSendSuccess(true);
-        setAnimation('success');
+        setAnimation(AnimationType.SUCCESS);
         setShowAnim(true);
         await new Promise(resolve => setTimeout(resolve, 3000));
         setSendSuccess(false);
@@ -123,7 +122,7 @@ const ContactUsForm = () => {
   };
 
   const formPart = (
-    <div className="flex flex-col">
+    <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
         <h1 className="text-42px font-bold">Get In Touch</h1>
         <h2 className="mt-3 text-base">
@@ -224,7 +223,7 @@ const ContactUsForm = () => {
         style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
         alt=""
       />
-      <div className="relative flex h-full w-full items-center justify-end py-36">
+      <div className="relative flex h-full w-screen items-center justify-end py-36 lg:w-full">
         <div className="absolute left-12 w-full">
           <Image
             src="/elements/contact_us.svg"
@@ -238,7 +237,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        <div className="relative z-20 flex h-810px w-580px items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl">
+        <div className="relative z-20 flex h-810px w-screen items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
           {formPart}
           {animPart}
         </div>
