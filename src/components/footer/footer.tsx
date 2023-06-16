@@ -3,8 +3,8 @@ import {iSunCloudAddress} from '../../constants/config';
 
 const Footer = () => {
   return (
-    <footer className="flex h-auto w-full flex-col items-center justify-center space-y-4 border-t px-16 py-6 text-darkBlue lg:flex-row lg:space-y-0">
-      <div className="flex flex-1 flex-col space-x-3 lg:flex-row">
+    <footer className="flex h-auto w-full flex-col items-center justify-center space-y-4 border-t px-8 py-6 text-darkBlue lg:flex-row lg:space-y-0 lg:px-16">
+      <div className="flex flex-1 flex-col space-y-6 lg:flex-row lg:space-x-6 lg:space-y-0">
         <div className="flex space-x-3">
           <Image src="/elements/locale.svg" width={20} height={20} alt="" />
           <a href={iSunCloudAddress} target="_blank">

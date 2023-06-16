@@ -4,6 +4,7 @@ import NavBar from '../components/nav_bar/nav_bar';
 import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
 import WhyUs from '../components/why_us/why_us';
+import ContactUsForm from '../components/contact_us_form/contact_us_form';
 
 const Home = () => {
   return (
@@ -54,7 +55,7 @@ const Home = () => {
         <div className="flex h-auto w-full items-center justify-center py-24 lg:px-24">
           <div className="flex flex-col items-center">
             <div className="flex flex-col items-center space-y-2 text-darkBlue">
-              <h1 className="text-54 font-semibold">Catch Up!</h1>
+              <h1 className="text-54px font-semibold">Catch Up!</h1>
               <h1 className="text-5xl font-semibold">
                 Be a <span className="text-brandOrange">Pioneer</span> in the Financial Industry
               </h1>
@@ -114,6 +115,9 @@ const Home = () => {
 
         {/* Info: (20230615 - Julian) Why iSunCloud */}
         <WhyUs />
+
+        {/* Info: (20230615 - Julian) Contact us */}
+        <ContactUsForm />
       </main>
 
       <Footer />

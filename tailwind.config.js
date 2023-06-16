@@ -7,6 +7,7 @@ module.exports = {
         darkBlue: '#1A2E50',
 
         lightGray: '#FAFAFA',
+        lightGray2: '#8B8F92',
 
         lightWhite: '#FFFEFB',
 
@@ -29,13 +30,15 @@ module.exports = {
         '2xl': ['24px', '32px'],
         '3xl': ['30px', '36px'],
         '4xl': ['36px', '40px'],
+        '42px': ['42px', '48px'],
         '5xl': ['48px', 1],
-        54: ['54px', 1],
+        '54px': ['54px', 1],
         '6xl': ['60px', 1],
         '7xl': ['72px', 1],
         '8xl': ['96px', 1],
         '9xl': ['128px', 1],
       },
+
       screens: {
         xxs: '370px',
         xs: '500px',

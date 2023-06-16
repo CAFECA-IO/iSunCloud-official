@@ -45,7 +45,7 @@ const WhyUs = () => {
     <div className="flex h-auto w-full items-center justify-center px-5 py-24">
       <div className="flex w-full flex-col">
         <div className="flex flex-col items-center space-y-4 text-darkBlue">
-          <h1 className="text-54 font-semibold">Why iSunCloud?</h1>
+          <h1 className="text-54px font-semibold">Why iSunCloud?</h1>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 
