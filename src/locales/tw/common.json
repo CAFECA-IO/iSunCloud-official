@@ -1,0 +1,49 @@
+{
+  "NAV_BAR": {
+    "CONTACT_US": "聯絡我們"
+  },
+  "HOME_PAGE": {
+    "MAIN_TITLE": "驅動區塊鏈創新，引領金融未來",
+    "MAIN_DESCRIPTION": "iSunCloud 是開創性的金融科技軟體公司，我們致力於推動區塊鏈與金融領域的發展，引領行業的進步與變革。",
+    "NOTICE_TITLE": "重要通知",
+    "NOTICE_DESCRIPTION": "近來詐騙手段層出不窮，提醒您：台灣陽光雲有限公司絕不會提供任何形式的「理財建議」、「基金投資」或「代客操盤」等服務，更不會向用戶擬定任何契約。若您收到任何通訊、簡訊、電話或社群軟體邀請您加入投資群組，並保證「高獲利、低風險」等投資回報，請您立即撥打 165 反詐騙專線進行查證。切勿向對方透露任何金融資料或個人資訊，以確保您的權益不受損害。",
+    "CATCH_UP_TITLE": "跟上時代的腳步！",
+    "CATCH_UP_SUBTITLE_1": "成為金融業的",
+    "CATCH_UP_SUBTITLE_HIGHLIGHT": "先驅者",
+    "CATCH_UP_SUBTITLE_2": "",
+    "CATCH_UP_SECURITY_TITLE": "安全保障",
+    "CATCH_UP_SECURITY_DESCRIPTION": "區塊鏈技術提供安全且不可改變的賬本，保護敏感的金融數據免受未授權訪問和詐騙活動的侵害。",
+    "CATCH_UP_EFFICIENCY_TITLE": "效率提升",
+    "CATCH_UP_EFFICIENCY_DESCRIPTION": "通過自動化和數位化手續，區塊鏈可以減少文書工作，提高運營效率，並降低錯誤發生的機率。",
+    "CATCH_UP_COMPLIANCE_TITLE": "遵從合規",
+    "CATCH_UP_COMPLIANCE_DESCRIPTION": "區塊鏈的公開性和可稽核性簡化了監管合規，減輕金融機構的負擔，更增強可信度。",
+    "CATCH_UP_INNOVATION_TITLE": "創新引領",
+    "CATCH_UP_INNOVATION_DESCRIPTION": "採納區塊鏈技術，為與其他機構合作打開了大門，促進產業創新，並使金融機構處於業界技術發展的前沿地位。",
+    "WHAT_WE_DO_TITLE": "我們的服務",
+    "WHAT_WE_DO_BLOCKCHAIN_TITLE": "區塊鏈技術",
+    "WHAT_WE_DO_BLOCKCHAIN_DESCRIPTION": "BOLT 區塊鏈技術解決方案",
+    "WHAT_WE_DO_AI_TITLE": "人工智慧",
+    "WHAT_WE_DO_AI_DESCRIPTION": "AI 法務會計與審計解決方案",
+    "WHAT_WE_DO_FINTECH_TITLE": "金融科技",
+    "WHAT_WE_DO_FINTECH_DESCRIPTION": "金融科技服務與技術諮詢",
+    "WHY_US_TITLE": "為何選擇 iSunCloud？",
+    "WHY_US_CLIENT_TITLE": "客戶滿意度",
+    "WHY_US_PROJECT_TITLE": "完成的專案",
+    "WHY_US_COMPETITION_TITLE": "競賽獲獎",
+    "WHY_US_EXPERIENCE_TITLE": "年的豐富經驗",
+    "WHY_US_PARTNERS_TITLE": "合作夥伴",
+    "CONTACT_US_TITLE": "聯絡我們",
+    "CONTACT_US_DESCRIPTION": "請填寫下方表格，我們將儘快回覆您",
+    "CONTACT_US_NAME": "姓名",
+    "CONTACT_US_PHONE": "聯絡電話",
+    "CONTACT_US_EMAIL": "電子郵件",
+    "CONTACT_US_MESSAGE": "您的訊息",
+    "CONTACT_US_MESSAGE_PLACEHOLDER": "想說的話...",
+    "CONTACT_US_SEND_SUBMIT": "送出",
+    "CONTACT_US_CONTACT_US_SEND_SUCCESS": "訊息已送出！",
+    "CONTACT_US_CONTACT_US_SEND_FAIL": "訊息送出失敗！請稍後再試"
+  },
+  "FOOTER": {
+    "ADDRESS": "台北市松山區敦化北路207號8號樓之7"
+  }
+}
