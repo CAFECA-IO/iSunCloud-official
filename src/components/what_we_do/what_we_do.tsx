@@ -44,7 +44,8 @@ const WhatWeDo = () => {
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 
-        <div className="mt-10 flex h-500px flex-col overflow-x-hidden overflow-y-hidden lg:flex-row">
+        {/* ToDo:(20230617 - Julian) mobile version */}
+        <div className="mt-10 flex h-auto flex-col overflow-x-hidden overflow-y-hidden lg:h-500px lg:flex-row">
           {banner}
         </div>
       </div>

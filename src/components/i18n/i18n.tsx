@@ -37,7 +37,7 @@ const I18n = () => {
   });
 
   return (
-    <div className="relative z-40 w-152px">
+    <div className="relative z-40 w-130px">
       <div onClick={showMenuHandler} className="group flex items-center hover:cursor-pointer">
         <VscGlobe className="h-6 w-6 text-darkBlue group-hover:text-brandOrange" />
         <div className="ml-2 text-darkBlue group-hover:text-brandOrange">{currentLanguage}</div>

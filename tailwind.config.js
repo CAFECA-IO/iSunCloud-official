@@ -18,7 +18,7 @@ module.exports = {
         lightYellow: '#FCF300',
       },
       backgroundImage: {
-        fintech: "url('/elements/KV.svg')",
+        fintech: "url('/elements/kv_desktop.svg')",
       },
       backgroundPosition: {
         top1: 'center top -6rem',
