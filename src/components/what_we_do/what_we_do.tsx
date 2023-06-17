@@ -27,7 +27,7 @@ const WhatWeDo = () => {
   });
 
   return (
-    <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-24 py-24">
+    <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-24 py-24">
       <Image
         src={'/elements/devider.svg'}
         width={0}

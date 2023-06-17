@@ -6,10 +6,15 @@ import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
 import WhyUs from '../components/why_us/why_us';
 import ContactUsForm from '../components/contact_us_form/contact_us_form';
+import {useTranslation} from 'next-i18next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {ILocale, TranslateFunction} from '../interfaces/locale';
 
 const Home = () => {
+  const {t}: {t: TranslateFunction} = useTranslation('common');
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden py-2">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="title" content="iSunCloud_official_website" />
@@ -41,14 +46,14 @@ const Home = () => {
                 <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
               </div>
               <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
-                Contact Us
+                {t('NAV_BAR.CONTACT_US')}
               </div>
             </Link>
           </div>
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray px-4 py-28 lg:px-24">
+        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray3 px-4 py-28 lg:px-24">
           <Image
             src={'/elements/devider.svg'}
             width={0}
@@ -138,5 +143,13 @@ const Home = () => {
     </div>
   );
 };
+
+const getStaticPropsFunction = async ({locale}: ILocale) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
+
+export const getStaticProps = getStaticPropsFunction;
 
 export default Home;

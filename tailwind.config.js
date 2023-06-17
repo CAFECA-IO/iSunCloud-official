@@ -8,6 +8,7 @@ module.exports = {
 
         lightGray: '#FAFAFA',
         lightGray2: '#8B8F92',
+        lightGray3: '#F5F5F5',
 
         lightWhite: '#FFFEFB',
 
@@ -139,7 +140,7 @@ module.exports = {
         '134px': '134px',
         '140px': '140px',
         '150px': '150px',
-        '158px': '158px',
+        '152px': '152px',
         '160px': '160px',
         '180px': '180px',
         '190px': '190px',

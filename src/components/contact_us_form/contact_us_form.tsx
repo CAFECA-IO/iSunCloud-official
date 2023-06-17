@@ -24,6 +24,7 @@ const ContactUsForm = () => {
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
+    // Info: (20230617 - Julian) animations
     const animSend = lottie.loadAnimation({
       container: sendAnimContainer.current!,
       renderer: 'svg',
@@ -55,6 +56,7 @@ const ContactUsForm = () => {
     };
   }, [sendSuccess, showAnim, animation]);
 
+  // Info: (20230617 - Julian) input change handler
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputName(event.target.value);
   };
@@ -68,20 +70,38 @@ const ContactUsForm = () => {
     setInputMessage(event.target.value);
   };
 
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    setAnimation(AnimationType.SENDING);
+  // Info: (20230617 - Julian) send failed process
+  const failedProcess = async () => {
+    setSendSuccess(false);
+    setAnimation(AnimationType.ERROR);
     setShowAnim(true);
 
-    const failedProcess = async () => {
-      setSendSuccess(false);
-      setAnimation(AnimationType.ERROR);
-      setShowAnim(true);
+    // Info: (20230617 - Julian) delay 3 seconds to show the animation
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    setShowAnim(false);
+    setAnimation(null);
+  };
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
+  const successProcess = async () => {
+    setSendSuccess(true);
+    setAnimation(AnimationType.SUCCESS);
+    setShowAnim(true);
 
-      setShowAnim(false);
-      setAnimation(null);
-    };
+    // Info: (20230617 - Julian) delay 3 seconds to show the animation
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    // Info: (20230617 - Julian) empty the input fields
+    setInputName('');
+    setInputPhone('');
+    setInputEmail('');
+    setInputMessage('');
+    setSendSuccess(false);
+    setShowAnim(false);
+  };
+
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    // Info: (20230617 - Julian) 點擊送出按鈕後就先顯示 SENDING 動畫
+    setAnimation(AnimationType.SENDING);
+    setShowAnim(true);
 
     try {
       event.preventDefault();
@@ -103,16 +123,7 @@ const ContactUsForm = () => {
 
       const success = result.success;
       if (success) {
-        setSendSuccess(true);
-        setAnimation(AnimationType.SUCCESS);
-        setShowAnim(true);
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        setInputName('');
-        setInputPhone('');
-        setInputEmail('');
-        setInputMessage('');
-        setSendSuccess(false);
-        setShowAnim(false);
+        await successProcess();
       } else {
         await failedProcess();
       }
@@ -214,7 +225,7 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-28 py-24"
+      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-24"
     >
       <Image
         src={'/elements/devider.svg'}

@@ -9,15 +9,43 @@ const NavBar = () => {
   const burgerStyle =
     'block h-1 w-30px rounded-3xl bg-darkBlue transition-all duration-300 ease-in';
 
+  const showMenuHandler = () => setShowMenu(!showMenu);
+
+  const desktopMenu = (
+    <ul className={`hidden items-center space-x-4 transition-all duration-300 ease-in-out lg:flex`}>
+      <li className="p-3 text-darkBlue hover:text-brandOrange">
+        <Link href="/#contact_us" scroll={false}>
+          Contact Us
+        </Link>
+      </li>
+      <li className="p-3">
+        <I18n />
+      </li>
+    </ul>
+  );
+
+  const mobileMenu = (
+    <ul
+      className={`flex flex-col items-center space-y-2 overflow-hidden shadow-md ${
+        showMenu ? 'h-180px' : 'h-0'
+      } transition-all duration-300 ease-in-out lg:hidden`}
+    >
+      <li className="p-7">
+        <I18n />
+      </li>
+      <li className="p-7 text-darkBlue hover:text-brandOrange">
+        <Link href="/#contact_us" onClick={showMenuHandler} scroll={false}>
+          Contact Us
+        </Link>
+      </li>
+    </ul>
+  );
+
   return (
     <>
-      <div
-        className={`fixed inset-0 z-50 w-screen overflow-x-hidden overflow-y-hidden shadow-sm ${
-          showMenu ? 'h-250px' : 'h-80px'
-        } transition-all duration-300 ease-in-out`}
-      >
-        <div className="flex flex-col bg-white px-4 py-4 lg:flex-row lg:px-16">
-          <div className="flex w-full flex-1 justify-between">
+      <div className={`fixed inset-0 z-50 w-screen overflow-x-hidden overflow-y-hidden`}>
+        <div className="flex flex-col bg-white shadow-md lg:flex-row lg:px-16">
+          <div className="flex w-full flex-1 justify-between px-4 py-4 shadow-md lg:shadow-none">
             <Link href="/" className="">
               <Image
                 src="/logo/isuncloud_logo.svg"
@@ -31,7 +59,7 @@ const NavBar = () => {
             <div className="flex items-center space-x-4 lg:hidden">
               <button
                 className="group space-y-1.5 p-3 text-darkBlue hover:text-brandOrange"
-                onClick={() => setShowMenu(!showMenu)}
+                onClick={showMenuHandler}
               >
                 <span
                   className={`${burgerStyle} ${
@@ -52,18 +80,8 @@ const NavBar = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center lg:flex-row lg:space-x-4">
-            <Link
-              href="/#contact_us"
-              scroll={false}
-              className="p-7 text-darkBlue hover:text-brandOrange lg:p-3"
-            >
-              Contact Us
-            </Link>
-            <div className="p-7 lg:p-3">
-              <I18n />
-            </div>
-          </div>
+          {desktopMenu}
+          {mobileMenu}
         </div>
       </div>
     </>
