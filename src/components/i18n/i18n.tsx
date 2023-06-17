@@ -50,6 +50,7 @@ const I18n = () => {
           showMenu ? 'visible opacity-100' : 'invisible opacity-0'
         } w-full bg-lightGray transition-all duration-300 ease-in-out`}
       >
+        {/* ToDo: (20230617 - Julian) Mobile */}
         <ul className="">{subMenu}</ul>
       </div>
     </div>

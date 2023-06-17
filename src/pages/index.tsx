@@ -14,7 +14,7 @@ const Home = () => {
   const {t}: {t: TranslateFunction} = useTranslation('common');
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="title" content="iSunCloud_official_website" />
