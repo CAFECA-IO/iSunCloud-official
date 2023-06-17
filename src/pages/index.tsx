@@ -8,12 +8,13 @@ import WhyUs from '../components/why_us/why_us';
 import ContactUsForm from '../components/contact_us_form/contact_us_form';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {ILocale, TranslateFunction} from '../interfaces/locale';
 
 const Home = () => {
-  const {t} = useTranslation('common');
+  const {t}: {t: TranslateFunction} = useTranslation('common');
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center overflow-x-hidden overflow-y-hidden">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="title" content="iSunCloud_official_website" />
@@ -27,28 +28,40 @@ const Home = () => {
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-1000px w-full bg-fintech bg-right bg-no-repeat px-16 pt-24 text-left text-darkBlue">
-          <div className="flex w-5/10 flex-col justify-center space-y-8">
-            <h1 className="text-6xl font-semibold">Enable the Fintech of Tomorrow</h1>
-            <p className="w-7/10 text-sm">
-              iSunCloud: A Trailblazing Fintech Software Startup Driving the Advancement of
-              Blockchain and Finance
-            </p>
-            <Link href="/#contact_us" className="group mt-5 flex items-center whitespace-nowrap">
-              <div className="flex items-center space-x-1">
-                <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
-                <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
-                <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
-              </div>
-              <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
-                Contact Us
-              </div>
-            </Link>
+        <div className="flex h-auto min-h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-fintech lg:px-16">
+          <div className="flex flex-col">
+            <div className="lg:hidden">
+              <Image
+                src={'/elements/kv_mobile.svg'}
+                width={0}
+                height={0}
+                style={{width: '100vw', height: 'auto'}}
+                alt=""
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center space-y-8 lg:w-5/10 lg:items-start">
+              <h1 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
+              <p className="w-full text-sm lg:w-7/10">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
+              <Link
+                href="/#contact_us"
+                scroll={false}
+                className="group flex items-center whitespace-nowrap pt-10"
+              >
+                <div className="flex items-center space-x-1">
+                  <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                  <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                  <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
+                </div>
+                <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
+                  {t('NAV_BAR.CONTACT_US')}
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray px-4 py-28 lg:px-24">
+        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray3 px-4 py-28 lg:px-24">
           <Image
             src={'/elements/devider.svg'}
             width={0}
@@ -57,10 +70,11 @@ const Home = () => {
             alt=""
           />
           <div className="z-20 rounded-3xl bg-lightWhite px-4 py-12 shadow-2xl lg:px-20">
-            <h1 className="text-5xl font-semibold text-brandOrange">Important Notice</h1>
+            <h1 className="text-5xl font-semibold text-brandOrange">
+              {t('HOME_PAGE.NOTICE_TITLE')}
+            </h1>
             <p className="mt-4 p-4 text-left text-xl text-darkBlue">
-              近來詐騙手段層出不窮，提醒您：台灣陽光雲有限公司絕不會提供任何形式的「理財建議」、「基金投資」或「代客操盤」等服務，更不會向用戶擬定任何投資契約。若您收到任何通訊、簡訊、電話或社群軟體邀請您加入投資群組，並保證「高獲利、低風險」等投資回報，請您立即撥打
-              165 反詐騙專線進行查證。切勿向對方透露任何金融資料或個人資訊，以確保您的權益不受損害。
+              {t('HOME_PAGE.NOTICE_DESCRIPTION')}
             </p>
           </div>
         </div>
@@ -68,57 +82,58 @@ const Home = () => {
         {/* Info: (20230615 - Julian) Catch Up */}
         <div className="flex h-auto w-full items-center justify-center py-24 lg:px-24">
           <div className="flex flex-col items-center">
-            <div className="flex flex-col items-center space-y-2 text-darkBlue">
-              <h1 className="text-54px font-semibold">Catch Up!</h1>
-              <h1 className="text-5xl font-semibold">
-                Be a <span className="text-brandOrange">Pioneer</span> in the Financial Industry
+            <div className="flex flex-col items-center space-y-2 text-center text-darkBlue">
+              <h1 className="text-4xl font-semibold lg:text-54px">
+                {t('HOME_PAGE.CATCH_UP_TITLE')}
+              </h1>
+              <h1 className="text-4xl font-semibold lg:text-5xl">
+                {t('HOME_PAGE.CATCH_UP_SUBTITLE_1')}
+                <span className="text-brandOrange">
+                  {t('HOME_PAGE.CATCH_UP_SUBTITLE_HIGHLIGHT')}
+                </span>
+                {t('HOME_PAGE.CATCH_UP_SUBTITLE_2')}
               </h1>
             </div>
 
-            <div className="grid grid-cols-1 gap-2 py-24 text-darkBlue lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-2 py-5 text-darkBlue lg:grid-cols-2 lg:py-24">
               <div className="flex flex-col items-center p-10">
                 <div className="p-2">
                   <Image src="/elements/safty.svg" width={80} height={80} alt="Security" />
                 </div>
-                <h3 className="p-4 text-xl font-semibold">Security</h3>
-                <p className="text-lg">
-                  Blockchain technology provides a secure and immutable ledger, protecting sensitive
-                  financial data from unauthorized access and fraud.
-                </p>
+                <h3 className="p-4 text-xl font-semibold">
+                  {t('HOME_PAGE.CATCH_UP_SECURITY_TITLE')}
+                </h3>
+                <p className="text-lg">{t('HOME_PAGE.CATCH_UP_SECURITY_DESCRIPTION')}</p>
               </div>
 
               <div className="flex flex-col items-center p-10">
                 <div className="p-2">
                   <Image src="/elements/efficiency.svg" width={80} height={80} alt="Efficiency" />
                 </div>
-                <h3 className="p-4 text-xl font-semibold">Efficiency</h3>
-                <p className="text-lg">
-                  By automating and digitizing manual processes, blockchain reduces paperwork,
-                  enhances operational efficiency, and minimizes errors.
-                </p>
+                <h3 className="p-4 text-xl font-semibold">
+                  {t('HOME_PAGE.CATCH_UP_EFFICIENCY_TITLE')}
+                </h3>
+                <p className="text-lg">{t('HOME_PAGE.CATCH_UP_EFFICIENCY_DESCRIPTION')}</p>
               </div>
 
               <div className="flex flex-col items-center p-10">
                 <div className="p-2">
                   <Image src="/elements/compliance.svg" width={80} height={80} alt="Compliance" />
                 </div>
-                <h3 className="p-4 text-xl font-semibold">Compliance</h3>
-                <p className="text-lg">
-                  Blockchain's transparent and auditable nature simplifies regulatory compliance,
-                  reducing the burden on financial institutions and enhancing trust.
-                </p>
+                <h3 className="p-4 text-xl font-semibold">
+                  {t('HOME_PAGE.CATCH_UP_COMPLIANCE_TITLE')}
+                </h3>
+                <p className="text-lg">{t('HOME_PAGE.CATCH_UP_COMPLIANCE_DESCRIPTION')}</p>
               </div>
 
               <div className="flex flex-col items-center p-10">
                 <div className="p-2">
                   <Image src="/elements/innovation.svg" width={80} height={80} alt="Innovation" />
                 </div>
-                <h3 className="p-4 text-xl font-semibold">Innovation</h3>
-                <p className="text-lg">
-                  Embracing blockchain technology opens doors to collaboration with other
-                  institutions, fosters innovation, and positions financial institutions at the
-                  forefront of technological advancements in the industry.
-                </p>
+                <h3 className="p-4 text-xl font-semibold">
+                  {t('HOME_PAGE.CATCH_UP_INNOVATION_TITLE')}
+                </h3>
+                <p className="text-lg">{t('HOME_PAGE.CATCH_UP_INNOVATION_DESCRIPTION')}</p>
               </div>
             </div>
           </div>
@@ -138,5 +153,13 @@ const Home = () => {
     </div>
   );
 };
+
+const getStaticPropsFunction = async ({locale}: ILocale) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common'])),
+  },
+});
+
+export const getStaticProps = getStaticPropsFunction;
 
 export default Home;

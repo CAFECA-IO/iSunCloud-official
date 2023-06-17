@@ -8,6 +8,7 @@ module.exports = {
 
         lightGray: '#FAFAFA',
         lightGray2: '#8B8F92',
+        lightGray3: '#F5F5F5',
 
         lightWhite: '#FFFEFB',
 
@@ -17,7 +18,7 @@ module.exports = {
         lightYellow: '#FCF300',
       },
       backgroundImage: {
-        fintech: "url('/elements/KV.svg')",
+        fintech: "url('/elements/kv_desktop.svg')",
       },
       backgroundPosition: {
         top1: 'center top -6rem',
@@ -139,7 +140,7 @@ module.exports = {
         '134px': '134px',
         '140px': '140px',
         '150px': '150px',
-        '158px': '158px',
+        '152px': '152px',
         '160px': '160px',
         '180px': '180px',
         '190px': '190px',
@@ -281,6 +282,12 @@ module.exports = {
         '1/25': '4%',
         '1/50': '2%',
         '50px': '50px',
+      },
+      borderWidth: {
+        1: '1px',
+        2: '2px',
+        3: '3px',
+        4: '4px',
       },
     },
   },

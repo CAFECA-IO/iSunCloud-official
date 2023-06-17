@@ -3,8 +3,12 @@ import lottie from 'lottie-web';
 import Image from 'next/image';
 import useInputNumber from '../../lib/hooks/use_input_number';
 import {IAnimationType, AnimationType} from '../../constants/animation_type';
+import {useTranslation} from 'next-i18next';
+import {TranslateFunction} from '../../interfaces/locale';
 
 const ContactUsForm = () => {
+  const {t}: {t: TranslateFunction} = useTranslation('common');
+
   // Info: (20230616 - Julian) the time when the email is sent
   const now = new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
 
@@ -16,7 +20,7 @@ const ContactUsForm = () => {
   const [sendSuccess, setSendSuccess] = useState(false);
   // Info: (20230616 - Julian) which animation to show
   const [showAnim, setShowAnim] = useState(false);
-  const [animation, setAnimation] = useState<IAnimationType>(AnimationType.NULL);
+  const [animation, setAnimation] = useState<IAnimationType | null>(null);
 
   const [inputName, setInputName] = useState('');
   const [inputPhone, setInputPhone] = useInputNumber('');
@@ -24,6 +28,7 @@ const ContactUsForm = () => {
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
+    // Info: (20230617 - Julian) animations
     const animSend = lottie.loadAnimation({
       container: sendAnimContainer.current!,
       renderer: 'svg',
@@ -55,6 +60,7 @@ const ContactUsForm = () => {
     };
   }, [sendSuccess, showAnim, animation]);
 
+  // Info: (20230617 - Julian) input change handler
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputName(event.target.value);
   };
@@ -68,20 +74,38 @@ const ContactUsForm = () => {
     setInputMessage(event.target.value);
   };
 
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    setAnimation(AnimationType.SENDING);
+  // Info: (20230617 - Julian) send failed process
+  const failedProcess = async () => {
+    setSendSuccess(false);
+    setAnimation(AnimationType.ERROR);
     setShowAnim(true);
 
-    const failedProcess = async () => {
-      setSendSuccess(false);
-      setAnimation(AnimationType.ERROR);
-      setShowAnim(true);
+    // Info: (20230617 - Julian) delay 3 seconds to show the animation
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    setShowAnim(false);
+    setAnimation(null);
+  };
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
+  const successProcess = async () => {
+    setSendSuccess(true);
+    setAnimation(AnimationType.SUCCESS);
+    setShowAnim(true);
 
-      setShowAnim(false);
-      setAnimation(AnimationType.NULL);
-    };
+    // Info: (20230617 - Julian) delay 3 seconds to show the animation
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    // Info: (20230617 - Julian) empty the input fields
+    setInputName('');
+    setInputPhone('');
+    setInputEmail('');
+    setInputMessage('');
+    setSendSuccess(false);
+    setShowAnim(false);
+  };
+
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    // Info: (20230617 - Julian) 點擊送出按鈕後就先顯示 SENDING 動畫
+    setAnimation(AnimationType.SENDING);
+    setShowAnim(true);
 
     try {
       event.preventDefault();
@@ -103,16 +127,7 @@ const ContactUsForm = () => {
 
       const success = result.success;
       if (success) {
-        setSendSuccess(true);
-        setAnimation(AnimationType.SUCCESS);
-        setShowAnim(true);
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        setSendSuccess(false);
-        setShowAnim(false);
-        setInputName('');
-        setInputPhone('');
-        setInputEmail('');
-        setInputMessage('');
+        await successProcess();
       } else {
         await failedProcess();
       }
@@ -124,38 +139,36 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-42px font-bold">Get In Touch</h1>
-        <h2 className="mt-3 text-base">
-          Please fill the form below, we will reply you as soon as posible.
-        </h2>
+        <h1 className="text-42px font-bold">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
       {/* Info: (20230616 - Julian) input part */}
-      <form onSubmit={submitHandler} className="flex flex-col items-center space-y-5 py-10">
-        <div className="flex flex-col items-start">
-          <p className="text-sm">Name</p>
+      <form onSubmit={submitHandler} className="flex w-full flex-col items-center space-y-5 py-10">
+        <div className="flex w-full flex-col items-start">
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_NAME')}</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="name"
             type="text"
             onChange={nameChangeHandler}
             value={inputName || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
-          <p className="text-sm">Phone Number</p>
+        <div className="flex w-full flex-col items-start">
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_PHONE')}</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="phone"
             type="text"
             onChange={phoneChangeHandler}
             value={inputPhone || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
-          <p className="text-sm">*E-mail</p>
+        <div className="flex w-full flex-col items-start">
+          <p className="text-sm">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
             type="text"
             required
@@ -163,14 +176,14 @@ const ContactUsForm = () => {
             value={inputEmail || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
-          <p className="text-sm">Message</p>
+        <div className="flex w-full flex-col items-start">
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_MESSAGE')}</p>
           <textarea
-            className="mt-2 w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
             rows={7}
             wrap="soft"
-            placeholder="What do you want to say..."
+            placeholder={t('HOME_PAGE.CONTACT_US_MESSAGE_PLACEHOLDER')}
             required
             onChange={messageChangeHandler}
             value={inputMessage || ''}
@@ -184,7 +197,7 @@ const ContactUsForm = () => {
             <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
           </div>
           <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
-            Send
+            {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
           </span>
         </button>
       </form>
@@ -194,18 +207,18 @@ const ContactUsForm = () => {
   // ToDo:(20230616 - Julian) fade in animation
   const animPart = showAnim ? (
     <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
-      {animation === 'sending' ? (
+      {animation === AnimationType.SENDING ? (
         <div className="h-200px w-200px" ref={sendAnimContainer}></div>
-      ) : animation === 'success' ? (
+      ) : animation === AnimationType.SUCCESS ? (
         <div className="h-200px w-200px" ref={successAnimContainer}></div>
       ) : (
         <div className="h-100px w-100px" ref={errorAnimContainer}></div>
       )}
       <p className="text-lg text-darkBlue">
-        {animation === 'success'
-          ? 'Sent!'
-          : animation === 'error'
-          ? 'Something went wrong ! Please try again.'
+        {animation === AnimationType.SUCCESS
+          ? t('HOME_PAGE.CONTACT_US_CONTACT_US_SEND_SUCCESS')
+          : animation === AnimationType.ERROR
+          ? t('HOME_PAGE.CONTACT_US_CONTACT_US_SEND_FAIL')
           : ''}
       </p>
     </div>
@@ -214,7 +227,7 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray px-28 py-24"
+      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-24"
     >
       <Image
         src={'/elements/devider.svg'}
@@ -223,8 +236,8 @@ const ContactUsForm = () => {
         style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
         alt=""
       />
-      <div className="relative flex h-full w-screen items-center justify-end py-36 lg:w-full">
-        <div className="absolute left-12 w-full">
+      <div className="relative flex h-full w-screen items-center justify-center py-20 lg:w-full lg:justify-end">
+        <div className="absolute left-12 hidden w-full lg:block">
           <Image
             src="/elements/contact_us.svg"
             width={0}
@@ -237,7 +250,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        <div className="relative z-20 flex h-810px w-screen items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
+        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
           {formPart}
           {animPart}
         </div>
