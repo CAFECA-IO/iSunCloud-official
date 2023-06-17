@@ -3,8 +3,12 @@ import lottie from 'lottie-web';
 import Image from 'next/image';
 import useInputNumber from '../../lib/hooks/use_input_number';
 import {IAnimationType, AnimationType} from '../../constants/animation_type';
+import {useTranslation} from 'next-i18next';
+import {TranslateFunction} from '../../interfaces/locale';
 
 const ContactUsForm = () => {
+  const {t}: {t: TranslateFunction} = useTranslation('common');
+
   // Info: (20230616 - Julian) the time when the email is sent
   const now = new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
 
@@ -135,16 +139,14 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-42px font-bold">Get In Touch</h1>
-        <h2 className="mt-3 text-base">
-          Please fill the form below, we will reply you as soon as posible.
-        </h2>
+        <h1 className="text-42px font-bold">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
       {/* Info: (20230616 - Julian) input part */}
       <form onSubmit={submitHandler} className="flex w-full flex-col items-center space-y-5 py-10">
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">Name</p>
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_NAME')}</p>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="name"
@@ -154,7 +156,7 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">Phone Number</p>
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_PHONE')}</p>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="phone"
@@ -164,7 +166,7 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">*E-mail</p>
+          <p className="text-sm">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</p>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
@@ -175,13 +177,13 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">Message</p>
+          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_MESSAGE')}</p>
           <textarea
             className="mt-2 w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
             rows={7}
             wrap="soft"
-            placeholder="What do you want to say..."
+            placeholder={t('HOME_PAGE.CONTACT_US_MESSAGE_PLACEHOLDER')}
             required
             onChange={messageChangeHandler}
             value={inputMessage || ''}
@@ -195,7 +197,7 @@ const ContactUsForm = () => {
             <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
           </div>
           <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
-            Send
+            {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
           </span>
         </button>
       </form>
@@ -214,9 +216,9 @@ const ContactUsForm = () => {
       )}
       <p className="text-lg text-darkBlue">
         {animation === AnimationType.SUCCESS
-          ? 'Sent!'
+          ? t('HOME_PAGE.CONTACT_US_CONTACT_US_SEND_SUCCESS')
           : animation === AnimationType.ERROR
-          ? 'Something went wrong ! Please try again.'
+          ? t('HOME_PAGE.CONTACT_US_CONTACT_US_SEND_FAIL')
           : ''}
       </p>
     </div>

@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import {whatWeDoContent} from '../../constants/config';
+import {useTranslation} from 'next-i18next';
+import {TranslateFunction} from '../../interfaces/locale';
 
 const WhatWeDo = () => {
+  const {t}: {t: TranslateFunction} = useTranslation('common');
   //ToDo:(20230616 - Julian) Fix image size
   const banner = whatWeDoContent.map(({title, description, img}) => {
     return (
@@ -10,7 +13,7 @@ const WhatWeDo = () => {
         className="group relative block w-300px transition-all duration-300 ease-in hover:scale-110 lg:w-500px"
       >
         <div className="absolute">
-          <Image src={img} width={500} height={500} alt="blockchain" />
+          <Image src={img} width={500} height={500} alt={t(title)} />
         </div>
         <div className="absolute opacity-100 transition-all duration-300 ease-in-out group-hover:opacity-0">
           <Image src="/filter/blue.svg" width={500} height={500} alt="" />
@@ -19,8 +22,8 @@ const WhatWeDo = () => {
           <Image src="/filter/orange.svg" width={500} height={500} alt="" />
         </div>
         <div className="relative z-30 flex h-full w-full flex-col items-center justify-center space-y-10 text-lightWhite">
-          <h1 className="text-5xl">{title}</h1>
-          <p className="text-lg">{description}</p>
+          <h1 className="text-5xl">{t(title)}</h1>
+          <p className="text-lg">{t(description)}</p>
         </div>
       </div>
     );
@@ -37,7 +40,7 @@ const WhatWeDo = () => {
       />
       <div className="flex flex-col py-32 text-darkBlue">
         <div className="flex flex-col items-center space-y-4">
-          <h1 className="text-5xl font-semibold">What we do</h1>
+          <h1 className="text-5xl font-semibold">{t('HOME_PAGE.WHAT_WE_DO_TITLE')}</h1>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 
