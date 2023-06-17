@@ -1,5 +1,15 @@
 {
   "NAV_BAR": {
     "CONTACT_US": "Contact Us"
+  },
+  "HOME_PAGE": {
+    "MAIN_TITLE": "Enable the Fintech of Tomorrow",
+    "MAIN_DESCRIPTION": "iSunCloud: A Trailblazing Fintech Software Startup Driving the Advancement of Blockchain and Finance",
+    "NOTICE_TITLE": "Important Notice",
+    "NOTICE_DESCRIPTION": "Beware of fraudulent activities!  We want to remind you that iSunCloud does not provide any form of financial advice, fund investments, or portfolio management. We also do not create any contracts for our users. If you receive any communications, messages, calls, or invitations through social media platforms to join investment groups that promise high returns and low risks, please immediately contact the Anti-Fraud Hotline at 165 for verification. Do not disclose any financial or personal information to these parties. Stay safe from scams.",
+    "CATCH_UP_TITLE": "Catch Up!",
+    "CATCH_UP_SUBTITLE_1": "Be a ",
+    "CATCH_UP_SUBTITLE_HIGHLIGHT": "Pioneer",
+    "CATCH_UP_SUBTITLE_2": " in the Financial Industry"
   }
 }

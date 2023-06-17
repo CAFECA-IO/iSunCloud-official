@@ -2,8 +2,11 @@ import {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import I18n from '../i18n/i18n';
+import {useTranslation} from 'next-i18next';
+import {TranslateFunction} from '../../interfaces/locale';
 
 const NavBar = () => {
+  const {t}: {t: TranslateFunction} = useTranslation('common');
   const [showMenu, setShowMenu] = useState(false);
 
   const burgerStyle =
@@ -15,7 +18,7 @@ const NavBar = () => {
     <ul className={`hidden items-center space-x-4 transition-all duration-300 ease-in-out lg:flex`}>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
         <Link href="/#contact_us" scroll={false}>
-          Contact Us
+          {t('NAV_BAR.CONTACT_US')}
         </Link>
       </li>
       <li className="p-3">
@@ -26,16 +29,16 @@ const NavBar = () => {
 
   const mobileMenu = (
     <ul
-      className={`flex flex-col items-center space-y-2 overflow-hidden shadow-md ${
+      className={`absolute top-80px -z-10 flex w-screen flex-col items-center space-y-2 overflow-hidden bg-white ${
         showMenu ? 'h-180px' : 'h-0'
-      } transition-all duration-300 ease-in-out lg:hidden`}
+      } shadow-md transition-all duration-300 ease-in-out lg:hidden`}
     >
       <li className="p-7">
         <I18n />
       </li>
       <li className="p-7 text-darkBlue hover:text-brandOrange">
         <Link href="/#contact_us" onClick={showMenuHandler} scroll={false}>
-          Contact Us
+          {t('NAV_BAR.CONTACT_US')}
         </Link>
       </li>
     </ul>
@@ -43,9 +46,9 @@ const NavBar = () => {
 
   return (
     <>
-      <div className={`fixed inset-0 z-50 w-screen overflow-x-hidden overflow-y-hidden`}>
-        <div className="flex flex-col bg-white shadow-md lg:flex-row lg:px-16">
-          <div className="flex w-full flex-1 justify-between px-4 py-4 shadow-md lg:shadow-none">
+      <div className="fixed inset-0 z-50 flex h-80px w-screen bg-white lg:px-16 lg:shadow-md">
+        <div className="flex w-full flex-col lg:flex-row">
+          <div className="relative flex w-full flex-1 justify-between px-4 py-4 shadow-md lg:shadow-none">
             <Link href="/" className="">
               <Image
                 src="/logo/isuncloud_logo.svg"

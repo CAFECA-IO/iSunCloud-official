@@ -37,7 +37,7 @@ const I18n = () => {
   });
 
   return (
-    <div className="relative w-152px">
+    <div className="relative z-40 w-152px">
       <div onClick={showMenuHandler} className="group flex items-center hover:cursor-pointer">
         <VscGlobe className="h-6 w-6 text-darkBlue group-hover:text-brandOrange" />
         <div className="ml-2 text-darkBlue group-hover:text-brandOrange">{currentLanguage}</div>
@@ -46,7 +46,7 @@ const I18n = () => {
 
       {/* Info: (20230617 - Julian) dropdown part */}
       <div
-        className={`absolute top-10 z-20 flex flex-col shadow-xl ${
+        className={`absolute top-10 flex flex-col shadow-xl ${
           showMenu ? 'visible opacity-100' : 'invisible opacity-0'
         } w-full bg-lightGray transition-all duration-300 ease-in-out`}
       >
