@@ -5,7 +5,14 @@ const WhyUs = () => {
   const advantages = advantageContents.map(({title, description, image}) => {
     return (
       <div key={title} className="flex flex-col items-center space-y-3 p-8 lg:w-1/4">
-        <Image src={image} width={40} height={40} alt="Happy_clients" />
+        <Image
+          src={image}
+          width={0}
+          height={0}
+          sizes="40"
+          style={{width: 'auto', height: '100%'}}
+          alt={title}
+        />
         <div className="flex flex-col items-center text-base text-darkBlue">
           <span className="text-2xl text-brandOrange">{description}</span>
           {title}
@@ -55,7 +62,7 @@ const WhyUs = () => {
         {/* Info: (20230615 - Julian) Our Partners */}
         <div className="mt-10 flex w-full flex-col items-center p-16 lg:flex-row">
           <div className="mb-8 flex flex-1 flex-col items-center space-y-4 lg:items-start">
-            <h1 className="text-5xl font-semibold text-darkBlue">Our Partners</h1>
+            <h1 className="text-left text-5xl font-semibold text-darkBlue">Our Partners</h1>
             <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
           </div>
 

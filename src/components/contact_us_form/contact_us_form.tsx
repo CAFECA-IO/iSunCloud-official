@@ -16,7 +16,7 @@ const ContactUsForm = () => {
   const [sendSuccess, setSendSuccess] = useState(false);
   // Info: (20230616 - Julian) which animation to show
   const [showAnim, setShowAnim] = useState(false);
-  const [animation, setAnimation] = useState<IAnimationType>(AnimationType.NULL);
+  const [animation, setAnimation] = useState<IAnimationType | null>(null);
 
   const [inputName, setInputName] = useState('');
   const [inputPhone, setInputPhone] = useInputNumber('');
@@ -80,7 +80,7 @@ const ContactUsForm = () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       setShowAnim(false);
-      setAnimation(AnimationType.NULL);
+      setAnimation(null);
     };
 
     try {
@@ -107,12 +107,12 @@ const ContactUsForm = () => {
         setAnimation(AnimationType.SUCCESS);
         setShowAnim(true);
         await new Promise(resolve => setTimeout(resolve, 3000));
-        setSendSuccess(false);
-        setShowAnim(false);
         setInputName('');
         setInputPhone('');
         setInputEmail('');
         setInputMessage('');
+        setSendSuccess(false);
+        setShowAnim(false);
       } else {
         await failedProcess();
       }
@@ -131,31 +131,31 @@ const ContactUsForm = () => {
       </div>
 
       {/* Info: (20230616 - Julian) input part */}
-      <form onSubmit={submitHandler} className="flex flex-col items-center space-y-5 py-10">
-        <div className="flex flex-col items-start">
+      <form onSubmit={submitHandler} className="flex w-full flex-col items-center space-y-5 py-10">
+        <div className="flex w-full flex-col items-start">
           <p className="text-sm">Name</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="name"
             type="text"
             onChange={nameChangeHandler}
             value={inputName || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex w-full flex-col items-start">
           <p className="text-sm">Phone Number</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="phone"
             type="text"
             onChange={phoneChangeHandler}
             value={inputPhone || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex w-full flex-col items-start">
           <p className="text-sm">*E-mail</p>
           <input
-            className="mt-2 h-50px w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
             type="text"
             required
@@ -163,10 +163,10 @@ const ContactUsForm = () => {
             value={inputEmail || ''}
           />
         </div>
-        <div className="flex flex-col items-start">
+        <div className="flex w-full flex-col items-start">
           <p className="text-sm">Message</p>
           <textarea
-            className="mt-2 w-500px bg-lightGray px-4 py-2 text-sm text-lightGray2"
+            className="mt-2 w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
             rows={7}
             wrap="soft"
@@ -194,17 +194,17 @@ const ContactUsForm = () => {
   // ToDo:(20230616 - Julian) fade in animation
   const animPart = showAnim ? (
     <div className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center bg-white">
-      {animation === 'sending' ? (
+      {animation === AnimationType.SENDING ? (
         <div className="h-200px w-200px" ref={sendAnimContainer}></div>
-      ) : animation === 'success' ? (
+      ) : animation === AnimationType.SUCCESS ? (
         <div className="h-200px w-200px" ref={successAnimContainer}></div>
       ) : (
         <div className="h-100px w-100px" ref={errorAnimContainer}></div>
       )}
       <p className="text-lg text-darkBlue">
-        {animation === 'success'
+        {animation === AnimationType.SUCCESS
           ? 'Sent!'
-          : animation === 'error'
+          : animation === AnimationType.ERROR
           ? 'Something went wrong ! Please try again.'
           : ''}
       </p>
@@ -223,8 +223,8 @@ const ContactUsForm = () => {
         style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
         alt=""
       />
-      <div className="relative flex h-full w-screen items-center justify-end py-36 lg:w-full">
-        <div className="absolute left-12 w-full">
+      <div className="relative flex h-full w-screen items-center justify-center py-20 lg:w-full lg:justify-end">
+        <div className="absolute left-12 hidden w-full lg:block">
           <Image
             src="/elements/contact_us.svg"
             width={0}
@@ -237,7 +237,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        <div className="relative z-20 flex h-810px w-screen items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
+        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
           {formPart}
           {animPart}
         </div>

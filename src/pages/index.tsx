@@ -6,12 +6,8 @@ import Footer from '../components/footer/footer';
 import WhatWeDo from '../components/what_we_do/what_we_do';
 import WhyUs from '../components/why_us/why_us';
 import ContactUsForm from '../components/contact_us_form/contact_us_form';
-import {useTranslation} from 'next-i18next';
-import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 const Home = () => {
-  const {t} = useTranslation('common');
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -27,14 +23,18 @@ const Home = () => {
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-1000px w-full bg-fintech bg-right bg-no-repeat px-16 pt-24 text-left text-darkBlue">
-          <div className="flex w-5/10 flex-col justify-center space-y-8">
-            <h1 className="text-6xl font-semibold">Enable the Fintech of Tomorrow</h1>
+        <div className="flex h-auto w-full bg-fintech bg-right bg-no-repeat px-10 py-56 py-80 text-left text-darkBlue lg:px-16">
+          <div className="flex flex-col justify-center space-y-8 lg:w-5/10">
+            <h1 className="text-5xl font-semibold lg:text-6xl">Enable the Fintech of Tomorrow</h1>
             <p className="w-7/10 text-sm">
               iSunCloud: A Trailblazing Fintech Software Startup Driving the Advancement of
               Blockchain and Finance
             </p>
-            <Link href="/#contact_us" className="group mt-5 flex items-center whitespace-nowrap">
+            <Link
+              href="/#contact_us"
+              scroll={false}
+              className="group mt-5 flex items-center whitespace-nowrap"
+            >
               <div className="flex items-center space-x-1">
                 <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
                 <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
