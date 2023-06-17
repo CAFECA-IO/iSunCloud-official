@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import I18n from '../i18n/i18n';
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -59,7 +60,9 @@ const NavBar = () => {
             >
               Contact Us
             </Link>
-            <div className="p-7 lg:p-3">Language</div>
+            <div className="p-7 lg:p-3">
+              <I18n />
+            </div>
           </div>
         </div>
       </div>

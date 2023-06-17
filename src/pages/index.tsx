@@ -23,7 +23,7 @@ const Home = () => {
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-auto w-full bg-fintech bg-right bg-no-repeat px-10 py-56 py-80 text-left text-darkBlue lg:px-16">
+        <div className="flex h-auto w-full bg-fintech bg-right bg-no-repeat px-10 py-56 text-left text-darkBlue lg:px-16 lg:py-80">
           <div className="flex flex-col justify-center space-y-8 lg:w-5/10">
             <h1 className="text-5xl font-semibold lg:text-6xl">Enable the Fintech of Tomorrow</h1>
             <p className="w-7/10 text-sm">

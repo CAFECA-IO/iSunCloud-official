@@ -282,6 +282,12 @@ module.exports = {
         '1/50': '2%',
         '50px': '50px',
       },
+      borderWidth: {
+        1: '1px',
+        2: '2px',
+        3: '3px',
+        4: '4px',
+      },
     },
   },
   plugins: [],
