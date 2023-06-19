@@ -28,8 +28,8 @@ const Home = () => {
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-auto min-h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-fintech lg:px-16">
-          <div className="flex flex-col">
+        <div className="flex h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-fintech lg:px-16">
+          <div className="flex flex-col justify-between">
             <div className="lg:hidden">
               <Image
                 src={'/elements/kv_mobile.svg'}
@@ -41,27 +41,27 @@ const Home = () => {
             </div>
             <div className="flex flex-col items-center justify-center space-y-8 lg:w-6/10 lg:items-start">
               <h1 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
-              <p className="w-full text-sm lg:w-7/10">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
-              <Link
-                href="/#contact_us"
-                scroll={false}
-                className="group flex items-center whitespace-nowrap pt-10"
-              >
-                <div className="flex items-center space-x-1">
-                  <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
-                  <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
-                  <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
-                </div>
-                <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
-                  {t('NAV_BAR.CONTACT_US')}
-                </div>
-              </Link>
+              <p className="text-sm lg:w-7/10">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
             </div>
+            <Link
+              href="/#contact_us"
+              scroll={false}
+              className="group mx-auto flex items-center whitespace-nowrap pt-10 lg:mx-0"
+            >
+              <div className="flex items-center space-x-1">
+                <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-150 ease-in group-hover:mr-1"></span>
+                <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-150 ease-in group-hover:mr-1"></span>
+              </div>
+              <div className="ml-4 text-xl font-semibold text-darkBlue transition-all duration-150 ease-in group-hover:text-brandOrange">
+                {t('NAV_BAR.CONTACT_US')}
+              </div>
+            </Link>
           </div>
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-transparent to-lightGray3 px-4 py-28 lg:px-24">
+        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-4 py-28 lg:px-24">
           <Image
             src={'/elements/devider.svg'}
             width={0}
@@ -69,11 +69,11 @@ const Home = () => {
             style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
             alt=""
           />
-          <div className="z-20 rounded-3xl bg-lightWhite px-4 py-12 shadow-2xl lg:px-20">
-            <h1 className="text-5xl font-semibold text-brandOrange">
+          <div className="z-20 rounded-3xl bg-white px-6 py-12 shadow-2xl lg:px-20">
+            <h1 className="text-3xl font-semibold text-brandOrange lg:text-5xl">
               {t('HOME_PAGE.NOTICE_TITLE')}
             </h1>
-            <p className="mt-4 p-4 text-left text-xl text-darkBlue">
+            <p className="mt-4 p-4 text-center text-base text-darkBlue lg:text-left lg:text-xl">
               {t('HOME_PAGE.NOTICE_DESCRIPTION')}
             </p>
           </div>

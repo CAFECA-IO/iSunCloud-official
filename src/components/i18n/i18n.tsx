@@ -14,7 +14,7 @@ const I18n = () => {
   ];
 
   const [showMenu, setShowMenu] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('繁體中文');
+  const [currentLanguage, setCurrentLanguage] = useState('Language');
 
   const showMenuHandler = () => setShowMenu(!showMenu);
   const changeLanguageHandler = (value: string) => {
