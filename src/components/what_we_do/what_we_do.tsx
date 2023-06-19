@@ -6,33 +6,13 @@ import {TranslateFunction} from '../../interfaces/locale';
 const WhatWeDo = () => {
   const {t}: {t: TranslateFunction} = useTranslation('common');
   //ToDo:(20230616 - Julian) Fix image size
-  const banner = whatWeDoContent.map(({title, description, img}) => {
+  const banner = whatWeDoContent.map(({title, description, bg}) => {
     return (
       <div
         key={title}
-        className="group relative block h-screen w-full bg-blockchain bg-cover transition-all duration-300 ease-in hover:scale-110 lg:h-auto lg:w-500px"
+        className={`group relative block h-500px w-full transition-all duration-300 ease-in ${bg} bg-cover hover:scale-110 lg:h-auto lg:w-500px`}
       >
-        <div className="absolute hidden">
-          <Image src={img} width={500} height={500} alt={t(title)} />
-        </div>
-        <div className="absolute opacity-100 transition-all duration-300 ease-in-out group-hover:opacity-0">
-          <Image
-            src="/filter/blue.svg"
-            width={0}
-            height={0}
-            style={{width: '100%', height: '100%'}}
-            alt=""
-          />
-        </div>
-        <div className="absolute z-10 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
-          <Image
-            src="/filter/orange.svg"
-            width={0}
-            height={0}
-            style={{width: '100%', height: '100%'}}
-            alt=""
-          />
-        </div>
+        <span className="absolute left-0 top-0 h-full w-full overflow-hidden bg-blueFilter transition-all duration-300 ease-in-out group-hover:bg-orangeFilter"></span>
         <div className="relative z-30 flex h-full w-full flex-col items-center justify-center space-y-10 text-lightWhite">
           <h1 className="text-5xl">{t(title)}</h1>
           <p className="text-lg">{t(description)}</p>

@@ -2,17 +2,17 @@ export const whatWeDoContent = [
   {
     title: 'HOME_PAGE.WHAT_WE_DO_BLOCKCHAIN_TITLE',
     description: 'HOME_PAGE.WHAT_WE_DO_BLOCKCHAIN_DESCRIPTION',
-    img: '/elements/blockchain.png',
+    bg: 'bg-blockchain',
   },
   {
     title: 'HOME_PAGE.WHAT_WE_DO_AI_TITLE',
     description: 'HOME_PAGE.WHAT_WE_DO_AI_DESCRIPTION',
-    img: '/elements/ai_auditing.png',
+    bg: 'bg-ai',
   },
   {
     title: 'HOME_PAGE.WHAT_WE_DO_FINTECH_TITLE',
     description: 'HOME_PAGE.WHAT_WE_DO_FINTECH_DESCRIPTION',
-    img: '/elements/fintech.png',
+    bg: 'bg-fintech',
   },
 ];
 

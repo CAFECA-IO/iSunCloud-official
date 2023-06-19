@@ -8,7 +8,7 @@ const WhyUs = () => {
 
   const advantages = advantageContents.map(({title, description, image}) => {
     return (
-      <div key={title} className="flex w-full  flex-col items-center space-y-3 p-8">
+      <div key={title} className="flex w-full flex-col items-center space-y-3 p-8">
         <Image
           src={image}
           width={0}
@@ -64,7 +64,7 @@ const WhyUs = () => {
         </div>
 
         {/* Info: (20230615 - Julian) Our Partners */}
-        <div className="flex w-full flex-col items-center justify-between py-10 lg:mt-10 lg:flex-row lg:px-10 lg:px-4">
+        <div className="flex w-full flex-col items-center justify-between py-10 lg:mt-10 lg:flex-row lg:px-16">
           <div className="mb-8 flex flex-1 flex-col items-center space-y-4 lg:items-start">
             <h1 className="whitespace-nowrap text-left text-4xl font-semibold text-darkBlue lg:text-5xl">
               {t('HOME_PAGE.WHY_US_PARTNERS_TITLE')}

@@ -20,6 +20,10 @@ module.exports = {
       backgroundImage: {
         fintech: "url('/elements/kv_desktop.svg')",
         blockchain: "url('/elements/blockchain.png')",
+        ai: "url('/elements/ai_auditing.png')",
+        fintech: "url('/elements/fintech.png')",
+        blueFilter: "url('/filter/blue.svg')",
+        orangeFilter: "url('/filter/orange.svg')",
       },
       backgroundPosition: {
         top1: 'center top -6rem',
