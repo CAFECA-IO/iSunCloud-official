@@ -5,7 +5,7 @@ import {VscGlobe} from 'react-icons/vsc';
 import {FiChevronDown} from 'react-icons/fi';
 
 const I18n = () => {
-  const router = useRouter();
+  const {asPath} = useRouter();
 
   const internationalizationList = [
     {label: '繁體中文', value: 'tw'},
@@ -14,20 +14,27 @@ const I18n = () => {
   ];
 
   const [showMenu, setShowMenu] = useState(false);
-
-  const currentLanguage = internationalizationList.find(
-    ({value}) => value === router.locale
-  )?.label;
+  const [currentLanguage, setCurrentLanguage] = useState('繁體中文');
 
   const showMenuHandler = () => setShowMenu(!showMenu);
+  const changeLanguageHandler = (value: string) => {
+    const language = internationalizationList.find(({value: v}) => v === value);
+    if (language) {
+      setCurrentLanguage(language.label);
+    }
+    setShowMenu(false);
+  };
 
   const subMenu = internationalizationList.map(({label, value}) => {
     return (
-      <li className="py-4 text-darkBlue hover:cursor-pointer hover:bg-white hover:text-brandOrange">
+      <li
+        key={value}
+        className="py-4 text-darkBlue hover:cursor-pointer hover:bg-white hover:text-brandOrange"
+      >
         <Link
-          href={router}
+          href={asPath}
           className="px-4 py-3 hover:px-5"
-          onClick={showMenuHandler}
+          onClick={() => changeLanguageHandler(value)}
           locale={value}
         >
           {label}

@@ -66,16 +66,14 @@ const NavBar = () => {
               >
                 <span
                   className={`${burgerStyle} ${
-                    showMenu
-                      ? 'translate-x-8px translate-y-10px rotate-45'
-                      : 'translate-x-0 translate-y-0 rotate-0'
+                    showMenu ? 'translate-y-10px rotate-45' : 'translate-x-0 translate-y-0 rotate-0'
                   }`}
                 ></span>
                 <span className={`${burgerStyle} ${showMenu ? 'opacity-0' : 'opacity-100'}`}></span>
                 <span
                   className={`${burgerStyle} ${
                     showMenu
-                      ? 'translate-x-8px -translate-y-10px -rotate-45'
+                      ? '-translate-y-10px -rotate-45'
                       : 'translate-x-0 translate-y-0 rotate-0'
                   }`}
                 ></span>

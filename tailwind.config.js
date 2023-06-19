@@ -289,6 +289,9 @@ module.exports = {
         3: '3px',
         4: '4px',
       },
+      translate: {
+        '10px': '10px',
+      },
     },
   },
   plugins: [],

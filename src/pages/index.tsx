@@ -39,7 +39,7 @@ const Home = () => {
                 alt=""
               />
             </div>
-            <div className="flex flex-col items-center justify-center space-y-8 lg:w-5/10 lg:items-start">
+            <div className="flex flex-col items-center justify-center space-y-8 lg:w-6/10 lg:items-start">
               <h1 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
               <p className="w-full text-sm lg:w-7/10">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
               <Link
