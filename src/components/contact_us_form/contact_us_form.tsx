@@ -139,7 +139,7 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-42px font-bold">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h1 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
         <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
@@ -227,7 +227,7 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-24"
+      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-10 lg:py-32"
     >
       <Image
         src={'/elements/devider.svg'}
@@ -236,7 +236,8 @@ const ContactUsForm = () => {
         style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
         alt=""
       />
-      <div className="relative flex h-full w-screen items-center justify-center py-20 lg:w-full lg:justify-end">
+      <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
+        {/* Info: (20230619 - Julian) Image for desktop */}
         <div className="absolute left-12 hidden w-full lg:block">
           <Image
             src="/elements/contact_us.svg"
@@ -247,6 +248,19 @@ const ContactUsForm = () => {
               width: '700px',
               height: 'auto',
               transform: 'perspective(1000px) rotateY(20deg)',
+            }}
+          />
+        </div>
+        {/* Info: (20230619 - Julian) Image for mobile */}
+        <div className="block w-full p-10 lg:hidden">
+          <Image
+            src="/elements/contact_us.svg"
+            width={0}
+            height={0}
+            alt=""
+            style={{
+              width: '100vw',
+              height: 'auto',
             }}
           />
         </div>

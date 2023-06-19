@@ -72,7 +72,9 @@ const WhyUs = () => {
             <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
           </div>
 
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-5 lg:gap-4">{partners}</div>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5 lg:gap-4">
+            {partners}
+          </div>
         </div>
       </div>
     </div>
