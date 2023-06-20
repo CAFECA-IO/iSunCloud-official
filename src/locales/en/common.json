@@ -1,6 +1,7 @@
 {
   "NAV_BAR": {
-    "CONTACT_US": "Contact Us"
+    "CONTACT_US": "Contact Us",
+    "BACK_BUTTON": "Back"
   },
   "HOME_PAGE": {
     "MAIN_TITLE": "Enable the Fintech of Tomorrow",

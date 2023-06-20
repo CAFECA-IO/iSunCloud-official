@@ -8,7 +8,7 @@ const WhyUs = () => {
 
   const advantages = advantageContents.map(({title, description, image}) => {
     return (
-      <div key={title} className="flex w-full flex-col items-center space-y-3 p-8">
+      <div key={title} className="flex h-130px w-full flex-col items-center space-y-3 p-3 lg:p-8">
         <Image
           src={image}
           width={0}
@@ -27,8 +27,8 @@ const WhyUs = () => {
 
   const partners = partnerContent.map(({name, image, imageHover}) => {
     return (
-      <div key={name} className="group relative block h-150px w-150px">
-        <div className="absolute flex w-150px justify-center group-hover:opacity-100">
+      <div key={name} className="group relative mt-10 block h-200px w-200px p-10 lg:mt-0">
+        <div className="absolute left-6 top-0 flex w-150px items-center justify-center group-hover:opacity-100">
           <Image
             src={image}
             width={0}
@@ -37,7 +37,7 @@ const WhyUs = () => {
             alt={name}
           />
         </div>
-        <div className="absolute flex w-150px justify-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
+        <div className="absolute left-6 top-0 flex w-150px items-center justify-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
           <Image
             src={imageHover}
             width={0}
@@ -59,7 +59,7 @@ const WhyUs = () => {
         </div>
 
         {/* Info: (20230615 - Julian) advantage */}
-        <div className="grid w-full grid-cols-2 gap-10 p-4 lg:mt-10 lg:grid-cols-4 lg:gap-2 lg:p-10">
+        <div className="grid w-full grid-cols-2 gap-12 py-20 lg:grid-cols-4 lg:gap-2 lg:px-10">
           {advantages}
         </div>
 
@@ -72,9 +72,7 @@ const WhyUs = () => {
             <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
           </div>
 
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5 lg:gap-4">
-            {partners}
-          </div>
+          <div className="flex flex-wrap items-center justify-center">{partners}</div>
         </div>
       </div>
     </div>

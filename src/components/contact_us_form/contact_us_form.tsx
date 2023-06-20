@@ -74,6 +74,10 @@ const ContactUsForm = () => {
     setInputMessage(event.target.value);
   };
 
+  // Info: (20230620 - Julian) check if email is valid
+  const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  const emailIsValid = emailRule.test(inputEmail);
+
   // Info: (20230617 - Julian) send failed process
   const failedProcess = async () => {
     setSendSuccess(false);
@@ -103,7 +107,11 @@ const ContactUsForm = () => {
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    // Info: (20230617 - Julian) 點擊送出按鈕後就先顯示 SENDING 動畫
+    if (!emailIsValid) {
+      return;
+    }
+
+    // Info: (20230617 - Julian) 先顯示 SENDING 動畫
     setAnimation(AnimationType.SENDING);
     setShowAnim(true);
 
@@ -146,7 +154,9 @@ const ContactUsForm = () => {
       {/* Info: (20230616 - Julian) input part */}
       <form onSubmit={submitHandler} className="flex w-full flex-col items-center space-y-5 py-10">
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_NAME')}</p>
+          <label htmlFor="name" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_NAME')}
+          </label>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="name"
@@ -156,7 +166,9 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_PHONE')}</p>
+          <label htmlFor="phone" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_PHONE')}
+          </label>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="phone"
@@ -166,7 +178,12 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</p>
+          <div className="flex items-center text-sm">
+            <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
+            <p className={`ml-4 text-red-500 ${emailIsValid ? 'hidden' : 'block'}`}>
+              E-mail 格式有誤
+            </p>
+          </div>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
@@ -177,10 +194,12 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_MESSAGE')}</p>
+          <label htmlFor="message" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_MESSAGE')}
+          </label>
           <textarea
             className="mt-2 w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
-            id="email"
+            id="message"
             rows={7}
             wrap="soft"
             placeholder={t('HOME_PAGE.CONTACT_US_MESSAGE_PLACEHOLDER')}
@@ -190,13 +209,19 @@ const ContactUsForm = () => {
           />
         </div>
 
-        <button id="submit" type="submit" className="group flex items-center p-5">
+        <button
+          id="submit"
+          type="submit"
+          // Info: (20230620 - Julian) email 格式不正確時，submit 按鈕 disabled
+          disabled={emailIsValid ? false : true}
+          className="group flex items-center p-5 text-darkBlue hover:text-brandOrange disabled:text-gray-500 disabled:hover:text-gray-500"
+        >
           <div className="flex items-center space-x-1">
             <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
             <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
             <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
           </div>
-          <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
+          <span className="ml-3 text-xl font-bold transition-all duration-300 ease-in">
             {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
           </span>
         </button>
