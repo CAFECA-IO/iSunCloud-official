@@ -38,6 +38,7 @@
     "CONTACT_US_NAME": "姓名",
     "CONTACT_US_PHONE": "聯絡電話",
     "CONTACT_US_EMAIL": "電子郵件",
+    "CONTACT_US_EMAIL_VERIFY": "電子郵件格式有誤",
     "CONTACT_US_MESSAGE": "您的訊息",
     "CONTACT_US_MESSAGE_PLACEHOLDER": "想說的話...",
     "CONTACT_US_SEND_SUBMIT": "送出",

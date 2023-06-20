@@ -181,7 +181,7 @@ const ContactUsForm = () => {
           <div className="flex items-center text-sm">
             <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
             <p className={`ml-4 text-red-500 ${emailIsValid ? 'hidden' : 'block'}`}>
-              E-mail 格式有誤
+              {t('HOME_PAGE.CONTACT_US_EMAIL_VERIFY')}
             </p>
           </div>
           <input

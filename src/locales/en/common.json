@@ -38,6 +38,7 @@
     "CONTACT_US_NAME": "Name",
     "CONTACT_US_PHONE": "Phone Number",
     "CONTACT_US_EMAIL": "Email",
+    "CONTACT_US_EMAIL_VERIFY": "The entered address is invalid.",
     "CONTACT_US_MESSAGE": "Message",
     "CONTACT_US_MESSAGE_PLACEHOLDER": "What do you want to say...",
     "CONTACT_US_SEND_SUBMIT": "Send",
