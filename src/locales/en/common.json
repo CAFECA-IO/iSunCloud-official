@@ -1,6 +1,7 @@
 {
   "NAV_BAR": {
-    "CONTACT_US": "Contact Us"
+    "CONTACT_US": "Contact Us",
+    "BACK_BUTTON": "Back"
   },
   "HOME_PAGE": {
     "MAIN_TITLE": "Enable the Fintech of Tomorrow",
@@ -37,6 +38,7 @@
     "CONTACT_US_NAME": "Name",
     "CONTACT_US_PHONE": "Phone Number",
     "CONTACT_US_EMAIL": "Email",
+    "CONTACT_US_EMAIL_VERIFY": "The entered address is invalid.",
     "CONTACT_US_MESSAGE": "Message",
     "CONTACT_US_MESSAGE_PLACEHOLDER": "What do you want to say...",
     "CONTACT_US_SEND_SUBMIT": "Send",

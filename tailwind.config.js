@@ -19,6 +19,11 @@ module.exports = {
       },
       backgroundImage: {
         fintech: "url('/elements/kv_desktop.svg')",
+        blockchain: "url('/elements/blockchain.png')",
+        ai: "url('/elements/ai_auditing.png')",
+        fintech: "url('/elements/fintech.png')",
+        blueFilter: "url('/filter/blue.svg')",
+        orangeFilter: "url('/filter/orange.svg')",
       },
       backgroundPosition: {
         top1: 'center top -6rem',
@@ -166,6 +171,7 @@ module.exports = {
         '360px': '360px',
         '370px': '370px',
         '372px': '372px',
+        '380px': '380px',
         '400px': '400px',
         '410px': '410px',
         '420px': '420px',
@@ -288,6 +294,9 @@ module.exports = {
         2: '2px',
         3: '3px',
         4: '4px',
+      },
+      translate: {
+        '10px': '10px',
       },
     },
   },

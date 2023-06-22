@@ -29,14 +29,14 @@ const NavBar = () => {
 
   const mobileMenu = (
     <ul
-      className={`absolute top-80px -z-10 flex w-screen flex-col items-center space-y-2 overflow-hidden bg-white ${
-        showMenu ? 'h-180px' : 'h-0'
-      } shadow-md transition-all duration-300 ease-in-out lg:hidden`}
+      className={`absolute top-80px -z-10 flex flex-col items-center justify-between bg-white py-4 ${
+        showMenu ? 'visible h-160px opacity-100' : 'invisible h-0 opacity-0'
+      } w-screen shadow-md transition-all duration-300 ease-in-out lg:hidden`}
     >
-      <li className="p-7">
+      <li className="flex w-full justify-center py-5">
         <I18n />
       </li>
-      <li className="p-7 text-darkBlue hover:text-brandOrange">
+      <li className="flex w-full justify-center py-5 text-darkBlue hover:text-brandOrange">
         <Link href="/#contact_us" onClick={showMenuHandler} scroll={false}>
           {t('NAV_BAR.CONTACT_US')}
         </Link>
@@ -66,16 +66,14 @@ const NavBar = () => {
               >
                 <span
                   className={`${burgerStyle} ${
-                    showMenu
-                      ? 'translate-x-8px translate-y-10px rotate-45'
-                      : 'translate-x-0 translate-y-0 rotate-0'
+                    showMenu ? 'translate-y-10px rotate-45' : 'translate-x-0 translate-y-0 rotate-0'
                   }`}
                 ></span>
                 <span className={`${burgerStyle} ${showMenu ? 'opacity-0' : 'opacity-100'}`}></span>
                 <span
                   className={`${burgerStyle} ${
                     showMenu
-                      ? 'translate-x-8px -translate-y-10px -rotate-45'
+                      ? '-translate-y-10px -rotate-45'
                       : 'translate-x-0 translate-y-0 rotate-0'
                   }`}
                 ></span>

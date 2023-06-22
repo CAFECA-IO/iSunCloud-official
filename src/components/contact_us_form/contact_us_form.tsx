@@ -74,6 +74,10 @@ const ContactUsForm = () => {
     setInputMessage(event.target.value);
   };
 
+  // Info: (20230620 - Julian) check if email is valid
+  const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  const emailIsValid = emailRule.test(inputEmail);
+
   // Info: (20230617 - Julian) send failed process
   const failedProcess = async () => {
     setSendSuccess(false);
@@ -103,7 +107,11 @@ const ContactUsForm = () => {
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    // Info: (20230617 - Julian) 點擊送出按鈕後就先顯示 SENDING 動畫
+    if (!emailIsValid) {
+      return;
+    }
+
+    // Info: (20230617 - Julian) 先顯示 SENDING 動畫
     setAnimation(AnimationType.SENDING);
     setShowAnim(true);
 
@@ -139,14 +147,16 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-42px font-bold">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h1 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
         <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
       {/* Info: (20230616 - Julian) input part */}
       <form onSubmit={submitHandler} className="flex w-full flex-col items-center space-y-5 py-10">
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_NAME')}</p>
+          <label htmlFor="name" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_NAME')}
+          </label>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="name"
@@ -156,7 +166,9 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_PHONE')}</p>
+          <label htmlFor="phone" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_PHONE')}
+          </label>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="phone"
@@ -166,7 +178,12 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</p>
+          <div className="flex items-center text-sm">
+            <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
+            <p className={`ml-4 text-red-500 ${emailIsValid ? 'hidden' : 'block'}`}>
+              {t('HOME_PAGE.CONTACT_US_EMAIL_VERIFY')}
+            </p>
+          </div>
           <input
             className="mt-2 h-50px w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
             id="email"
@@ -177,10 +194,12 @@ const ContactUsForm = () => {
           />
         </div>
         <div className="flex w-full flex-col items-start">
-          <p className="text-sm">{t('HOME_PAGE.CONTACT_US_MESSAGE')}</p>
+          <label htmlFor="message" className="text-sm">
+            {t('HOME_PAGE.CONTACT_US_MESSAGE')}
+          </label>
           <textarea
             className="mt-2 w-full bg-lightGray px-4 py-2 text-sm text-lightGray2"
-            id="email"
+            id="message"
             rows={7}
             wrap="soft"
             placeholder={t('HOME_PAGE.CONTACT_US_MESSAGE_PLACEHOLDER')}
@@ -190,13 +209,19 @@ const ContactUsForm = () => {
           />
         </div>
 
-        <button id="submit" type="submit" className="group flex items-center p-5">
+        <button
+          id="submit"
+          type="submit"
+          // Info: (20230620 - Julian) email 格式不正確時，submit 按鈕 disabled
+          disabled={emailIsValid ? false : true}
+          className="group flex items-center p-5 text-darkBlue hover:text-brandOrange disabled:text-gray-500 disabled:hover:text-gray-500"
+        >
           <div className="flex items-center space-x-1">
             <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
             <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
             <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
           </div>
-          <span className="ml-3 text-xl font-bold text-darkBlue transition-all duration-300 ease-in group-hover:text-brandOrange">
+          <span className="ml-3 text-xl font-bold transition-all duration-300 ease-in">
             {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
           </span>
         </button>
@@ -227,7 +252,7 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-24"
+      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-10 lg:py-32"
     >
       <Image
         src={'/elements/devider.svg'}
@@ -236,7 +261,8 @@ const ContactUsForm = () => {
         style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
         alt=""
       />
-      <div className="relative flex h-full w-screen items-center justify-center py-20 lg:w-full lg:justify-end">
+      <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
+        {/* Info: (20230619 - Julian) Image for desktop */}
         <div className="absolute left-12 hidden w-full lg:block">
           <Image
             src="/elements/contact_us.svg"
@@ -247,6 +273,19 @@ const ContactUsForm = () => {
               width: '700px',
               height: 'auto',
               transform: 'perspective(1000px) rotateY(20deg)',
+            }}
+          />
+        </div>
+        {/* Info: (20230619 - Julian) Image for mobile */}
+        <div className="block w-full p-10 lg:hidden">
+          <Image
+            src="/elements/contact_us.svg"
+            width={0}
+            height={0}
+            alt=""
+            style={{
+              width: '100vw',
+              height: 'auto',
             }}
           />
         </div>
