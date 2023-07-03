@@ -18,7 +18,7 @@ module.exports = {
         lightYellow: '#FCF300',
       },
       backgroundImage: {
-        fintech: "url('/elements/kv_desktop.svg')",
+        kvDesktop: "url('/elements/kv_desktop.svg')",
         blockchain: "url('/elements/blockchain.png')",
         ai: "url('/elements/ai_auditing.png')",
         fintech: "url('/elements/fintech.png')",

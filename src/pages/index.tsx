@@ -21,14 +21,14 @@ const Home = () => {
         <meta name="keywords" content="iSunCloud" />
 
         <title>iSunCloud</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
 
       <NavBar />
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-fintech lg:px-16">
+        <div className="lg:bg-kvDesktop flex h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:px-16">
           <div className="flex flex-col justify-between">
             <div className="lg:hidden">
               <Image
