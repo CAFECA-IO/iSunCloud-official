@@ -24,6 +24,8 @@ module.exports = {
         fintech: "url('/elements/fintech.png')",
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
+
+        devider: 'url("/elements/devider_neo.png")',
       },
       backgroundPosition: {
         top1: 'center top -6rem',
