@@ -27,6 +27,9 @@ const ContactUsForm = () => {
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
 
+  // Info: (20230620 - Julian) 剛載入時不顯示錯誤訊息
+  const [showEmailError, setShowEmailError] = useState(false);
+
   useEffect(() => {
     // Info: (20230617 - Julian) animations
     const animSend = lottie.loadAnimation({
@@ -60,6 +63,10 @@ const ContactUsForm = () => {
     };
   }, [sendSuccess, showAnim, animation]);
 
+  // Info: (20230620 - Julian) check if email is valid
+  const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+  const emailIsValid = emailRule.test(inputEmail);
+
   // Info: (20230617 - Julian) input change handler
   const nameChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputName(event.target.value);
@@ -69,14 +76,18 @@ const ContactUsForm = () => {
   };
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputEmail(event.target.value);
+    // Info: (20230620 - Julian) input 改變才檢查 email 是否符合規則，不符合就顯示錯誤訊息
+    if (!emailIsValid) {
+      setShowEmailError(true);
+      return;
+    } else {
+      setShowEmailError(false);
+      return;
+    }
   };
   const messageChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputMessage(event.target.value);
   };
-
-  // Info: (20230620 - Julian) check if email is valid
-  const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-  const emailIsValid = emailRule.test(inputEmail);
 
   // Info: (20230617 - Julian) send failed process
   const failedProcess = async () => {
@@ -180,7 +191,7 @@ const ContactUsForm = () => {
         <div className="flex w-full flex-col items-start">
           <div className="flex items-center text-sm">
             <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
-            <p className={`ml-4 text-red-500 ${emailIsValid ? 'hidden' : 'block'}`}>
+            <p className={`ml-4 text-red-500 ${showEmailError ? 'block' : 'hidden'}`}>
               {t('HOME_PAGE.CONTACT_US_EMAIL_VERIFY')}
             </p>
           </div>
@@ -252,15 +263,12 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-28 py-10 lg:py-32"
+      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 lg:py-32"
     >
-      <Image
-        src={'/elements/devider.svg'}
-        width={0}
-        height={0}
-        style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
-        alt=""
-      />
+      {/* Info: (20230704 - Julian) Devider */}
+      <div className="absolute -top-100px h-200px w-screen">
+        <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+      </div>
       <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
         {/* Info: (20230619 - Julian) Image for desktop */}
         <div className="absolute left-12 hidden w-full lg:block">

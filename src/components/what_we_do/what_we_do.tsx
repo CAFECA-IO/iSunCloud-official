@@ -22,14 +22,12 @@ const WhatWeDo = () => {
   });
 
   return (
-    <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 py-24 lg:px-24">
-      <Image
-        src={'/elements/devider.svg'}
-        width={0}
-        height={0}
-        style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
-        alt=""
-      />
+    <div className="relative flex h-auto w-full items-center justify-center bg-lightGray py-24 lg:px-24">
+      {/* Info: (20230704 - Julian) Devider */}
+      <div className="absolute -top-100px h-200px w-screen">
+        <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+      </div>
+
       <div className="flex flex-col py-20 text-darkBlue lg:py-32">
         <div className="flex flex-col items-center space-y-4">
           <h1 className="text-4xl font-semibold lg:text-5xl">{t('HOME_PAGE.WHAT_WE_DO_TITLE')}</h1>

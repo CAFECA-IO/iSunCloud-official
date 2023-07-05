@@ -21,14 +21,14 @@ const Home = () => {
         <meta name="keywords" content="iSunCloud" />
 
         <title>iSunCloud</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
 
       <NavBar />
 
       <main className="flex w-full flex-1 flex-col items-center text-center">
         {/* Info: (20230615 - Julian) Enable the Fintech of Tomorrow */}
-        <div className="flex h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-fintech lg:px-16">
+        <div className="flex h-screen w-full items-center bg-right bg-no-repeat px-4 text-left text-darkBlue lg:bg-kvDesktop lg:px-16">
           <div className="flex flex-col justify-between">
             <div className="lg:hidden">
               <Image
@@ -61,14 +61,11 @@ const Home = () => {
         </div>
 
         {/* Info: (20230615 - Julian) Important Notice */}
-        <div className="relative flex h-auto w-full items-center justify-center bg-gradient-to-b from-white to-lightGray3 px-4 py-28 lg:px-24">
-          <Image
-            src={'/elements/devider.svg'}
-            width={0}
-            height={0}
-            style={{width: '100%', height: 'auto', position: 'absolute', top: '-100px'}}
-            alt=""
-          />
+        <div className="relative flex h-auto w-full items-center justify-center bg-lightGray px-4 py-28 lg:px-24">
+          {/* Info: (20230704 - Julian) Devider */}
+          <div className="absolute -top-100px h-200px w-screen">
+            <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+          </div>
           <div className="z-20 rounded-3xl bg-white px-6 py-12 shadow-2xl lg:px-20">
             <h1 className="text-3xl font-semibold text-brandOrange lg:text-5xl">
               {t('HOME_PAGE.NOTICE_TITLE')}

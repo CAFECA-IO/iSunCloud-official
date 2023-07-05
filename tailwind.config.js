@@ -18,12 +18,14 @@ module.exports = {
         lightYellow: '#FCF300',
       },
       backgroundImage: {
-        fintech: "url('/elements/kv_desktop.svg')",
+        kvDesktop: "url('/elements/kv_desktop.svg')",
         blockchain: "url('/elements/blockchain.png')",
         ai: "url('/elements/ai_auditing.png')",
         fintech: "url('/elements/fintech.png')",
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
+
+        devider: 'url("/elements/devider_neo.png")',
       },
       backgroundPosition: {
         top1: 'center top -6rem',

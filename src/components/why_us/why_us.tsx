@@ -25,9 +25,14 @@ const WhyUs = () => {
     );
   });
 
-  const partners = partnerContent.map(({name, image, imageHover}) => {
+  const partners = partnerContent.map(({name, image, imageHover, link}) => {
     return (
-      <div key={name} className="group relative mt-10 block h-200px w-200px p-10 lg:mt-0">
+      <a
+        href={link}
+        target="_blank"
+        key={name}
+        className="group relative mt-10 block h-200px w-200px p-10 lg:mt-0"
+      >
         <div className="absolute left-6 top-0 flex w-150px items-center justify-center group-hover:opacity-100">
           <Image
             src={image}
@@ -46,7 +51,7 @@ const WhyUs = () => {
             alt={name}
           />
         </div>
-      </div>
+      </a>
     );
   });
 
