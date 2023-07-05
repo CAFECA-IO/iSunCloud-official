@@ -57,9 +57,9 @@ const WhyUs = () => {
 
   return (
     <div className="flex h-auto w-full items-center justify-center px-5 py-24">
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col font-Barlow">
         <div className="flex flex-col items-center space-y-4 text-darkBlue">
-          <h1 className="text-4xl font-semibold lg:text-54px">{t('HOME_PAGE.WHY_US_TITLE')}</h1>
+          <h2 className="text-4xl font-semibold lg:text-54px">{t('HOME_PAGE.WHY_US_TITLE')}</h2>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 
@@ -71,9 +71,9 @@ const WhyUs = () => {
         {/* Info: (20230615 - Julian) Our Partners */}
         <div className="flex w-full flex-col items-center justify-between py-10 lg:mt-10 lg:flex-row lg:px-16">
           <div className="mb-8 flex flex-1 flex-col items-center space-y-4 lg:items-start">
-            <h1 className="whitespace-nowrap text-left text-4xl font-semibold text-darkBlue lg:text-5xl">
+            <h2 className="whitespace-nowrap text-left text-4xl font-semibold text-darkBlue lg:text-5xl">
               {t('HOME_PAGE.WHY_US_PARTNERS_TITLE')}
-            </h1>
+            </h2>
             <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
           </div>
 

@@ -158,7 +158,7 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h2 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h2>
         <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
@@ -263,7 +263,7 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 lg:py-32"
+      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-32"
     >
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen">
