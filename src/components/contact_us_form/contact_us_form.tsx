@@ -158,7 +158,7 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h2>
+        <h2 className="text-4xl font-bold lg:text-5xl">{t('HOME_PAGE.CONTACT_US_TITLE')}</h2>
         <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
