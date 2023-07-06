@@ -25,7 +25,7 @@ const WhatWeDo = () => {
     <div className="relative flex h-auto w-full items-center justify-center bg-lightGray pt-24 font-Barlow lg:px-24">
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen">
-        <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+        <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
 
       <div className="flex flex-col pt-20 text-darkBlue lg:pt-32">

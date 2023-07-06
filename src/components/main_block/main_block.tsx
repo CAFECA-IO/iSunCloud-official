@@ -25,7 +25,7 @@ const MainBlock = () => {
         <Link
           href="/#contact_us"
           scroll={false}
-          className="group mx-auto flex items-center whitespace-nowrap pt-10 lg:mx-0"
+          className="group mx-auto flex items-center whitespace-nowrap pt-10 lg:mx-0 lg:w-3/10"
         >
           <div className="flex items-center space-x-1">
             <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-150 ease-in group-hover:mr-1"></span>

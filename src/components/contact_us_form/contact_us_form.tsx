@@ -267,7 +267,7 @@ const ContactUsForm = () => {
     >
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen">
-        <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+        <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
       <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
         {/* Info: (20230619 - Julian) Image for desktop */}
@@ -276,7 +276,7 @@ const ContactUsForm = () => {
             src="/elements/contact_us.svg"
             width={0}
             height={0}
-            alt=""
+            alt="orange chat bubble"
             style={{
               width: '700px',
               height: 'auto',
@@ -290,7 +290,7 @@ const ContactUsForm = () => {
             src="/elements/contact_us.svg"
             width={0}
             height={0}
-            alt=""
+            alt="orange chat bubble"
             style={{
               width: '100vw',
               height: 'auto',
