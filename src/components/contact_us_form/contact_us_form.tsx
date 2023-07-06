@@ -297,7 +297,7 @@ const ContactUsForm = () => {
             }}
           />
         </div>
-        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
+        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px lg:scale-80 2xl:scale-100">
           {formPart}
           {animPart}
         </div>
