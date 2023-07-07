@@ -18,7 +18,7 @@ const WhyUs = () => {
           alt={t(title)}
         />
         <div className="flex flex-col items-center text-base text-darkBlue">
-          <span className="text-2xl text-brandOrange">{description}</span>
+          <span className="text-2xl font-bold text-brandOrange">{description}</span>
           {t(title)}
         </div>
       </div>
@@ -59,7 +59,7 @@ const WhyUs = () => {
     <div className="flex h-auto w-full items-center justify-center px-5 py-24">
       <div className="flex w-full flex-col font-Barlow">
         <div className="flex flex-col items-center space-y-4 text-darkBlue">
-          <h2 className="text-4xl font-semibold lg:text-54px">{t('HOME_PAGE.WHY_US_TITLE')}</h2>
+          <h2 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.WHY_US_TITLE')}</h2>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
         </div>
 

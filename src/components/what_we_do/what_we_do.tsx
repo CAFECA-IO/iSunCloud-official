@@ -22,13 +22,13 @@ const WhatWeDo = () => {
   });
 
   return (
-    <div className="relative flex h-auto w-full items-center justify-center pt-24 font-Barlow lg:px-24">
+    <div className="relative flex h-auto w-full items-center justify-center font-Barlow">
       {/* Info: (20230704 - Julian) Devider */}
-      <div className="absolute -top-100px h-200px w-screen">
+      <div className="absolute -top-100px h-200px w-screen bg-white">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
 
-      <div className="bg-whatWeDo flex flex-col text-darkBlue">
+      <div className="flex flex-col bg-whatWeDo pt-24 text-darkBlue lg:px-24">
         <div className="flex flex-col items-center space-y-4 px-5 pb-16 pt-12 lg:px-20 lg:pb-12 lg:pt-20">
           <h2 className="text-4xl font-semibold lg:text-5xl">{t('HOME_PAGE.WHAT_WE_DO_TITLE')}</h2>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />

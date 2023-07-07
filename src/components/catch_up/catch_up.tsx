@@ -9,7 +9,7 @@ const CatchUp = () => {
     <div className="flex h-auto w-full items-center justify-center py-24 lg:px-24">
       <div className="flex flex-col items-center font-Barlow">
         <div className="flex flex-col items-center space-y-2 text-center text-darkBlue">
-          <h2 className="text-4xl font-semibold lg:text-54px">{t('HOME_PAGE.CATCH_UP_TITLE')}</h2>
+          <h2 className="text-5xl font-bold lg:text-6xl">{t('HOME_PAGE.CATCH_UP_TITLE')}</h2>
           <h2 className="text-4xl font-semibold lg:text-5xl">
             {t('HOME_PAGE.CATCH_UP_SUBTITLE_1')}
             <span className="text-brandOrange">{t('HOME_PAGE.CATCH_UP_SUBTITLE_HIGHLIGHT')}</span>

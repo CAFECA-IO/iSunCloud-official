@@ -20,7 +20,7 @@ const MainBlock = () => {
         </div>
         <div className="flex flex-col items-center justify-center space-y-8 lg:w-6/10 lg:items-start">
           <h1 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
-          <p className="text-sm lg:w-7/10">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
+          <p className="text-base lg:w-7/10 lg:text-lg">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
         </div>
         <Link
           href="/#contact_us"

@@ -8,7 +8,7 @@ const NotificationBlock = () => {
   return (
     <div className="relative flex h-auto w-full items-center justify-center bg-lightGray px-4 py-28 font-Barlow lg:px-24">
       {/* Info: (20230704 - Julian) Devider */}
-      <div className="absolute -top-100px h-200px w-screen">
+      <div className="absolute -top-100px h-200px w-screen bg-white">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
       <div className="z-20 rounded-3xl bg-white px-6 py-12 shadow-2xl lg:px-20">

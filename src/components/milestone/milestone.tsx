@@ -293,7 +293,7 @@ const Milestone = () => {
   return (
     <div className="flex w-screen flex-col items-center justify-center pt-24 font-Barlow lg:px-10">
       <div className="flex flex-col items-center space-y-4 text-darkBlue">
-        <h2 className="text-4xl font-semibold lg:text-54px">{t('HOME_PAGE.MILESTONE_TITLE')}</h2>
+        <h2 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MILESTONE_TITLE')}</h2>
         <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
       </div>
 
