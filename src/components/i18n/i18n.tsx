@@ -42,6 +42,7 @@ const I18n = () => {
         >
           <Link
             href={asPath}
+            scroll={false}
             className="px-4 py-3 hover:px-5"
             onClick={() => changeLanguageHandler(value)}
             locale={value}
@@ -64,7 +65,12 @@ const I18n = () => {
           key={value}
           className="flex w-full justify-center py-4 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
         >
-          <Link href={asPath} onClick={() => changeLanguageHandler(value)} locale={value}>
+          <Link
+            href={asPath}
+            scroll={false}
+            onClick={() => changeLanguageHandler(value)}
+            locale={value}
+          >
             {label}
           </Link>
         </li>

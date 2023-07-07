@@ -25,6 +25,8 @@ module.exports = {
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
 
+        stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
+
         devider: 'url("/elements/devider_neo.png")',
       },
       backgroundPosition: {
@@ -41,8 +43,7 @@ module.exports = {
         '2xl': ['24px', '32px'],
         '3xl': ['30px', '36px'],
         '4xl': ['36px', '40px'],
-        '42px': ['42px', '48px'],
-        '5xl': ['48px', 1],
+        '5xl': ['42px', '48px'],
         '54px': ['54px', 1],
         '6xl': ['60px', 1],
         '7xl': ['72px', 1],
@@ -299,6 +300,12 @@ module.exports = {
       },
       translate: {
         '10px': '10px',
+      },
+      fontFamily: {
+        Barlow: 'Barlow, sans-serif',
+      },
+      scale: {
+        80: '0.8',
       },
     },
   },

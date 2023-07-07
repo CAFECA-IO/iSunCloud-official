@@ -158,7 +158,7 @@ const ContactUsForm = () => {
   const formPart = (
     <div className="flex w-screen flex-col lg:w-full">
       <div className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold lg:text-42px">{t('HOME_PAGE.CONTACT_US_TITLE')}</h1>
+        <h2 className="text-4xl font-bold lg:text-5xl">{t('HOME_PAGE.CONTACT_US_TITLE')}</h2>
         <h2 className="mt-3 text-base">{t('HOME_PAGE.CONTACT_US_DESCRIPTION')}</h2>
       </div>
 
@@ -263,11 +263,11 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 lg:py-32"
+      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-32"
     >
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen">
-        <Image src={'/elements/devider_neo.png'} fill alt="" style={{objectFit: 'cover'}} />
+        <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
       <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
         {/* Info: (20230619 - Julian) Image for desktop */}
@@ -276,7 +276,7 @@ const ContactUsForm = () => {
             src="/elements/contact_us.svg"
             width={0}
             height={0}
-            alt=""
+            alt="orange chat bubble"
             style={{
               width: '700px',
               height: 'auto',
@@ -290,14 +290,14 @@ const ContactUsForm = () => {
             src="/elements/contact_us.svg"
             width={0}
             height={0}
-            alt=""
+            alt="orange chat bubble"
             style={{
               width: '100vw',
               height: 'auto',
             }}
           />
         </div>
-        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px">
+        <div className="relative z-20 flex h-auto w-9/10 items-center rounded-3xl bg-white p-10 text-darkBlue shadow-2xl lg:w-580px lg:scale-80 2xl:scale-100">
           {formPart}
           {animPart}
         </div>
