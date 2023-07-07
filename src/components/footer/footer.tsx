@@ -94,7 +94,8 @@ const Footer = () => {
 
         {/* Info: (20230707 - Julian) Contact Info & Copyright */}
         <div className="flex flex-col items-center space-y-6 lg:items-end lg:justify-between">
-          <div className="flex space-x-4 text-2xl">
+          {/* Info: (20230707 - Julian) Social Media */}
+          <div className="flex space-x-4 text-2xl opacity-0">
             <ImFacebook />
             <ImTwitter />
             <ImLinkedin2 />
