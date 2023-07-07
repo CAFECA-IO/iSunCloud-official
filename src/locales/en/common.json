@@ -67,8 +67,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "Something went wrong ! Please try again."
   },
   "FOOTER": {
-    "TAIWAN_OFFICE": "Taiwan Office",
-    "HONGKONG_OFFICE": "Hong Kong Office",
-    "USA_OFFICE": "USA Office"
+    "TAIWAN_OFFICE": "TAIWAN OFFICE",
+    "HONGKONG_OFFICE": "HONG KONG OFFICE",
+    "USA_OFFICE": "USA OFFICE"
   }
 }
