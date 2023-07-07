@@ -24,12 +24,12 @@ export const advantageContents = [
   },
   {
     title: 'HOME_PAGE.WHY_US_PROJECT_TITLE',
-    description: '600+',
+    description: '14+',
     image: '/elements/files.svg',
   },
   {
-    title: 'HOME_PAGE.WHY_US_COMPETITION_TITLE',
-    description: '70+',
+    title: 'HOME_PAGE.WHY_US_PATENT_TITLE',
+    description: '6+',
     image: '/elements/badge.svg',
   },
   {
