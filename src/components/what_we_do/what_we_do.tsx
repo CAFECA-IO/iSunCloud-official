@@ -22,19 +22,23 @@ const WhatWeDo = () => {
   });
 
   return (
-    <div className="relative flex h-auto w-full items-center justify-center bg-lightGray pt-24 font-Barlow lg:px-24">
+    <div className="relative flex h-auto w-full items-center justify-center pt-24 font-Barlow lg:px-24">
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
 
-      <div className="flex flex-col pt-20 text-darkBlue lg:pt-32">
-        <div className="flex flex-col items-center space-y-4">
+      <div className="bg-whatWeDo flex flex-col text-darkBlue">
+        <div className="flex flex-col items-center space-y-4 px-5 pb-16 pt-12 lg:px-20 lg:pb-12 lg:pt-20">
           <h2 className="text-4xl font-semibold lg:text-5xl">{t('HOME_PAGE.WHAT_WE_DO_TITLE')}</h2>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />
+          <div className="flex flex-col items-center space-y-4 text-lg">
+            <h3>{t('HOME_PAGE.WHAT_WE_DO_DESCRIPTION_1')}</h3>
+            <h3>{t('HOME_PAGE.WHAT_WE_DO_DESCRIPTION_2')}</h3>
+          </div>
         </div>
 
-        {/* ToDo:(20230617 - Julian) mobile version */}
+        {/* Info:(20230707 - Julian) Hover image */}
         <div className="mt-10 flex h-auto w-screen flex-col justify-center overflow-x-hidden overflow-y-hidden lg:h-380px lg:flex-row">
           {banner}
         </div>

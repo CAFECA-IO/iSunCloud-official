@@ -51,7 +51,7 @@
     "WHY_US_TITLE": "为何选择 iSunCloud？",
     "WHY_US_CLIENT_TITLE": "客户满意度",
     "WHY_US_PROJECT_TITLE": "完成的专案",
-    "WHY_US_COMPETITION_TITLE": "竞赛获奖",
+    "WHY_US_PATENT_TITLE": "专利布局",
     "WHY_US_EXPERIENCE_TITLE": "年的丰富经验",
     "WHY_US_PARTNERS_TITLE": "合作伙伴",
     "CONTACT_US_TITLE": "联络我们",
@@ -67,6 +67,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "讯息送出失败！请稍后再试"
   },
   "FOOTER": {
-    "ADDRESS": "台北市松山区敦化北路207号8号楼之7"
+    "TAIWAN_OFFICE": "台湾",
+    "HONGKONG_OFFICE": "香港",
+    "USA_OFFICE": "美国"
   }
 }

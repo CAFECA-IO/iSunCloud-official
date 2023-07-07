@@ -51,7 +51,7 @@
     "WHY_US_TITLE": "Why iSunCloud？",
     "WHY_US_CLIENT_TITLE": "Happy clients",
     "WHY_US_PROJECT_TITLE": "Completed projects",
-    "WHY_US_COMPETITION_TITLE": "Competitions winning",
+    "WHY_US_PATENT_TITLE": "Patented deployments",
     "WHY_US_EXPERIENCE_TITLE": "Years of experience",
     "WHY_US_PARTNERS_TITLE": "Our Partners",
     "CONTACT_US_TITLE": "Get In Touch",
@@ -67,6 +67,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "Something went wrong ! Please try again."
   },
   "FOOTER": {
-    "ADDRESS": "8F.-7, No. 207, Dunhua N. Rd., Songshan Dist., Taipei City 105406, Taiwan"
+    "TAIWAN_OFFICE": "Taiwan Office",
+    "HONGKONG_OFFICE": "Hong Kong Office",
+    "USA_OFFICE": "USA Office"
   }
 }
