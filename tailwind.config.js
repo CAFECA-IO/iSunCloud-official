@@ -25,6 +25,7 @@ module.exports = {
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
 
+        whatWeDo: 'linear-gradient(180deg, #FAFAFA 0%, #FFF 100%)',
         stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
 
         devider: 'url("/elements/devider_neo.png")',
@@ -44,8 +45,7 @@ module.exports = {
         '3xl': ['30px', '36px'],
         '4xl': ['36px', '40px'],
         '5xl': ['42px', '48px'],
-        '54px': ['54px', 1],
-        '6xl': ['60px', 1],
+        '6xl': ['54px', 1],
         '7xl': ['72px', 1],
         '8xl': ['96px', 1],
         '9xl': ['128px', 1],

@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const config = {
     googleClientID: process.env.REACT_APP_GOOGLE_CLIENT_ID,
     googleClientPassword: process.env.REACT_APP_GOOGLE_CLIENT_PASSWORD,
-    recipientEmail: process.env.REACT_APP_ISUNCLOUD_EMAIL,
+    recipientEmail: process.env.REACT_APP_ISUNCLOUD_CONTACT_EMAIL,
   };
 
   /* Info: (20230324 - Julian) send email */

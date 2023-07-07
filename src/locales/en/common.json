@@ -21,6 +21,8 @@
     "CATCH_UP_INNOVATION_TITLE": "Innovation",
     "CATCH_UP_INNOVATION_DESCRIPTION": "Embracing blockchain technology opens doors to collaboration with other institutions, fosters innovation, and positions financial institutions at the forefront of technological advancements in the industry.",
     "WHAT_WE_DO_TITLE": "What we do",
+    "WHAT_WE_DO_DESCRIPTION_1": "iSunCloud is a Financial Technology company that provides accounting and auditing services for startups and growing companies, using innovative AI and blockchain technology such as zero-knowledge proof.",
+    "WHAT_WE_DO_DESCRIPTION_2": "We target the FinTech startups who need automatic, programmable, and smart auditing systems to significantly reduce their operational and compliance cost. With our technology, FinTech startups can finish the auditing process with a fraction of the cost, compared to the traditional methods.",
     "WHAT_WE_DO_BLOCKCHAIN_TITLE": "Blockchain",
     "WHAT_WE_DO_BLOCKCHAIN_DESCRIPTION": "BOLT Blockchain Technology Solutions",
     "WHAT_WE_DO_AI_TITLE": "AI Auditing",
@@ -49,7 +51,7 @@
     "WHY_US_TITLE": "Why iSunCloud？",
     "WHY_US_CLIENT_TITLE": "Happy clients",
     "WHY_US_PROJECT_TITLE": "Completed projects",
-    "WHY_US_COMPETITION_TITLE": "Competitions winning",
+    "WHY_US_PATENT_TITLE": "Patented deployments",
     "WHY_US_EXPERIENCE_TITLE": "Years of experience",
     "WHY_US_PARTNERS_TITLE": "Our Partners",
     "CONTACT_US_TITLE": "Get In Touch",
@@ -65,6 +67,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "Something went wrong ! Please try again."
   },
   "FOOTER": {
-    "ADDRESS": "8F.-7, No. 207, Dunhua N. Rd., Songshan Dist., Taipei City 105406, Taiwan"
+    "TAIWAN_OFFICE": "TAIWAN OFFICE",
+    "HONGKONG_OFFICE": "HONG KONG OFFICE",
+    "USA_OFFICE": "USA OFFICE"
   }
 }
