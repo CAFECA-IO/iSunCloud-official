@@ -61,7 +61,7 @@ const WhatWeDo = () => {
       const frameAuditing = animAuditing.totalFrames * (((scrollPosition - 1150) / duration) * 1.8);
       const frameConne2 = animConne2.totalFrames * (((scrollPosition - 1500) / duration) * 2);
       const frameSaftybox = animSaftybox.totalFrames * (((scrollPosition - 1900) / duration) * 2);
-      console.log(framePacking);
+
       /* Info:(20230823 - Julian) Packing frame */
       if (scrollPosition > 200 && scrollPosition < 1100) {
         if (framePacking <= 0) animPacking.goToAndStop(1, true);
