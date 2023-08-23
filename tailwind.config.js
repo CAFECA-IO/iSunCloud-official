@@ -11,6 +11,7 @@ module.exports = {
         lightGray3: '#F5F5F5',
 
         lightWhite: '#FFFEFB',
+        lightWhite2: '#FBFBFC',
 
         brandOrange: '#FFA502',
         darkOrange: '#FF5403',
@@ -311,6 +312,9 @@ module.exports = {
       },
       boxShadow: {
         xl: '0px 30px 70px rgba(68, 44, 0, 0.10)',
+        pill: '2px 2px 12px 0px rgba(68, 44, 0, 0.20), -2px -2px 4px 0px rgba(255, 255, 255, 0.40)',
+        'pill-hover':
+          '2px 2px 4px 0px rgba(68, 44, 0, 0.20) inset, -2px -2px 4px 0px rgba(255, 255, 255, 0.40) inset',
       },
     },
   },

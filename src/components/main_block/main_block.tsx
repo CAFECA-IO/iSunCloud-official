@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {useState} from 'react';
 import {RiComputerLine, RiArrowDownSLine} from 'react-icons/ri';
+import {TbCloudDownload} from 'react-icons/tb';
 import useOuterClick from '../../lib/hooks/use_outer_click';
 import {downloadContent} from '../../constants/config';
 import {IDownloadContent} from '../../interfaces/download_content';
@@ -18,6 +19,9 @@ const MainBlock = () => {
     setActiveOs(os);
     setComponentVisible(false);
   };
+  const downloadHandler = () => {
+    /* ToDo: (20230823 - Julian) Download handler */
+  };
 
   const osSelectMenu = (
     <div className="relative flex flex-col font-medium">
@@ -26,7 +30,7 @@ const MainBlock = () => {
         className="flex w-145px items-center space-x-2 px-2 py-3 hover:text-brandOrange"
       >
         <RiComputerLine className="text-2xl" />
-        <span className="text-base">{t(activeOs.title)}</span>
+        <p className="text-base">{t(activeOs.title)}</p>
         <RiArrowDownSLine className="text-2xl" />
       </button>
       <ul
@@ -70,7 +74,18 @@ const MainBlock = () => {
           <p className="text-base lg:w-7/10 lg:text-lg">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
         </div>
         {/* Info: (20230823 - Julian) Buttons */}
-        <div className="mt-12 flex items-center space-x-4">{osSelectMenu}</div>
+        <div className="mt-12 flex items-center space-x-4">
+          {/* Info: (20230823 - Julian) OS select menu */}
+          {osSelectMenu}
+          {/* Info: (20230823 - Julian) Download button */}
+          <button
+            onClick={downloadHandler}
+            className="flex items-center space-x-2 rounded-full bg-lightWhite2 px-10 py-4 shadow-pill hover:shadow-pill-hover"
+          >
+            <TbCloudDownload className="text-2xl" />
+            <p className="text-base">{t('HOME_PAGE.DOWNLOAD')}</p>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -47,17 +47,17 @@ export const downloadContent: IDownloadContent[] = [
   {
     os: 'windows',
     title: 'HOME_PAGE.WINDOWS',
-    downloadUrl: '/',
+    downloadUrl: '/windows',
   },
   {
     os: 'mac',
     title: 'HOME_PAGE.MAC_OS',
-    downloadUrl: '/',
+    downloadUrl: '/mac',
   },
   {
     os: 'linux',
     title: 'HOME_PAGE.LINUX',
-    downloadUrl: '/',
+    downloadUrl: '/linux',
   },
 ];
 
