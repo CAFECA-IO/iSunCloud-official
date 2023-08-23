@@ -2,6 +2,7 @@ import {useEffect, useState, useRef} from 'react';
 import lottie from 'lottie-web';
 import Image from 'next/image';
 import useInputNumber from '../../lib/hooks/use_input_number';
+import {TbCloudDownload} from 'react-icons/tb';
 import {IAnimationType, AnimationType} from '../../constants/animation_type';
 import {useTranslation} from 'next-i18next';
 import {TranslateFunction} from '../../interfaces/locale';
@@ -225,16 +226,10 @@ const ContactUsForm = () => {
           type="submit"
           // Info: (20230620 - Julian) email 格式不正確時，submit 按鈕 disabled
           disabled={emailIsValid ? false : true}
-          className="group flex items-center p-5 text-darkBlue hover:text-brandOrange disabled:text-gray-500 disabled:hover:text-gray-500"
+          className="flex items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill transition-shadow duration-150 ease-in hover:shadow-pill-hover disabled:text-gray-500 disabled:hover:shadow-pill"
         >
-          <div className="flex items-center space-x-1">
-            <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-            <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-            <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
-          </div>
-          <span className="ml-3 text-xl font-bold transition-all duration-300 ease-in">
-            {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
-          </span>
+          <TbCloudDownload className="text-2xl" />
+          <p className="font-bold">{t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}</p>
         </button>
       </form>
     </div>

@@ -80,7 +80,7 @@ const MainBlock = () => {
           {/* Info: (20230823 - Julian) Download button */}
           <button
             onClick={downloadHandler}
-            className="flex w-full items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill hover:shadow-pill-hover lg:w-170px"
+            className="flex w-full items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill transition-shadow duration-150 ease-in hover:shadow-pill-hover lg:w-170px"
           >
             <TbCloudDownload className="text-2xl" />
             <p className="text-base font-bold">{t('HOME_PAGE.DOWNLOAD')}</p>
