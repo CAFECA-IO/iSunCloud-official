@@ -105,7 +105,7 @@ const WhatWeDo = () => {
   return (
     <div className="relative flex h-auto w-full items-center justify-center font-Barlow">
       {/* Info: (20230704 - Julian) Devider */}
-      <div className="absolute -top-100px h-200px w-screen bg-white">
+      <div className="absolute -top-30px h-130px w-screen bg-white lg:-top-100px lg:h-200px">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
 
@@ -118,29 +118,31 @@ const WhatWeDo = () => {
         {/* Info:(20230823 - Julian) Animations */}
         <div className="flex w-screen flex-col items-center text-left">
           {/* Info:(20230823 - Julian) Packing */}
-          <div className="flex items-center px-20">
-            <div ref={lottiePacking} className="h-500px w-500px flex-1"></div>
-            <div className="flex w-2/5 flex-col space-y-6">
-              <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_TITLE')}</h2>
+          <div className="flex flex-col items-center space-y-6 px-10 lg:flex-row lg:space-y-0 lg:px-20">
+            <div ref={lottiePacking} className="w-290px lg:h-500px lg:w-500px lg:flex-1"></div>
+            <div className="flex flex-col space-y-6 lg:w-2/5">
+              <h2 className="text-xl font-bold lg:text-32px">
+                {t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_TITLE')}
+              </h2>
               <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION')}</p>
             </div>
           </div>
           {/* Info:(20230823 - Julian) Connection 1 */}
-          <div ref={lottieConnection1} className="h-300px w-1000px"></div>
+          <div ref={lottieConnection1} className="w-450px lg:h-300px lg:w-1000px"></div>
           {/* Info:(20230823 - Julian) Auditing */}
-          <div className="flex items-center px-20">
-            <div className="flex w-2/5 flex-col space-y-6">
+          <div className="flex flex-col-reverse items-center space-y-6 px-10 lg:flex-row lg:space-y-0 lg:px-20">
+            <div className="flex flex-col space-y-6 lg:w-2/5">
               <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_TITLE')}</h2>
               <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_DESCRIPTION')}</p>
             </div>
-            <div ref={lottieAuditing} className="h-500px w-500px flex-1"></div>
+            <div ref={lottieAuditing} className="w-290px lg:h-500px lg:w-500px lg:flex-1"></div>
           </div>
           {/* Info:(20230823 - Julian) Connection 2 */}
-          <div ref={lottieConnection2} className="h-300px w-1000px"></div>
+          <div ref={lottieConnection2} className="w-450px lg:h-300px lg:w-1000px"></div>
           {/* Info:(20230823 - Julian) Saftybox */}
-          <div className="flex items-center px-20">
-            <div ref={lottieSaftybox} className="h-500px w-500px flex-1"></div>
-            <div className="flex w-2/5 flex-col space-y-6">
+          <div className="flex flex-col items-center space-y-6 px-10 lg:flex-row lg:space-y-0 lg:px-20">
+            <div ref={lottieSaftybox} className="w-290px lg:h-500px lg:w-500px lg:flex-1"></div>
+            <div className="flex flex-col space-y-6 lg:w-2/5">
               <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_TITLE')}</h2>
               <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION')}</p>
             </div>

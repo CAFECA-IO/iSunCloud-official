@@ -41,7 +41,9 @@ const WhyUs = () => {
       <div className="flex w-full flex-col font-Barlow">
         {/* Info: (20230823 - Julian) Prioritizing */}
         <div className="flex w-full flex-col items-center bg-lightWhite2">
-          <h2 className="p-20 text-5xl font-bold">{t('HOME_PAGE.PRIORITIZING_TITLE')}</h2>
+          <h2 className="p-4 text-2xl font-bold lg:p-20 lg:text-5xl">
+            {t('HOME_PAGE.PRIORITIZING_TITLE')}
+          </h2>
           <div className="flex w-full justify-center bg-safe bg-cover bg-bottom bg-no-repeat py-20">
             <Image src="/animations/safe.gif" width={500} height={402} alt="" />
           </div>

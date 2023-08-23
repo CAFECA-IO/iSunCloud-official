@@ -10,14 +10,14 @@ const CatchUp = () => {
       <div className="flex flex-col items-center font-Barlow">
         <div className="flex flex-col items-center space-y-2 text-center text-darkBlue">
           <h2 className="text-5xl font-bold lg:text-6xl">{t('HOME_PAGE.CATCH_UP_TITLE')}</h2>
-          <h2 className="text-4xl font-semibold lg:text-5xl">
+          <h2 className="text-2xl font-semibold lg:text-5xl">
             {t('HOME_PAGE.CATCH_UP_SUBTITLE_1')}
             <span className="text-brandOrange">{t('HOME_PAGE.CATCH_UP_SUBTITLE_HIGHLIGHT')}</span>
             {t('HOME_PAGE.CATCH_UP_SUBTITLE_2')}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-2 py-5 text-darkBlue lg:grid-cols-2 lg:py-24">
+        <div className="grid grid-cols-1 gap-2 py-20 text-darkBlue lg:grid-cols-2 lg:py-24">
           <div className="flex flex-col items-center p-10">
             <div className="relative h-80px w-80px p-2">
               <Image
@@ -28,7 +28,9 @@ const CatchUp = () => {
               />
             </div>
             <h3 className="p-4 text-xl font-semibold">{t('HOME_PAGE.CATCH_UP_SECURITY_TITLE')}</h3>
-            <p className="text-lg">{t('HOME_PAGE.CATCH_UP_SECURITY_DESCRIPTION')}</p>
+            <p className="text-left text-lg lg:text-center">
+              {t('HOME_PAGE.CATCH_UP_SECURITY_DESCRIPTION')}
+            </p>
           </div>
 
           <div className="flex flex-col items-center p-10">
@@ -43,7 +45,9 @@ const CatchUp = () => {
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_EFFICIENCY_TITLE')}
             </h3>
-            <p className="text-lg">{t('HOME_PAGE.CATCH_UP_EFFICIENCY_DESCRIPTION')}</p>
+            <p className="text-left text-lg lg:text-center">
+              {t('HOME_PAGE.CATCH_UP_EFFICIENCY_DESCRIPTION')}
+            </p>
           </div>
 
           <div className="flex flex-col items-center p-10">
@@ -58,7 +62,9 @@ const CatchUp = () => {
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_COMPLIANCE_TITLE')}
             </h3>
-            <p className="text-lg">{t('HOME_PAGE.CATCH_UP_COMPLIANCE_DESCRIPTION')}</p>
+            <p className="text-left text-lg lg:text-center">
+              {t('HOME_PAGE.CATCH_UP_COMPLIANCE_DESCRIPTION')}
+            </p>
           </div>
 
           <div className="flex flex-col items-center p-10">
@@ -73,7 +79,9 @@ const CatchUp = () => {
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_INNOVATION_TITLE')}
             </h3>
-            <p className="text-lg">{t('HOME_PAGE.CATCH_UP_INNOVATION_DESCRIPTION')}</p>
+            <p className="text-left text-lg lg:text-center">
+              {t('HOME_PAGE.CATCH_UP_INNOVATION_DESCRIPTION')}
+            </p>
           </div>
         </div>
       </div>
