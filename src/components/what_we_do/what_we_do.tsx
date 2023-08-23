@@ -109,7 +109,7 @@ const WhatWeDo = () => {
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
 
-      <div className="flex flex-col bg-whatWeDo pt-24 text-darkBlue lg:px-24">
+      <div className="flex flex-col bg-lightWhite2 pt-24 text-darkBlue lg:px-24">
         <div className="flex flex-col items-center space-y-4 px-5 pb-16 pt-12 lg:px-20 lg:pb-12 lg:pt-20">
           <h2 className="text-4xl font-semibold lg:text-5xl">{t('HOME_PAGE.WHAT_WE_DO_TITLE')}</h2>
           <Image src="/elements/decoration.svg" width={40} height={10} alt="" />

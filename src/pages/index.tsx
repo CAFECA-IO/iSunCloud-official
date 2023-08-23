@@ -49,7 +49,7 @@ const Home = () => {
         <WhatWeDo />
 
         {/* Info: (20230615 - Julian) Milestone */}
-        <Milestone />
+        {/* <Milestone /> */}
 
         {/* Info: (20230615 - Julian) Why iSunCloud */}
         <WhyUs />

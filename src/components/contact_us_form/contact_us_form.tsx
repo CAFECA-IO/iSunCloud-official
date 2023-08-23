@@ -263,13 +263,13 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-32"
+      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-20"
     >
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen bg-white">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
-      <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
+      <div className="relative flex h-full w-screen flex-col items-center justify-center lg:w-full lg:flex-row lg:justify-end">
         {/* Info: (20230619 - Julian) Image for desktop */}
         <div className="absolute left-12 hidden w-full lg:block">
           <Image

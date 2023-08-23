@@ -25,8 +25,8 @@ module.exports = {
         fintech: "url('/elements/fintech.png')",
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
+        safe: "url('/elements/safe_bg.svg')",
 
-        whatWeDo: 'linear-gradient(180deg, #FAFAFA 0%, #FFF 100%)',
         stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
 
         devider: 'url("/elements/devider_neo.png")',
