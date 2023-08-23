@@ -19,16 +19,26 @@ const CatchUp = () => {
 
         <div className="grid grid-cols-1 gap-2 py-5 text-darkBlue lg:grid-cols-2 lg:py-24">
           <div className="flex flex-col items-center p-10">
-            <div className="p-2">
-              <Image src="/elements/safty.svg" width={80} height={80} alt="security_icon" />
+            <div className="relative h-80px w-80px p-2">
+              <Image
+                src="/elements/safty.svg"
+                fill
+                style={{objectFit: 'contain'}}
+                alt="security_icon"
+              />
             </div>
             <h3 className="p-4 text-xl font-semibold">{t('HOME_PAGE.CATCH_UP_SECURITY_TITLE')}</h3>
             <p className="text-lg">{t('HOME_PAGE.CATCH_UP_SECURITY_DESCRIPTION')}</p>
           </div>
 
           <div className="flex flex-col items-center p-10">
-            <div className="p-2">
-              <Image src="/elements/efficiency.svg" width={80} height={80} alt="efficiency_icon" />
+            <div className="relative h-80px w-80px p-2">
+              <Image
+                src="/elements/efficiency.svg"
+                fill
+                style={{objectFit: 'contain'}}
+                alt="efficiency_icon"
+              />
             </div>
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_EFFICIENCY_TITLE')}
@@ -37,8 +47,13 @@ const CatchUp = () => {
           </div>
 
           <div className="flex flex-col items-center p-10">
-            <div className="p-2">
-              <Image src="/elements/compliance.svg" width={80} height={80} alt="compliance_icon" />
+            <div className="relative h-80px w-80px p-2">
+              <Image
+                src="/elements/sharing.svg"
+                fill
+                style={{objectFit: 'contain'}}
+                alt="sharing_icon"
+              />
             </div>
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_COMPLIANCE_TITLE')}
@@ -47,8 +62,13 @@ const CatchUp = () => {
           </div>
 
           <div className="flex flex-col items-center p-10">
-            <div className="p-2">
-              <Image src="/elements/innovation.svg" width={80} height={80} alt="innovation_icon" />
+            <div className="relative h-80px w-80px p-2">
+              <Image
+                src="/elements/innovation.svg"
+                fill
+                style={{objectFit: 'contain'}}
+                alt="innovation_icon"
+              />
             </div>
             <h3 className="p-4 text-xl font-semibold">
               {t('HOME_PAGE.CATCH_UP_INNOVATION_TITLE')}

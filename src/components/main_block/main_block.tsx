@@ -69,21 +69,21 @@ const MainBlock = () => {
           />
         </div>
         {/* Info: (20230823 - Julian) Text */}
-        <div className="flex flex-col items-center justify-center space-y-8 lg:w-46% lg:items-start">
-          <h1 className="text-4xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
+        <div className="mt-20 flex flex-col items-center justify-center space-y-8 lg:mt-0 lg:w-46% lg:items-start">
+          <h1 className="text-2xl font-semibold lg:text-6xl">{t('HOME_PAGE.MAIN_TITLE')}</h1>
           <p className="text-base lg:w-7/10 lg:text-lg">{t('HOME_PAGE.MAIN_DESCRIPTION')}</p>
         </div>
         {/* Info: (20230823 - Julian) Buttons */}
-        <div className="mt-12 flex items-center space-x-4">
+        <div className="mt-12 flex flex-col items-center space-y-6 lg:flex-row lg:space-x-4 lg:space-y-0">
           {/* Info: (20230823 - Julian) OS select menu */}
           {osSelectMenu}
           {/* Info: (20230823 - Julian) Download button */}
           <button
             onClick={downloadHandler}
-            className="flex items-center space-x-2 rounded-full bg-lightWhite2 px-10 py-4 shadow-pill hover:shadow-pill-hover"
+            className="flex w-full items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill hover:shadow-pill-hover lg:w-170px"
           >
             <TbCloudDownload className="text-2xl" />
-            <p className="text-base">{t('HOME_PAGE.DOWNLOAD')}</p>
+            <p className="text-base font-bold">{t('HOME_PAGE.DOWNLOAD')}</p>
           </button>
         </div>
       </div>
