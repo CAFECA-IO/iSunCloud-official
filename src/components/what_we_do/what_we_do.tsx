@@ -54,36 +54,36 @@ const WhatWeDo = () => {
     });
 
     function animatebodymovin(duration: number) {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY - 2200;
 
-      const framePacking = animPacking.totalFrames * ((scrollPosition - 2200) / duration);
-      const frameConne1 = animConne1.totalFrames * (((scrollPosition - 3000) / duration) * 2);
-      const frameAuditing = animAuditing.totalFrames * (((scrollPosition - 3350) / duration) * 1.8);
-      const frameConne2 = animConne2.totalFrames * (((scrollPosition - 3700) / duration) * 2);
-      const frameSaftybox = animSaftybox.totalFrames * (((scrollPosition - 4080) / duration) * 2);
-      console.log(scrollPosition);
+      const framePacking = animPacking.totalFrames * (scrollPosition / duration);
+      const frameConne1 = animConne1.totalFrames * (((scrollPosition - 800) / duration) * 2);
+      const frameAuditing = animAuditing.totalFrames * (((scrollPosition - 1150) / duration) * 1.8);
+      const frameConne2 = animConne2.totalFrames * (((scrollPosition - 1500) / duration) * 2);
+      const frameSaftybox = animSaftybox.totalFrames * (((scrollPosition - 1900) / duration) * 2);
+      console.log(framePacking);
       /* Info:(20230823 - Julian) Packing frame */
-      if (scrollPosition > 2400 && scrollPosition < 3300) {
+      if (scrollPosition > 200 && scrollPosition < 1100) {
         if (framePacking <= 0) animPacking.goToAndStop(1, true);
         animPacking.goToAndStop(framePacking, true);
       }
       /* Info:(20230823 - Julian) Connection 1 frame */
-      if (scrollPosition > 3000 && scrollPosition < 3500) {
+      if (scrollPosition > 800 && scrollPosition < 1300) {
         if (frameConne1 <= 0) animConne1.goToAndStop(0, true);
         animConne1.goToAndStop(frameConne1, true);
       }
       /* Info:(20230823 - Julian) Auditing frame */
-      if (scrollPosition > 3350 && scrollPosition < 4200) {
+      if (scrollPosition > 1150 && scrollPosition < 2000) {
         if (frameAuditing <= 0) animConne1.goToAndStop(-1, true);
         animAuditing.goToAndStop(frameAuditing, true);
       }
       /* Info:(20230823 - Julian) Connection 2 frame */
-      if (scrollPosition > 3700 && scrollPosition < 4200) {
+      if (scrollPosition > 1500 && scrollPosition < 2000) {
         if (frameConne2 <= 0) animConne2.goToAndStop(-1, true);
         animConne2.goToAndStop(frameConne2, true);
       }
       /* Info:(20230823 - Julian) Saftybox frame */
-      if (scrollPosition > 4080 && scrollPosition < 4800) {
+      if (scrollPosition > 1900 && scrollPosition < 3400) {
         if (frameSaftybox <= 0) animSaftybox.goToAndStop(1, true);
         animSaftybox.goToAndStop(frameSaftybox, true);
       }
