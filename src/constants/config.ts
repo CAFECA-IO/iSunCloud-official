@@ -1,3 +1,5 @@
+import {IDownloadContent} from '../interfaces/download_content';
+
 export const whatWeDoContent = [
   {
     title: 'HOME_PAGE.WHAT_WE_DO_BLOCKCHAIN_TITLE',
@@ -36,6 +38,26 @@ export const advantageContents = [
     title: 'HOME_PAGE.WHY_US_EXPERIENCE_TITLE',
     description: '7+',
     image: '/elements/target.svg',
+  },
+];
+
+//------------- 以上刪除 -------------
+
+export const downloadContent: IDownloadContent[] = [
+  {
+    os: 'windows',
+    title: 'HOME_PAGE.WINDOWS',
+    downloadUrl: '/',
+  },
+  {
+    os: 'mac',
+    title: 'HOME_PAGE.MAC_OS',
+    downloadUrl: '/',
+  },
+  {
+    os: 'linux',
+    title: 'HOME_PAGE.LINUX',
+    downloadUrl: '/',
   },
 ];
 

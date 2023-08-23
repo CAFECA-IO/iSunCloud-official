@@ -18,6 +18,16 @@ const NavBar = () => {
     <ul className={`hidden items-center space-x-4 transition-all duration-300 ease-in-out lg:flex`}>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
         <Link href="/#contact_us" scroll={false}>
+          {t('NAV_BAR.OUR_HISTORY')}
+        </Link>
+      </li>
+      <li className="p-3 text-darkBlue hover:text-brandOrange">
+        <Link href="/#contact_us" scroll={false}>
+          {t('NAV_BAR.FAQ')}
+        </Link>
+      </li>
+      <li className="p-3 text-darkBlue hover:text-brandOrange">
+        <Link href="/#contact_us" scroll={false}>
           {t('NAV_BAR.CONTACT_US')}
         </Link>
       </li>
