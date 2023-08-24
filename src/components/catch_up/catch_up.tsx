@@ -59,11 +59,9 @@ const CatchUp = () => {
                 alt="sharing_icon"
               />
             </div>
-            <h3 className="p-4 text-xl font-semibold">
-              {t('HOME_PAGE.CATCH_UP_COMPLIANCE_TITLE')}
-            </h3>
+            <h3 className="p-4 text-xl font-semibold">{t('HOME_PAGE.CATCH_UP_SHARING_TITLE')}</h3>
             <p className="text-left text-lg lg:text-center">
-              {t('HOME_PAGE.CATCH_UP_COMPLIANCE_DESCRIPTION')}
+              {t('HOME_PAGE.CATCH_UP_SHARING_DESCRIPTION')}
             </p>
           </div>
 

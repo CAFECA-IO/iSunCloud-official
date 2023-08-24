@@ -45,18 +45,15 @@ export const advantageContents = [
 
 export const downloadContent: IDownloadContent[] = [
   {
-    os: 'windows',
-    title: 'HOME_PAGE.WINDOWS',
+    os: 'Windows',
     downloadUrl: '/windows',
   },
   {
-    os: 'mac',
-    title: 'HOME_PAGE.MAC_OS',
+    os: 'Mac OS',
     downloadUrl: '/mac',
   },
   {
-    os: 'linux',
-    title: 'HOME_PAGE.LINUX',
+    os: 'Linux',
     downloadUrl: '/linux',
   },
 ];

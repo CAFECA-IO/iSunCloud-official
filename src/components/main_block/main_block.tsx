@@ -30,7 +30,7 @@ const MainBlock = () => {
         className="flex w-145px items-center space-x-2 px-2 py-3 hover:text-brandOrange"
       >
         <RiComputerLine className="text-2xl" />
-        <p className="text-base">{t(activeOs.title)}</p>
+        <p className="text-base">{activeOs.os}</p>
         <RiArrowDownSLine className="text-2xl" />
       </button>
       <ul
@@ -47,7 +47,7 @@ const MainBlock = () => {
               onClick={clickHandler}
               className="px-6 py-1 hover:cursor-pointer hover:text-brandOrange"
             >
-              {t(content.title)}
+              {content.os}
             </li>
           );
         })}

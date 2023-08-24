@@ -28,9 +28,6 @@ const ContactUsForm = () => {
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
 
-  // Info: (20230620 - Julian) 剛載入時不顯示錯誤訊息
-  const [showEmailError, setShowEmailError] = useState(false);
-
   useEffect(() => {
     // Info: (20230617 - Julian) animations
     const animSend = lottie.loadAnimation({
@@ -77,14 +74,6 @@ const ContactUsForm = () => {
   };
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputEmail(event.target.value);
-    // Info: (20230620 - Julian) input 改變才檢查 email 是否符合規則，不符合就顯示錯誤訊息
-    if (!emailIsValid) {
-      setShowEmailError(true);
-      return;
-    } else {
-      setShowEmailError(false);
-      return;
-    }
   };
   const messageChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputMessage(event.target.value);
@@ -192,7 +181,12 @@ const ContactUsForm = () => {
         <div className="flex w-full flex-col items-start">
           <div className="flex items-center text-sm">
             <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
-            <p className={`ml-4 text-red-500 ${showEmailError ? 'block' : 'hidden'}`}>
+            <p
+              className={`ml-4 text-xs text-red-500 ${
+                // Info:(20230824 - Julian) 信箱不符合格式 && 信箱有輸入內容時，才顯示紅字
+                inputEmail !== '' && !emailIsValid ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               {t('HOME_PAGE.CONTACT_US_EMAIL_VERIFY')}
             </p>
           </div>
