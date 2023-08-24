@@ -49,6 +49,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "訊息送出失敗！請稍後再試"
   },
   "OUR_HISTORY": {
+    "MAIN_TITLE": "iSunCloud",
+    "MAIN_DESCRIPTION": "引領邊緣運算在雲端服務的應用",
     "MILESTONE_TITLE": "里程碑",
     "MILESTONE_1_TITLE": "分眾傳媒",
     "MILESTONE_1_DESCRIPTION": "作為一家 P2P 式廣告媒體公司，我們開發出最早的媒體曝光存證的技術",

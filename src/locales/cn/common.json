@@ -49,6 +49,8 @@
     "CONTACT_US_CONTACT_US_SEND_FAIL": "讯息送出失败！请稍后再试"
   },
   "OUR_HISTORY": {
+    "MAIN_TITLE": "iSunCloud",
+    "MAIN_DESCRIPTION": "引领边缘运算在云端服务的应用",
     "MILESTONE_TITLE": "里程碑",
     "MILESTONE_1_TITLE": "分众传媒",
     "MILESTONE_1_DESCRIPTION": "作为一家 P2P 式广告媒体公司，我们开发出最早的媒体曝光存证的技术",

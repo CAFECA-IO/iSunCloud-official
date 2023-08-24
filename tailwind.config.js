@@ -26,6 +26,7 @@ module.exports = {
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
         safe: "url('/elements/safe_bg.svg')",
+        services: 'url("/elements/services.jpeg")',
 
         stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
 
