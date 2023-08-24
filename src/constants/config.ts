@@ -1,48 +1,5 @@
 import {IDownloadContent} from '../interfaces/download_content';
 
-export const whatWeDoContent = [
-  {
-    title: 'HOME_PAGE.WHAT_WE_DO_BLOCKCHAIN_TITLE',
-    description: 'HOME_PAGE.WHAT_WE_DO_BLOCKCHAIN_DESCRIPTION',
-    bg: 'bg-blockchain',
-  },
-  {
-    title: 'HOME_PAGE.WHAT_WE_DO_AI_TITLE',
-    description: 'HOME_PAGE.WHAT_WE_DO_AI_DESCRIPTION',
-    bg: 'bg-ai',
-  },
-  {
-    title: 'HOME_PAGE.WHAT_WE_DO_FINTECH_TITLE',
-    description: 'HOME_PAGE.WHAT_WE_DO_FINTECH_DESCRIPTION',
-    bg: 'bg-fintech',
-  },
-];
-
-export const advantageContents = [
-  {
-    title: 'HOME_PAGE.WHY_US_CLIENT_TITLE',
-    description: '250+',
-    image: '/elements/smile.svg',
-  },
-  {
-    title: 'HOME_PAGE.WHY_US_PROJECT_TITLE',
-    description: '14+',
-    image: '/elements/files.svg',
-  },
-  {
-    title: 'HOME_PAGE.WHY_US_PATENT_TITLE',
-    description: '6+',
-    image: '/elements/badge.svg',
-  },
-  {
-    title: 'HOME_PAGE.WHY_US_EXPERIENCE_TITLE',
-    description: '7+',
-    image: '/elements/target.svg',
-  },
-];
-
-//------------- 以上刪除 -------------
-
 export const downloadContent: IDownloadContent[] = [
   {
     os: 'Windows',

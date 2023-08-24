@@ -5,7 +5,6 @@ import MainBlock from '../components/main_block/main_block';
 import NotificationBlock from '../components/notification_block/notification_block';
 import CatchUp from '../components/catch_up/catch_up';
 import WhatWeDo from '../components/what_we_do/what_we_do';
-import Milestone from '../components/milestone/milestone';
 import WhyUs from '../components/why_us/why_us';
 import ContactUsForm from '../components/contact_us_form/contact_us_form';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
@@ -47,9 +46,6 @@ const Home = () => {
 
         {/* Info: (20230615 - Julian) What we do */}
         <WhatWeDo />
-
-        {/* Info: (20230615 - Julian) Milestone */}
-        {/* <Milestone /> */}
 
         {/* Info: (20230615 - Julian) Why iSunCloud */}
         <WhyUs />
