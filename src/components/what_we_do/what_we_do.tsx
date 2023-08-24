@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
 import lottie from 'lottie-web';
 import {useTranslation} from 'next-i18next';
 import {TranslateFunction} from '../../interfaces/locale';
@@ -13,9 +13,22 @@ const WhatWeDo = () => {
   const lottieAuditing = useRef<HTMLDivElement>(null);
   const lottieConnection2 = useRef<HTMLDivElement>(null);
   const lottieSaftybox = useRef<HTMLDivElement>(null);
+  const [windowWidth, setWindowWidth] = useState(100);
 
   useEffect(() => {
-    var animDuration = 1000;
+    // Info: (20230824 - Julian) Handler to call on window resize
+    const handleResize = () => {
+      // Info: (20230824 - Julian) Set window width to state
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const animDuration = 1000;
 
     const animPacking = lottie.loadAnimation({
       container: lottiePacking.current!,
@@ -54,7 +67,8 @@ const WhatWeDo = () => {
     });
 
     function animatebodymovin(duration: number) {
-      const scrollPosition = window.scrollY - 2200;
+      const animStartY = windowWidth > 1024 ? 2200 : 3000;
+      const scrollPosition = window.scrollY - animStartY;
 
       const framePacking = animPacking.totalFrames * (scrollPosition / duration);
       const frameConne1 = animConne1.totalFrames * (((scrollPosition - 800) / duration) * 2);
@@ -100,7 +114,7 @@ const WhatWeDo = () => {
       animSaftybox.destroy();
       document.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div className="relative flex h-auto w-full items-center justify-center font-Barlow">
@@ -124,7 +138,11 @@ const WhatWeDo = () => {
               <h2 className="text-xl font-bold lg:text-32px">
                 {t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_TITLE')}
               </h2>
-              <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION')}</p>
+              <div className="flex flex-col text-base">
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION_1')}</p>
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION_2')}</p>
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION_3')}</p>
+              </div>
             </div>
           </div>
           {/* Info:(20230823 - Julian) Connection 1 */}
@@ -133,7 +151,11 @@ const WhatWeDo = () => {
           <div className="flex flex-col-reverse items-center space-y-6 px-10 lg:flex-row lg:space-y-0 lg:px-20">
             <div className="flex flex-col space-y-6 lg:w-2/5">
               <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_TITLE')}</h2>
-              <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_DESCRIPTION')}</p>
+              <div className="flex flex-col text-base">
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_DESCRIPTION_1')}</p>
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_DESCRIPTION_2')}</p>
+                <p>{t('HOME_PAGE.WHAT_WE_DO_BLOCK_2_DESCRIPTION_3')}</p>
+              </div>
             </div>
             <div ref={lottieAuditing} className="w-290px lg:h-500px lg:w-500px lg:flex-1"></div>
           </div>
@@ -143,8 +165,8 @@ const WhatWeDo = () => {
           <div className="flex flex-col items-center space-y-6 px-10 lg:flex-row lg:space-y-0 lg:px-20">
             <div ref={lottieSaftybox} className="w-290px lg:h-500px lg:w-500px lg:flex-1"></div>
             <div className="flex flex-col space-y-6 lg:w-2/5">
-              <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_TITLE')}</h2>
-              <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_1_DESCRIPTION')}</p>
+              <h2 className="text-32px font-bold">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_3_TITLE')}</h2>
+              <p className="text-base">{t('HOME_PAGE.WHAT_WE_DO_BLOCK_3_DESCRIPTION')}</p>
             </div>
           </div>
         </div>
