@@ -11,7 +11,7 @@ const Milestone = () => {
       {/* Info: (20230705 - Julian) 2006-2010 Focus Media */}
       <li className="flex w-full items-center">
         <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
-          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_1_TITLE')}</h3>
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_1_TITLE')}</h3>
           <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_1_DESCRIPTION')}</p>
         </div>
         <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
@@ -27,10 +27,37 @@ const Milestone = () => {
           />
         </div>
       </li>
-      {/* Info: (20230705 - Julian) 2011-2014 iSunCloud - Beijing, Hong Kong */}
+      {/* Info: (20230823 - Julian) 2010 iSunCloud - Hong Kong */}
       <li className="flex w-full items-center">
         <div className="flex w-1/2 flex-col items-end space-y-10 px-20 py-10">
-          <h3 className="flex-1 text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_2_RANGE')}</h3>
+          <h3 className="flex-1 text-5xl font-bold text-brandOrange">
+            {t('OUR_HISTORY.MILESTONE_2_RANGE')}
+          </h3>
+          <Image
+            src="/elements/location_in_hk.png"
+            width={200}
+            height={200}
+            alt="a location pin in Hong Kong"
+          />
+        </div>
+
+        <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
+        <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_2_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_2_DESCRIPTION')}</p>
+        </div>
+      </li>
+      {/* Info: (20230705 - Julian) 2011-2014 iSunCloud - Beijing, Hong Kong */}
+      <li className="flex w-full items-center">
+        <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
+          <h3 className="text-left text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_3_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_3_DESCRIPTION')}</p>
+        </div>
+        <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
+        <div className="flex w-1/2 flex-col items-start space-y-10 px-20 py-10">
+          <h3 className="flex-1 text-5xl font-bold text-brandOrange">
+            {t('OUR_HISTORY.MILESTONE_3_RANGE')}
+          </h3>
           <Image
             src="/elements/cloud_1.png"
             width={181}
@@ -38,22 +65,38 @@ const Milestone = () => {
             alt="a hand holding a smartphone that displays cloud storage"
           />
         </div>
+      </li>
+      {/* Info: (20230823 - Julian) 2015 iSunCloud - Taiwan */}
+      <li className="flex w-full items-center">
+        <div className="flex w-1/2 flex-col items-end space-y-10 px-20 py-10">
+          <h3 className="flex-1 text-5xl font-bold text-brandOrange">
+            {t('OUR_HISTORY.MILESTONE_4_RANGE')}
+          </h3>
+          <Image
+            src="/elements/location_in_tw.png"
+            width={200}
+            height={200}
+            alt="a location pin in Hong Kong"
+          />
+        </div>
 
         <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
         <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
-          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_2_TITLE')}</h3>
-          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_2_DESCRIPTION')}</p>
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_4_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_4_DESCRIPTION')}</p>
         </div>
       </li>
       {/* Info: (20230706 - Julian) 2015-2016 iSunCloud - Taiwan */}
       <li className="flex w-full items-center">
-        <div className="flex h-full w-1/2 flex-col items-end space-y-6 px-20 py-10">
-          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_3_TITLE')}</h3>
-          <p className="text-right text-lg">{t('OUR_HISTORY.MILESTONE_3_DESCRIPTION')}</p>
+        <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_5_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_5_DESCRIPTION')}</p>
         </div>
         <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
         <div className="flex w-1/2 flex-col space-y-10 px-20 py-10">
-          <h3 className="text-left text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_3_RANGE')}</h3>
+          <h3 className="text-left text-5xl font-bold text-brandOrange">
+            {t('OUR_HISTORY.MILESTONE_5_RANGE')}
+          </h3>
           <Image
             src="/elements/stream_1.png"
             width={560}
@@ -66,7 +109,7 @@ const Milestone = () => {
       <li className="flex w-full items-center">
         <div className="flex w-1/2 flex-col items-end space-y-10 px-20 py-10">
           <h3 className="flex-1 text-5xl font-bold text-brandOrange">
-            {t('OUR_HISTORY.MILESTONE_4_RANGE')}
+            {t('OUR_HISTORY.MILESTONE_6_RANGE')}
           </h3>
           <Image
             src="/elements/accounting_auditing_1.png"
@@ -78,19 +121,40 @@ const Milestone = () => {
 
         <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
         <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
-          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_4_TITLE')}</h3>
-          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_4_DESCRIPTION')}</p>
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_6_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_6_DESCRIPTION')}</p>
         </div>
       </li>
       {/* Info: (20230706 - Julian) 2019-2021 iSunCloud - Taiwan */}
       <li className="flex w-full items-center">
-        <div className="flex h-full w-1/2 flex-col items-end space-y-6 px-20 py-10">
-          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_5_TITLE')}</h3>
-          <p className="text-right text-lg">{t('OUR_HISTORY.MILESTONE_5_DESCRIPTION')}</p>
+        <div className="flex h-full w-1/2 flex-col items-start space-y-6 px-20 py-10">
+          <h3 className="text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_7_TITLE')}</h3>
+          <p className="text-left text-lg">{t('OUR_HISTORY.MILESTONE_7_DESCRIPTION')}</p>
         </div>
         <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
         <div className="flex w-1/2 flex-col space-y-10 px-20 py-10">
-          <h3 className="text-left text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_5_RANGE')}</h3>
+          <h3 className="text-left text-5xl font-bold text-brandOrange">
+            {t('OUR_HISTORY.MILESTONE_7_RANGE')}
+          </h3>
+          <Image
+            src="/elements/visa.png"
+            width={450}
+            height={380}
+            alt="a hand holding a credit card"
+          />
+        </div>
+      </li>
+
+      {/* -------------------Edit------------------ */}
+      {/* Info: (20230706 - Julian) 2019-2021 iSunCloud - Taiwan */}
+      <li className="flex w-full items-center">
+        <div className="flex h-full w-1/2 flex-col items-end space-y-6 px-20 py-10">
+          <h3 className="text-2xl font-bold">{t('OUR_HISTORY.MILESTONE_7_TITLE')}</h3>
+          <p className="text-right text-lg">{t('OUR_HISTORY.MILESTONE_7_DESCRIPTION')}</p>
+        </div>
+        <hr className="h-full w-px bg-darkBlue before:absolute before:-ml-2 before:mt-5 before:h-30px before:w-15px before:bg-brandOrange" />
+        <div className="flex w-1/2 flex-col space-y-10 px-20 py-10">
+          <h3 className="text-left text-5xl font-bold">{t('OUR_HISTORY.MILESTONE_7_RANGE')}</h3>
           <Image
             src="/elements/stream_2.png"
             width={560}
