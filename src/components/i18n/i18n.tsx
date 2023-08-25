@@ -43,7 +43,7 @@ const I18n = () => {
           <Link
             href={asPath}
             scroll={false}
-            className="px-4 py-3 hover:px-5"
+            className="px-4 py-5 hover:px-5"
             onClick={() => changeLanguageHandler(value)}
             locale={value}
           >
@@ -57,14 +57,14 @@ const I18n = () => {
   const mobileSubMenu = (
     <ul
       ref={targetRef}
-      className={`absolute -top-8 left-0 z-10 flex w-screen flex-col items-center bg-white ${
+      className={`absolute -top-8 left-0 z-10 flex w-screen flex-col items-center bg-white py-4 ${
         componentVisible ? 'visible opacity-100' : 'invisible opacity-0'
       } block text-base shadow-xl transition-all duration-300 ease-in-out lg:hidden`}
     >
       {internationalizationList.map(({label, value}) => (
         <li
           key={value}
-          className="flex w-full justify-center py-4 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
+          className="flex w-full justify-center py-5 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
         >
           <Link
             href={asPath}
@@ -78,7 +78,7 @@ const I18n = () => {
       ))}
       <li
         onClick={showMenuHandler}
-        className="flex w-full items-center justify-center space-x-2 py-3 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
+        className="flex w-full items-center justify-center space-x-2 py-5 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
       >
         <ImArrowLeft2 />
         <p>{t('NAV_BAR.BACK_BUTTON')}</p>

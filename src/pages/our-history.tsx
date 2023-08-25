@@ -21,11 +21,11 @@ const OurHistoryPage = () => {
       <NavBar />
 
       <main className="flex w-full flex-1 flex-col items-center text-center font-Barlow">
-        <div className="relative flex h-screen w-screen items-center justify-center bg-services bg-cover bg-fixed bg-no-repeat px-20">
+        <div className="relative flex h-screen w-screen items-center justify-center bg-services bg-cover bg-fixed bg-no-repeat px-4 lg:px-20">
           <Image src="/filter/blue.svg" fill style={{objectFit: 'cover'}} alt="" />
           <div className="z-10 flex flex-col items-center space-y-8 font-bold">
-            <h2 className="text-6xl text-brandOrange">{t('OUR_HISTORY.MAIN_TITLE')}</h2>
-            <p className="text-5xl text-white">{t('OUR_HISTORY.MAIN_DESCRIPTION')}</p>
+            <h2 className="text-5xl text-brandOrange lg:text-6xl">{t('OUR_HISTORY.MAIN_TITLE')}</h2>
+            <p className="text-xl text-white lg:text-5xl">{t('OUR_HISTORY.MAIN_DESCRIPTION')}</p>
           </div>
         </div>
 
