@@ -85,7 +85,7 @@
     "SUBTITLE": "Frequently Asked questions",
     "QUESTION_1": "What is Zero-Knowledge Proof ?",
     "ANSWER_1_LINE_1": "Zero-knowledge proof is an encryption technique that allows a prover to demonstrate the truth of a certain fact to a verifier without revealing specific data or information to the verifier.",
-    "ANSWER_1_LINE_2": "For example, a user needs to prove that they have the password to a safe without revealing any confidential information to a third party. With zero-knowledge proof technology, the user can open the safe and display the unlocked contents as proof of ownership of the password, without disclosing the password to anyone. ",
+    "ANSWER_1_LINE_2": "For example, a user needs to prove that they have the password to a safe without revealing any confidential information to a third party. With zero-knowledge proof technology, the user can open the safe and display the unlocked contents as proof of ownership of the password, without disclosing the password to anyone.",
     "ANSWER_1_LINE_3": "The technology of zero-knowledge proof strikes a balance between privacy protection and confirming authenticity. It can be widely applied in scenarios such as identity verification and copyright protection. Without compromising security and privacy, it offers various industries a more secure, efficient, and reliable solution. Additionally, it facilitates the digital transformation of industries and enhances administrative efficiency.",
     "QUESTION_2": "How does Distributed Auditing work ?",
     "ANSWER_2_LINE_1": "Decentralized audit is an auditing method achieved through decentralized networks and technology.",

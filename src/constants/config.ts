@@ -134,6 +134,36 @@ export const milestoneContent = [
   },
 ];
 
+// Info: (20230828 - Julian) ----------FAQ Page----------
+export const faqContent = [
+  {
+    id: 'q001',
+    question: 'FAQ.QUESTION_1',
+    answer: ['FAQ.ANSWER_1_LINE_1', 'FAQ.ANSWER_1_LINE_2', 'FAQ.ANSWER_1_LINE_3'],
+  },
+  {
+    id: 'q002',
+    question: 'FAQ.QUESTION_2',
+    answer: ['FAQ.ANSWER_2_LINE_1', 'FAQ.ANSWER_2_LINE_2', 'FAQ.ANSWER_2_LINE_3'],
+  },
+  {
+    id: 'q003',
+    question: 'FAQ.QUESTION_3',
+    answer: [
+      'FAQ.ANSWER_3_LINE_1',
+      'FAQ.ANSWER_3_LINE_2',
+      'FAQ.ANSWER_3_LINE_3',
+      'FAQ.ANSWER_3_LINE_4',
+      'FAQ.ANSWER_3_LINE_5',
+    ],
+  },
+  {
+    id: 'q004',
+    question: 'FAQ.QUESTION_4',
+    answer: ['FAQ.ANSWER_4'],
+  },
+];
+
 // Info: (20230828 - Julian) ----------Footer----------
 export const iSunCloudCopyRight = process.env.REACT_APP_ISUNCLOUD_COPYRIGHT;
 

@@ -316,10 +316,14 @@ module.exports = {
         80: '0.8',
       },
       boxShadow: {
+        sm: '0px 5px 10px rgba(68, 44, 0, 0.10);',
         xl: '0px 30px 70px rgba(68, 44, 0, 0.10)',
         pill: '2px 2px 12px 0px rgba(68, 44, 0, 0.20), -2px -2px 4px 0px rgba(255, 255, 255, 0.40)',
         'pill-hover':
           '2px 2px 4px 0px rgba(68, 44, 0, 0.20) inset, -2px -2px 4px 0px rgba(255, 255, 255, 0.40) inset',
+      },
+      gridTemplateRows: {
+        0: 'repeat(1, minmax(0px, 0fr))',
       },
     },
   },
