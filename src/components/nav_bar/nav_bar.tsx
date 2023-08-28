@@ -22,7 +22,7 @@ const NavBar = () => {
         </Link>
       </li>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
-        <Link href="/" scroll={false}>
+        <Link href="/faq" scroll={false}>
           {t('NAV_BAR.FAQ')}
         </Link>
       </li>
@@ -52,7 +52,7 @@ const NavBar = () => {
         </Link>
       </li>
       <li className="flex w-full justify-center py-5 text-darkBlue hover:text-brandOrange">
-        <Link href="/" scroll={false}>
+        <Link href="/faq" scroll={false}>
           {t('NAV_BAR.FAQ')}
         </Link>
       </li>
