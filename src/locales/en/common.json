@@ -80,6 +80,26 @@
     "MILESTONE_9_DESCRIPTION": "We currently are researching and developing AI technology running on blockchain nodes to achieve AI-based accounting and auditing solutions.",
     "MILESTONE_9_RANGE": "2022-PRESENT"
   },
+  "FAQ": {
+    "TITLE": "Know More About Us",
+    "SUBTITLE": "Frequently Asked questions",
+    "QUESTION_1": "What is Zero-Knowledge Proof ?",
+    "ANSWER_1_LINE_1": "Zero-knowledge proof is an encryption technique that allows a prover to demonstrate the truth of a certain fact to a verifier without revealing specific data or information to the verifier.",
+    "ANSWER_1_LINE_2": "For example, a user needs to prove that they have the password to a safe without revealing any confidential information to a third party. With zero-knowledge proof technology, the user can open the safe and display the unlocked contents as proof of ownership of the password, without disclosing the password to anyone. ",
+    "ANSWER_1_LINE_3": "The technology of zero-knowledge proof strikes a balance between privacy protection and confirming authenticity. It can be widely applied in scenarios such as identity verification and copyright protection. Without compromising security and privacy, it offers various industries a more secure, efficient, and reliable solution. Additionally, it facilitates the digital transformation of industries and enhances administrative efficiency.",
+    "QUESTION_2": "How does Distributed Auditing work ?",
+    "ANSWER_2_LINE_1": "Decentralized audit is an auditing method achieved through decentralized networks and technology.",
+    "ANSWER_2_LINE_2": "The audit process is carried out by multiple decentralized nodes or participants who collaboratively verify and confirm the authenticity of data. The credibility of the system is put to the test only when a sufficient number of witnesses are established.",
+    "ANSWER_2_LINE_3": "Blockchain technology is often employed to implement decentralized audits, as it offers a decentralized way to verify and record transactions. This enhances transparency and traceability in the auditing process while reducing reliance on central control.",
+    "QUESTION_3": "What are the fields where iSunCloud’s technology can be applied ?",
+    "ANSWER_3_LINE_1": "BOLT is designed to effectively connect enterprise centralized systems with public blockchains, allowing businesses to build related applications such as anti-counterfeiting certification of goods, traceability of production and sales links, digital asset management and reserve proof, etc. These fields all require highly trusted data storage and exchange, which is precisely what BOLT is designed to achieve.",
+    "ANSWER_3_LINE_2": "- BOLT can help enterprises to put their product production information on the blockchain, providing more trusted product certification information to consumers. Through BOLT Trust service, companies can write product information into the blockchain, ensuring that the product information and production history are tamper-proof. At the same time, the cost of uploading information onto the blockchain has been greatly reduced, providing value to the product without significantly affecting marketing costs. Using BOLT Currency, BOLT can also provide marketing applications for partner factories combined with digital tokens.",
+    "ANSWER_3_LINE_3": "- Traceability of Production and Sales: Enterprises can achieve full lifecycle management of products through BOLT. From raw materials to the final sales and usage, all data is recorded on the blockchain, ensuring the quality and safety of products, while also making it convenient for consumers to trace the product's origin.",
+    "ANSWER_3_LINE_4": "- Digital Asset Management: BOLT enables enterprises to achieve more secure and reliable digital asset management. Through blockchain technology, enterprises can put digital assets on the chain, ensuring that they are not tampered with or lost. At the same time, BOLT technology also has a reserve proof function, which uses blockchain technology to prove that the enterprise has enough reserves to support its business operations.    ",
+    "ANSWER_3_LINE_5": "Furthermore, BOLT can also be applied to other fields, including copyright management of digital content and the financial industry. When complete decentralization is not possible, we can solve the problem of information asymmetry between users and intermediaries by providing a high level of global consensus and permanence with mainstream public chains. In summary, BOLT has extensive application prospects in multiple fields, realizing decentralized storage and exchange of data, ensuring the credibility and security of data. It can also help enterprises achieve more efficient and convenient business processes, reduce costs, and improve efficiency.",
+    "QUESTION_4": "How to install “iSunCloud nodes sharing app” ?",
+    "ANSWER_4": "Detailed information is available here."
+  },
   "FOOTER": {
     "TAIWAN_OFFICE": "TAIWAN OFFICE",
     "HONGKONG_OFFICE": "HONG KONG OFFICE",

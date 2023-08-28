@@ -30,7 +30,7 @@ module.exports = {
         safe: "url('/elements/safe_bg.svg')",
         services: 'url("/elements/services.jpeg")',
 
-        stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
+        stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.10), rgba(68, 36, 0, 0.00))',
 
         devider: 'url("/elements/devider_neo.png")',
       },
