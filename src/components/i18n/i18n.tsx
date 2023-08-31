@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import useOuterClick from '../../lib/hooks/use_outer_click';
 import {useState} from 'react';
 import {useRouter} from 'next/router';
 import {VscGlobe} from 'react-icons/vsc';
@@ -17,22 +18,21 @@ const I18n = () => {
     {label: '简体中文', value: 'cn'},
   ];
 
-  const [showMenu, setShowMenu] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('Language');
+  const {targetRef, componentVisible, setComponentVisible} = useOuterClick<HTMLUListElement>(false);
 
-  const showMenuHandler = () => setShowMenu(!showMenu);
+  const showMenuHandler = () => setComponentVisible(!componentVisible);
   const changeLanguageHandler = (value: string) => {
     const language = internationalizationList.find(({value: v}) => v === value);
-    if (language) {
-      setCurrentLanguage(language.label);
-    }
-    setShowMenu(false);
+    if (language) setCurrentLanguage(language.label);
+    setComponentVisible(false);
   };
 
   const desktopSubMenu = (
     <ul
+      ref={targetRef}
       className={`absolute top-10 flex flex-col shadow-xl ${
-        showMenu ? 'visible opacity-100' : 'invisible opacity-0'
+        componentVisible ? 'visible opacity-100' : 'invisible opacity-0'
       } hidden w-full bg-lightGray transition-all duration-300 ease-in-out lg:block`}
     >
       {internationalizationList.map(({label, value}) => (
@@ -43,7 +43,7 @@ const I18n = () => {
           <Link
             href={asPath}
             scroll={false}
-            className="px-4 py-3 hover:px-5"
+            className="px-4 py-5 hover:px-5"
             onClick={() => changeLanguageHandler(value)}
             locale={value}
           >
@@ -56,14 +56,15 @@ const I18n = () => {
 
   const mobileSubMenu = (
     <ul
-      className={`absolute -top-8 left-0 z-10 flex w-screen flex-col items-center bg-white ${
-        showMenu ? 'visible opacity-100' : 'invisible opacity-0'
+      ref={targetRef}
+      className={`absolute -top-8 left-0 z-10 flex w-screen flex-col items-center bg-white py-4 ${
+        componentVisible ? 'visible opacity-100' : 'invisible opacity-0'
       } block text-base shadow-xl transition-all duration-300 ease-in-out lg:hidden`}
     >
       {internationalizationList.map(({label, value}) => (
         <li
           key={value}
-          className="flex w-full justify-center py-4 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
+          className="flex w-full justify-center py-5 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
         >
           <Link
             href={asPath}
@@ -77,7 +78,7 @@ const I18n = () => {
       ))}
       <li
         onClick={showMenuHandler}
-        className="flex w-full items-center justify-center space-x-2 py-3 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
+        className="flex w-full items-center justify-center space-x-2 py-5 text-darkBlue hover:cursor-pointer hover:text-brandOrange"
       >
         <ImArrowLeft2 />
         <p>{t('NAV_BAR.BACK_BUTTON')}</p>
@@ -97,7 +98,7 @@ const I18n = () => {
       {/* Info: (20230617 - Julian) Desktop dropdown part */}
       {desktopSubMenu}
 
-      {/* ToDo: (20230617 - Julian) Mobile dropdown part */}
+      {/* Info: (20230617 - Julian) Mobile dropdown part */}
       {mobileSubMenu}
     </div>
   );

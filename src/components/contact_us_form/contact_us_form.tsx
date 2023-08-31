@@ -2,6 +2,7 @@ import {useEffect, useState, useRef} from 'react';
 import lottie from 'lottie-web';
 import Image from 'next/image';
 import useInputNumber from '../../lib/hooks/use_input_number';
+import {TbCloudDownload} from 'react-icons/tb';
 import {IAnimationType, AnimationType} from '../../constants/animation_type';
 import {useTranslation} from 'next-i18next';
 import {TranslateFunction} from '../../interfaces/locale';
@@ -26,9 +27,6 @@ const ContactUsForm = () => {
   const [inputPhone, setInputPhone] = useInputNumber('');
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
-
-  // Info: (20230620 - Julian) 剛載入時不顯示錯誤訊息
-  const [showEmailError, setShowEmailError] = useState(false);
 
   useEffect(() => {
     // Info: (20230617 - Julian) animations
@@ -76,14 +74,6 @@ const ContactUsForm = () => {
   };
   const emailChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputEmail(event.target.value);
-    // Info: (20230620 - Julian) input 改變才檢查 email 是否符合規則，不符合就顯示錯誤訊息
-    if (!emailIsValid) {
-      setShowEmailError(true);
-      return;
-    } else {
-      setShowEmailError(false);
-      return;
-    }
   };
   const messageChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputMessage(event.target.value);
@@ -191,7 +181,12 @@ const ContactUsForm = () => {
         <div className="flex w-full flex-col items-start">
           <div className="flex items-center text-sm">
             <label htmlFor="email">*{t('HOME_PAGE.CONTACT_US_EMAIL')}</label>
-            <p className={`ml-4 text-red-500 ${showEmailError ? 'block' : 'hidden'}`}>
+            <p
+              className={`ml-4 text-xs text-red-500 ${
+                // Info:(20230824 - Julian) 信箱不符合格式 && 信箱有輸入內容時，才顯示紅字
+                inputEmail !== '' && !emailIsValid ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               {t('HOME_PAGE.CONTACT_US_EMAIL_VERIFY')}
             </p>
           </div>
@@ -225,16 +220,10 @@ const ContactUsForm = () => {
           type="submit"
           // Info: (20230620 - Julian) email 格式不正確時，submit 按鈕 disabled
           disabled={emailIsValid ? false : true}
-          className="group flex items-center p-5 text-darkBlue hover:text-brandOrange disabled:text-gray-500 disabled:hover:text-gray-500"
+          className="flex items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill transition-shadow duration-150 ease-in hover:shadow-pill-hover disabled:text-gray-500 disabled:hover:shadow-pill"
         >
-          <div className="flex items-center space-x-1">
-            <span className="h-10px w-10px rounded-full bg-darkOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-            <span className="h-10px w-10px rounded-full bg-brandOrange transition-all duration-300 ease-in group-hover:mx-1"></span>
-            <span className="h-10px w-10px rounded-full bg-lightYellow transition-all duration-300 ease-in group-hover:mx-1"></span>
-          </div>
-          <span className="ml-3 text-xl font-bold transition-all duration-300 ease-in">
-            {t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}
-          </span>
+          <TbCloudDownload className="text-2xl" />
+          <p className="font-bold">{t('HOME_PAGE.CONTACT_US_SEND_SUBMIT')}</p>
         </button>
       </form>
     </div>
@@ -263,13 +252,13 @@ const ContactUsForm = () => {
   return (
     <div
       id="contact_us"
-      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-32"
+      className="relative flex h-auto w-full items-center justify-center bg-lightGray px-28 py-10 font-Barlow lg:py-20"
     >
       {/* Info: (20230704 - Julian) Devider */}
       <div className="absolute -top-100px h-200px w-screen bg-white">
         <Image src={'/elements/devider_neo.png'} fill alt="divider" style={{objectFit: 'cover'}} />
       </div>
-      <div className="relative flex h-full w-screen flex-col items-center justify-center py-20 lg:w-full lg:flex-row lg:justify-end">
+      <div className="relative flex h-full w-screen flex-col items-center justify-center py-10 lg:w-full lg:flex-row lg:justify-end lg:py-0">
         {/* Info: (20230619 - Julian) Image for desktop */}
         <div className="absolute left-12 hidden w-full lg:block">
           <Image

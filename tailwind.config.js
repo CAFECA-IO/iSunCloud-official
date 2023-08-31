@@ -10,7 +10,10 @@ module.exports = {
         lightGray2: '#8B8F92',
         lightGray3: '#F5F5F5',
 
+        darkGray: '#5D5D7B',
+
         lightWhite: '#FFFEFB',
+        lightWhite2: '#FBFBFC',
 
         brandOrange: '#FFA502',
         darkOrange: '#FF5403',
@@ -24,8 +27,9 @@ module.exports = {
         fintech: "url('/elements/fintech.png')",
         blueFilter: "url('/filter/blue.svg')",
         orangeFilter: "url('/filter/orange.svg')",
+        safe: "url('/elements/safe_bg.svg')",
+        services: 'url("/elements/services.jpeg")',
 
-        whatWeDo: 'linear-gradient(180deg, #FAFAFA 0%, #FFF 100%)',
         stream: 'radial-gradient(at center bottom, rgba(68, 44, 0, 0.20), rgba(68, 36, 0, 0.00))',
 
         devider: 'url("/elements/devider_neo.png")',
@@ -43,6 +47,7 @@ module.exports = {
         xl: ['20px', '28px'],
         '2xl': ['24px', '32px'],
         '3xl': ['30px', '36px'],
+        '32px': ['32px', '40px'],
         '4xl': ['36px', '40px'],
         '5xl': ['42px', '48px'],
         '6xl': ['54px', 1],
@@ -147,9 +152,11 @@ module.exports = {
         '130px': '130px',
         '134px': '134px',
         '140px': '140px',
+        '145px': '145px',
         '150px': '150px',
         '152px': '152px',
         '160px': '160px',
+        '170px': '170px',
         '180px': '180px',
         '190px': '190px',
         '200px': '200px',
@@ -226,6 +233,7 @@ module.exports = {
         '15rem': '15rem',
         '20rem': '20rem',
 
+        '46%': '46%',
         0.5: '50%',
         '1/2': '50%',
         '1/4': '25%',
@@ -306,6 +314,12 @@ module.exports = {
       },
       scale: {
         80: '0.8',
+      },
+      boxShadow: {
+        xl: '0px 30px 70px rgba(68, 44, 0, 0.10)',
+        pill: '2px 2px 12px 0px rgba(68, 44, 0, 0.20), -2px -2px 4px 0px rgba(255, 255, 255, 0.40)',
+        'pill-hover':
+          '2px 2px 4px 0px rgba(68, 44, 0, 0.20) inset, -2px -2px 4px 0px rgba(255, 255, 255, 0.40) inset',
       },
     },
   },
