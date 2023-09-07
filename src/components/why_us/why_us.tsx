@@ -1,10 +1,26 @@
 import Image from 'next/image';
+import lottie from 'lottie-web';
+import {useRef, useEffect} from 'react';
 import {partnerContent} from '../../constants/config';
 import {useTranslation} from 'next-i18next';
 import {TranslateFunction} from '../../interfaces/locale';
 
 const WhyUs = () => {
   const {t}: {t: TranslateFunction} = useTranslation('common');
+
+  const lottieSafty = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: lottieSafty.current!,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/end.json',
+    });
+
+    return () => anim.destroy();
+  }, []);
 
   const partners = partnerContent.map(({name, image, imageHover, link}) => {
     return (
@@ -37,15 +53,15 @@ const WhyUs = () => {
   });
 
   return (
-    <div className="flex h-auto w-full items-center justify-center py-24">
+    <div className="mb-24 flex h-auto w-full items-center justify-center">
       <div className="flex w-full flex-col font-Barlow">
         {/* Info: (20230823 - Julian) Prioritizing */}
-        <div className="flex w-full flex-col items-center bg-lightWhite2">
+        <div className="flex w-full flex-col items-center bg-lightWhite2 pt-24">
           <h2 className="p-4 text-2xl font-bold lg:p-20 lg:text-5xl">
             {t('HOME_PAGE.PRIORITIZING_TITLE')}
           </h2>
           <div className="flex w-full justify-center bg-safe bg-cover bg-bottom bg-no-repeat py-20">
-            <Image src="/animations/safe.gif" width={500} height={402} alt="" />
+            <div ref={lottieSafty} className="block h-400px w-500px"></div>
           </div>
         </div>
 
