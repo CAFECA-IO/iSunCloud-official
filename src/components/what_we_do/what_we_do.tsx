@@ -97,7 +97,7 @@ const WhatWeDo = () => {
         animConne2.goToAndStop(frameConne2, true);
       }
       /* Info:(20230823 - Julian) Saftybox frame */
-      if (scrollPosition > 1900 && scrollPosition < 3400) {
+      if (scrollPosition > 1900 && scrollPosition < 2700) {
         if (frameSaftybox <= 0) animSaftybox.goToAndStop(1, true);
         animSaftybox.goToAndStop(frameSaftybox, true);
       }
