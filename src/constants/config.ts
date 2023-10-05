@@ -164,6 +164,8 @@ export const faqContent = [
   },
 ];
 
+export const iSunNodeName = process.env.REACT_APP_ISUN_NODE_NAME;
+
 // Info: (20230828 - Julian) ----------Footer----------
 export const iSunCloudCopyRight = process.env.REACT_APP_ISUNCLOUD_COPYRIGHT;
 
