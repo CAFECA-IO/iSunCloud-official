@@ -100,6 +100,18 @@
     "QUESTION_4": "How to install “iSunCloud nodes sharing app” ?",
     "ANSWER_4": "Details will be announced soon, please stay tuned."
   },
+  "NOT_FOUND_PAGE": {
+    "PAGE_TITLE": "Page Not Found",
+    "TITLE": "Oops! 404 Error",
+    "DESCRIPTION": "The resource you're after has temporarily vanished"
+  },
+  "COMING_SOON_PAGE": {
+    "PAGE_TITLE": "Coming Soon",
+    "TITLE": "Coming Soon In",
+    "DAYS": "Days",
+    "HOURS": "Hours",
+    "MINUTES": "Mins"
+  },
   "FOOTER": {
     "TAIWAN_OFFICE": "TAIWAN OFFICE",
     "HONGKONG_OFFICE": "HONG KONG OFFICE",

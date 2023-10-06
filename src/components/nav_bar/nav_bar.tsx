@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import I18n from '../i18n/i18n';
+import {ISCURL} from '../../constants/url';
 import useOuterClick from '../../lib/hooks/use_outer_click';
 import {useTranslation} from 'next-i18next';
 import {TranslateFunction} from '../../interfaces/locale';
@@ -17,17 +18,17 @@ const NavBar = () => {
   const desktopMenu = (
     <ul className={`hidden items-center space-x-4 transition-all duration-300 ease-in-out lg:flex`}>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
-        <Link href="/our-history" scroll={false}>
+        <Link href={ISCURL.OUR_HISTORY} scroll={false}>
           {t('NAV_BAR.OUR_HISTORY')}
         </Link>
       </li>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
-        <Link href="/faq" scroll={false}>
+        <Link href={ISCURL.FAQ} scroll={false}>
           {t('NAV_BAR.FAQ')}
         </Link>
       </li>
       <li className="p-3 text-darkBlue hover:text-brandOrange">
-        <Link href="/#contact_us" scroll={false}>
+        <Link href={ISCURL.CONTACT_US} scroll={false}>
           {t('NAV_BAR.CONTACT_US')}
         </Link>
       </li>
@@ -47,17 +48,17 @@ const NavBar = () => {
         <I18n />
       </li>
       <li className="flex w-full justify-center py-5 text-darkBlue hover:text-brandOrange">
-        <Link href="/our-history" scroll={false}>
+        <Link href={ISCURL.OUR_HISTORY} scroll={false}>
           {t('NAV_BAR.OUR_HISTORY')}
         </Link>
       </li>
       <li className="flex w-full justify-center py-5 text-darkBlue hover:text-brandOrange">
-        <Link href="/faq" scroll={false}>
+        <Link href={ISCURL.FAQ} scroll={false}>
           {t('NAV_BAR.FAQ')}
         </Link>
       </li>
       <li className="flex w-full justify-center py-5 text-darkBlue hover:text-brandOrange">
-        <Link href="/#contact_us" onClick={showMenuHandler} scroll={false}>
+        <Link href={ISCURL.CONTACT_US} onClick={showMenuHandler} scroll={false}>
           {t('NAV_BAR.CONTACT_US')}
         </Link>
       </li>
@@ -69,7 +70,7 @@ const NavBar = () => {
       <div className="fixed inset-0 z-50 flex h-80px w-screen bg-white lg:px-16 lg:shadow-md">
         <div ref={targetRef} className="flex w-full flex-col lg:flex-row">
           <div className="relative flex w-full flex-1 justify-between px-4 py-4 shadow-md lg:shadow-none">
-            <Link href="/" onClick={showMenuHandler}>
+            <Link href={ISCURL.HOME} onClick={showMenuHandler}>
               <Image
                 src="/logo/isuncloud_logo.svg"
                 alt="iSunCloud_logo"

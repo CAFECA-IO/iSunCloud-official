@@ -100,6 +100,18 @@
     "QUESTION_4": "如何安装“iSunCloud 节点共享应用程式”？",
     "ANSWER_4": "详情将在近期公布，敬请期待。"
   },
+  "NOT_FOUND_PAGE": {
+    "PAGE_TITLE": "找不到页面",
+    "TITLE": "糟糕！404 错误",
+    "DESCRIPTION": "您要访问的资源暂时消失了"
+  },
+  "COMING_SOON_PAGE": {
+    "PAGE_TITLE": "敬请期待",
+    "TITLE": "即将推出",
+    "DAYS": "天",
+    "HOURS": "小时",
+    "MINUTES": "分钟"
+  },
   "FOOTER": {
     "TAIWAN_OFFICE": "台湾",
     "HONGKONG_OFFICE": "香港",

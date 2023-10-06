@@ -164,6 +164,10 @@ export const faqContent = [
   },
 ];
 
+export const iSunNodeName = process.env.REACT_APP_ISUN_NODE_NAME;
+export const iSunNodeReleaseDate = process.env.REACT_APP_ISUN_NODE_RELEASE_DATE;
+export const defaultReleaseDate = '2024-01-01';
+
 // Info: (20230828 - Julian) ----------Footer----------
 export const iSunCloudCopyRight = process.env.REACT_APP_ISUNCLOUD_COPYRIGHT;
 

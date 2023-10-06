@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import {useState} from 'react';
+import {ISCURL} from '../../constants/url';
 import {RiComputerLine, RiArrowDownSLine} from 'react-icons/ri';
 import {TbCloudDownload} from 'react-icons/tb';
 import useOuterClick from '../../lib/hooks/use_outer_click';
@@ -18,9 +20,6 @@ const MainBlock = () => {
   const osSelectHandler = (os: IDownloadContent) => {
     setActiveOs(os);
     setComponentVisible(false);
-  };
-  const downloadHandler = () => {
-    /* ToDo: (20230823 - Julian) Download handler */
   };
 
   const osSelectMenu = (
@@ -78,13 +77,14 @@ const MainBlock = () => {
           {/* Info: (20230823 - Julian) OS select menu */}
           {osSelectMenu}
           {/* Info: (20230823 - Julian) Download button */}
-          <button
-            onClick={downloadHandler}
+          {/* ToDo: (20231005 - Julian) Add download link */}
+          <Link
+            href={ISCURL.COMING_SOON}
             className="flex w-full items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill transition-shadow duration-150 ease-in hover:shadow-pill-hover lg:w-170px"
           >
             <TbCloudDownload className="text-2xl" />
             <p className="text-base font-bold">{t('HOME_PAGE.DOWNLOAD')}</p>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
