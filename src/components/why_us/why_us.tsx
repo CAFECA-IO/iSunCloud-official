@@ -8,18 +8,20 @@ import {TranslateFunction} from '../../interfaces/locale';
 const WhyUs = () => {
   const {t}: {t: TranslateFunction} = useTranslation('common');
 
-  const lottieSafty = useRef<HTMLDivElement>(null);
+  const lottieSafety = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const anim = lottie.loadAnimation({
-      container: lottieSafty.current!,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/end.json',
-    });
+    if (lottieSafety.current !== null) {
+      const anim = lottie.loadAnimation({
+        container: lottieSafety.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/animations/end.json',
+      });
 
-    return () => anim.destroy();
+      return () => anim.destroy();
+    }
   }, []);
 
   const partners = partnerContent.map(({name, image, imageHover, link}) => {
@@ -61,7 +63,7 @@ const WhyUs = () => {
             {t('HOME_PAGE.PRIORITIZING_TITLE')}
           </h2>
           <div className="flex w-full justify-center bg-safe bg-cover bg-bottom bg-no-repeat py-20">
-            <div ref={lottieSafty} className="block h-400px w-500px"></div>
+            <div ref={lottieSafety} className="block h-400px w-500px"></div>
           </div>
         </div>
 

@@ -30,10 +30,10 @@ export const partnerContent = [
     link: 'https://www.cafeca.io',
   },
   {
-    name: 'BOLT',
-    image: '/logo/bolt.svg',
-    imageHover: '/logo/bolt_active.svg',
-    link: 'https://bolt.cafeca.io',
+    name: 'iSunFA',
+    image: '/logo/isunfa.svg',
+    imageHover: '/logo/isunfa_active.svg',
+    link: 'https://isunfa.com',
   },
   {
     name: 'BAIFAAA',
