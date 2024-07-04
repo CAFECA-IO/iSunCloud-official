@@ -78,13 +78,13 @@ const MainBlock = () => {
           {osSelectMenu}
           {/* Info: (20230823 - Julian) Download button */}
           {/* ToDo: (20231005 - Julian) Add download link */}
-          <Link
-            href={ISCURL.COMING_SOON}
+          <a
+            href={activeOs.downloadUrl}
             className="flex w-full items-center justify-center space-x-2 rounded-full bg-lightWhite2 px-8 py-3 shadow-pill transition-shadow duration-150 ease-in hover:shadow-pill-hover lg:w-170px"
           >
             <TbCloudDownload className="text-2xl" />
             <p className="text-base font-bold">{t('HOME_PAGE.DOWNLOAD')}</p>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
