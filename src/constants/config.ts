@@ -8,11 +8,11 @@ export const downloadContent: IDownloadContent[] = [
   },
   {
     os: 'Mac OS',
-    downloadUrl: '/download/latest/isuncoin-mac',
+    downloadUrl: '/download/latest/isuncoin-mac.zip',
   },
   {
     os: 'Linux',
-    downloadUrl: '/download/latest/isuncoin-linux',
+    downloadUrl: '/download/latest/isuncoin-linux.zip',
   },
 ];
 
