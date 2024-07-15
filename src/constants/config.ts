@@ -4,11 +4,11 @@ import {IDownloadContent} from '../interfaces/download_content';
 export const downloadContent: IDownloadContent[] = [
   {
     os: 'Windows',
-    downloadUrl: '/download/latest/isuncoin-windows.zip',
+    downloadUrl: '/download/latest/isuncoin-gui-windows.zip',
   },
   {
     os: 'Mac OS',
-    downloadUrl: '/download/latest/isuncoin-mac.zip',
+    downloadUrl: '/download/latest/isuncoin-gui-mac.dmg',
   },
   {
     os: 'Linux',
