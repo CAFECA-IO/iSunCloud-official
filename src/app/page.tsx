@@ -32,9 +32,6 @@ export default function Home() {
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Monetize your idle resources. Connect to the world's first decentralized supercomputer.
             <br />
-            <span className="text-cyan-400 font-mono text-sm mt-2 block">
-              &gt; ACCESSING FLOPS: [██████████] 100%
-            </span>
           </p>
 
           <div className="pt-8 flex flex-col md:flex-row gap-4 justify-center">
