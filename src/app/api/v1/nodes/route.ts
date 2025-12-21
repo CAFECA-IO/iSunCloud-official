@@ -52,21 +52,42 @@ function detectCountryFromIP(ip: string | null) {
   return COUNTRIES[index];
 }
 
+// Cleanup expired nodes (older than 1 hour)
+const NODE_EXPIRATION_MS = 60 * 60 * 1000;
+
+function cleanupExpiredNodes() {
+  const now = Date.now();
+  const initialCount = nodes.length;
+  nodes = nodes.filter(node => {
+    const nodeTime = new Date(node.timestamp).getTime();
+    return (now - nodeTime) < NODE_EXPIRATION_MS;
+  });
+
+  if (nodes.length !== initialCount) {
+    console.log(`Cleaned up ${initialCount - nodes.length} expired nodes.`);
+    saveNodes();
+  }
+}
+
 // Simulation Logic
 function simulateNodes() {
   let changed = false;
 
+  // Run cleanup
+  cleanupExpiredNodes();
+
+  // Random failure simulation (reduced chance)
   nodes.forEach(node => {
-    // 0.01% chance of node failure
-    if (Math.random() < 0.0001) {
+    if (Math.random() < 0.00005) {
       nodes.splice(nodes.indexOf(node), 1);
       changed = true;
     }
   });
 
+  // Random new node simulation
   COUNTRIES.forEach(country => {
     const isTaiwan = country.name === 'Taiwan';
-    const addChance = isTaiwan ? 0.20 : 0.001; // 20% for Taiwan, 0.1% for others
+    const addChance = isTaiwan ? 0.20 : 0.001;
 
     if (Math.random() < addChance) {
       const node = generateNodeData();
@@ -87,6 +108,9 @@ function simulateNodes() {
 setInterval(simulateNodes, 1000);
 
 export async function GET() {
+  // Trigger lazy cleanup on read as well
+  cleanupExpiredNodes();
+
   // Stats calculation
   const countries = COUNTRIES.map(country => ({
     name: country.name,
@@ -122,36 +146,75 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const ip = req.headers.get('x-forwarded-for') || '127.0.0.1';
 
+    // Validate enode presence (it's the key)
+    const enode = body.nodeInfo?.enode;
+    if (!enode) {
+      return NextResponse.json({ success: false, error: "Missing enode" }, { status: 400 });
+    }
+
     const country = detectCountryFromIP(Array.isArray(ip) ? ip[0] : ip);
+    const now = new Date().toISOString();
 
-    // Construct new node
-    const newNode: IDynamicNode = {
-      id: body.id || `node-${Date.now()}`,
-      timestamp: new Date().toISOString(),
-      // map country name to city for backward compat if needed, or just use country
-      // but IDynamicNode definition handles it.
-      country: country.name,
-      position: { latitude: country.lat, longitude: country.lng },
-      resources: {
-        flops: body.resources?.flops || Number((0.15 + Math.random() * 0.85).toFixed(2)),
-        storage: body.resources?.storage || Number((0.1 + Math.random() * 0.9).toFixed(2)),
-        ram: body.resources?.ram || (Math.floor(Math.random() * 8) + 1) * 4
-      },
-      nodeInfo: {
-        enode: body.nodeInfo?.enode || `enode://mock-${Date.now()}`,
-        networkId: body.nodeInfo?.networkId || 1,
-        client: body.nodeInfo?.client || 'OfficialClient/v1.0'
-      }
-    };
+    // Check if node exists
+    const existingNodeIndex = nodes.findIndex(n => n.nodeInfo.enode === enode);
 
-    nodes.push(newNode);
+    let resultNode: IDynamicNode;
+
+    if (existingNodeIndex >= 0) {
+      // Update existing node
+      const existingNode = nodes[existingNodeIndex];
+      const updatedNode: IDynamicNode = {
+        ...existingNode,
+        timestamp: now, // Refresh timestamp
+        country: country.name, // Update location if IP changed
+        position: { latitude: country.lat, longitude: country.lng },
+        resources: {
+          flops: body.resources?.flops || existingNode.resources.flops,
+          storage: body.resources?.storage || existingNode.resources.storage,
+          ram: body.resources?.ram || existingNode.resources.ram
+        },
+        // Update client info if provided
+        nodeInfo: {
+          ...existingNode.nodeInfo,
+          client: body.nodeInfo?.client || existingNode.nodeInfo.client,
+          networkId: body.nodeInfo?.networkId || existingNode.nodeInfo.networkId
+        }
+      };
+
+      nodes[existingNodeIndex] = updatedNode;
+      resultNode = updatedNode;
+      // console.log(`Updated node: ${enode}`);
+    } else {
+      // Create new node
+      const newNode: IDynamicNode = {
+        id: body.id || `node-${Date.now()}`,
+        timestamp: now,
+        country: country.name,
+        position: { latitude: country.lat, longitude: country.lng },
+        resources: {
+          flops: body.resources?.flops || Number((0.15 + Math.random() * 0.85).toFixed(2)),
+          storage: body.resources?.storage || Number((0.1 + Math.random() * 0.9).toFixed(2)),
+          ram: body.resources?.ram || (Math.floor(Math.random() * 8) + 1) * 4
+        },
+        nodeInfo: {
+          enode: enode,
+          networkId: body.nodeInfo?.networkId || 1,
+          client: body.nodeInfo?.client || 'OfficialClient/v1.0'
+        }
+      };
+
+      nodes.push(newNode);
+      resultNode = newNode;
+      // console.log(`Registered new node: ${enode}`);
+    }
+
     saveNodes();
 
     return NextResponse.json({
       success: true,
-      message: "Node registered successfully",
+      message: existingNodeIndex >= 0 ? "Node updated successfully" : "Node registered successfully",
       detected_country: country.name,
-      node: newNode
+      node: resultNode
     });
 
   } catch {

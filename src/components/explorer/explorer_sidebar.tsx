@@ -5,8 +5,19 @@ import { ICountryData } from '@/components/explorer/country_markers';
 
 interface ICountryStats extends ICountryData {
   flops: number;
-  storage: number; // PB
-  ram: number; // TB
+  storage: number; // TB
+  ram: number; // GB
+}
+
+interface INodeResource {
+  flops: number;
+  storage: number;
+  ram: number;
+}
+
+interface INode {
+  country: string;
+  resources: INodeResource;
 }
 
 interface IApiResponse {
@@ -17,16 +28,46 @@ interface IApiResponse {
     ram: number;
   };
   countries: ICountryData[];
-  nodes: unknown[];
+  nodes: INode[];
 }
 
-const generateCountryStats = (countries: ICountryData[]): ICountryStats[] => {
-  return countries.map(country => ({
-    ...country,
-    flops: Number((country.count * 0.6 + (Math.random() * 5)).toFixed(1)),
-    storage: Number((country.count * 0.6 + (Math.random() * 2)).toFixed(1)),
-    ram: Number((country.count * 0.02 + (Math.random() * 0.5)).toFixed(1))
-  })).sort((a, b) => b.count - a.count);
+const aggregateCountryStats = (countries: ICountryData[], nodes: INode[]): ICountryStats[] => {
+  const countryMap = new Map<string, ICountryStats>();
+
+  // Initialize map with country data
+  countries.forEach(c => {
+    countryMap.set(c.name, {
+      ...c,
+      flops: 0,
+      storage: 0,
+      ram: 0
+    });
+  });
+
+  // Aggregate resources from nodes
+  nodes.forEach(node => {
+    const countryStat = countryMap.get(node.country);
+    if (countryStat) {
+      countryStat.flops += node.resources.flops || 0;
+      countryStat.storage += node.resources.storage || 0;
+      // RAM from API is in GB, keep it in GB for display or convert to TB if needed.
+      // The previous code had RAM in TB label but generated small numbers (0.5).
+      // Let's check the display logic.
+      // Node sim generates: ram: (1-8)*4 = 4-32 GB.
+      // Previous display: "0.2 TB".
+      // Let's store raw GB in the stats and format in UI.
+      countryStat.ram += node.resources.ram || 0;
+    }
+  });
+
+  return Array.from(countryMap.values())
+    .map(stat => ({
+      ...stat,
+      flops: Number(stat.flops.toFixed(1)),
+      storage: Number(stat.storage.toFixed(1)),
+      ram: Number(stat.ram.toFixed(1))
+    }))
+    .sort((a, b) => b.count - a.count);
 };
 
 interface IExplorerSidebarProps {
@@ -40,17 +81,15 @@ export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose }: IE
   const [globalStats, setGlobalStats] = useState({ nodes: 0, flops: 0 });
 
   useEffect(() => {
-    // ... no change to fetch logic ...
     const fetchData = async () => {
       try {
         const res = await fetch('/api/v1/nodes');
         const data: IApiResponse = await res.json();
 
-        if (data.countries) {
-          const countryStats = generateCountryStats(data.countries);
+        if (data.countries && data.nodes) {
+          const countryStats = aggregateCountryStats(data.countries, data.nodes);
           setStats(countryStats);
 
-          // Use API global stats if available, or fallback to sum
           setGlobalStats({
             nodes: data.total_nodes,
             flops: data.stats.flops
@@ -83,7 +122,7 @@ export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose }: IE
       {/* Sidebar Panel */}
       <div className={`
         fixed inset-y-0 right-0 w-full max-w-[350px] bg-black/90 backdrop-blur-md border-l border-zinc-800 
-        flex flex-col z-50 font-sans shadow-2xl transition-transform duration-300 ease-in-out
+        flex flex-col z-[1000] font-sans shadow-2xl transition-transform duration-300 ease-in-out
         md:relative md:translate-x-0 md:bg-black/80
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
@@ -160,7 +199,7 @@ export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose }: IE
                 </div>
                 <div className="group/metric border-l border-white/5">
                   <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-blue-400 transition-colors">RAM</div>
-                  <div className="font-mono text-sm text-blue-200">{country.ram} <span className="text-[9px] opacity-50">TB</span></div>
+                  <div className="font-mono text-sm text-blue-200">{country.ram} <span className="text-[9px] opacity-50">GB</span></div>
                 </div>
               </div>
 

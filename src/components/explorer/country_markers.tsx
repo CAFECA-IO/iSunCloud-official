@@ -115,7 +115,7 @@ export const CountryMarkers = () => {
 
             <PulsingMarker position={lightPos} count={country.count} />
 
-            <Html position={labelPos} center distanceFactor={5} zIndexRange={[100, 0]} style={{ pointerEvents: 'none' }}>
+            <Html position={labelPos} center distanceFactor={5} zIndexRange={[100, 0]} style={{ pointerEvents: 'none' }} occlude>
               <div className="flex flex-col items-center">
                 <div className="text-[8px] sm:text-[10px] font-bold text-cyan-400 bg-black/60 px-2 py-0.5 rounded border border-cyan-500/30 backdrop-blur-[2px] whitespace-nowrap">
                   {country.name}
