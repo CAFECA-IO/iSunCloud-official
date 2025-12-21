@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { EarthScene } from "@/components/earth_scene";
 import { useEffect, useState } from 'react';
+import { JoinNetworkButton } from "@/components/join_network_button";
 
 export default function Home() {
   const [stats, setStats] = useState({
@@ -72,9 +73,7 @@ export default function Home() {
           </p>
 
           <div className="pt-8 flex flex-col md:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-cyan-600/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-300 rounded-sm uppercase tracking-widest text-sm font-semibold transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]">
-              Join Network
-            </button>
+            <JoinNetworkButton />
             <Link href="/explorer" className="px-8 py-3 bg-white/10 border border-white/20 hover:bg-white/20 text-white rounded-sm uppercase tracking-widest text-sm font-semibold transition-all hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] flex justify-center items-center text-center">
               View Explorer
             </Link>

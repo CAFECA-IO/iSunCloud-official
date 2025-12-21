@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run lint && next dev",
     "build": "npm run lint && next build",
-    "start": "npm run build && next start",
+    "start": "next start",
     "lint": "eslint",
     "production": "npm run build && next start -p 80",
     "swarm": "npm run build && next start -p 10017"
