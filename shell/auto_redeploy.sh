@@ -23,3 +23,9 @@ if [ "$LOCAL" != "$REMOTE" ]; then
 else
   echo "No new commits."
 fi
+
+# 若尚未啟動 iSunCloud，則啟動
+if [ $(pm2 show iSunCloud | grep "status" | awk '{print $2}') != "online" ]; then
+  echo "Starting application..."
+  pm2 start npm --name iSunCloud -- run production
+fi
