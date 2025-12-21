@@ -2,7 +2,6 @@
 
 import { ExplorerScene } from '@/components/explorer/explorer_scene';
 import { ExplorerSidebar } from '@/components/explorer/explorer_sidebar';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { ICountryData } from '@/components/explorer/country_markers';
@@ -18,17 +17,11 @@ export default function ExplorerPage() {
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden flex">
       {/* Absolute Header/Back Button */}
-      <div className="absolute top-6 left-6 z-50 flex items-center gap-4">
-        <Link href="/">
-          <Image
-            className="dark:invert opacity-80 hover:opacity-100 transition-opacity"
-            src="/isuncloud.svg"
-            alt="iSunCloud Logo"
-            width={40}
-            height={40}
-          />
+      <div className="absolute top-10 left-6 z-50">
+        <Link href="/" className="inline-flex items-center gap-2 text-cyan-400/80 hover:text-cyan-300 transition-colors uppercase tracking-widest text-xs font-semibold group">
+          <span className="group-hover:-translate-x-1 transition-transform">←</span>
+          Back to Home
         </Link>
-        <span className="text-xl font-bold tracking-widest text-white/50 border-l border-white/20 pl-4 uppercase">Explorer</span>
       </div>
 
       {/* Mobile Sidebar Toggle Button */}

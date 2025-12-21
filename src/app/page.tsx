@@ -56,9 +56,10 @@ export default function Home() {
             <h1 className="text-2xl font-bold tracking-wider font-mono">iSunCloud</h1>
           </div>
           <nav className="hidden md:flex gap-6 pointer-events-auto">
-            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Nodes</button>
-            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Marketplace</button>
-            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">About</button>
+            <Link href="/explorer" className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Explorer</Link>
+            <Link href="/downloads" className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Downloads</Link>
+            <Link href="/marketplace" aria-disabled="true" tabIndex={-1} className="text-sm text-cyan-200/30 pointer-events-none uppercase tracking-widest text-[10px]">Marketplace</Link>
+            <Link href="/about" aria-disabled="true" tabIndex={-1} className="text-sm text-cyan-200/30 pointer-events-none uppercase tracking-widest text-[10px]">About</Link>
           </nav>
         </header>
 
