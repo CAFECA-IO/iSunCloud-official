@@ -31,13 +31,16 @@ const generateCountryStats = (countries: ICountryData[]): ICountryStats[] => {
 
 interface IExplorerSidebarProps {
   onCountrySelect?: (country: ICountryData) => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export const ExplorerSidebar = ({ onCountrySelect }: IExplorerSidebarProps) => {
+export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose }: IExplorerSidebarProps) => {
   const [stats, setStats] = useState<ICountryStats[]>([]);
   const [globalStats, setGlobalStats] = useState({ nodes: 0, flops: 0 });
 
   useEffect(() => {
+    // ... no change to fetch logic ...
     const fetchData = async () => {
       try {
         const res = await fetch('/api/v1/nodes');
@@ -64,85 +67,121 @@ export const ExplorerSidebar = ({ onCountrySelect }: IExplorerSidebarProps) => {
   }, []);
 
   return (
-    <div className="absolute top-0 right-0 h-full w-full max-w-[350px] bg-black/80 backdrop-blur-md border-l border-zinc-800 flex flex-col z-10 font-sans shadow-2xl">
-      <div className="p-5 border-b border-zinc-800 bg-black/50 backdrop-blur-xl">
-        <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest mb-1">
-          Global Network
-        </h2>
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">Total Nodes</div>
-            <div className="text-2xl font-mono text-white">{globalStats.nodes.toLocaleString()}</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">Global Compute</div>
-            <div className="text-2xl font-mono text-cyan-400">{(globalStats.flops / 1000).toFixed(1)} <span className="text-xs text-zinc-500">PFLOPS</span></div>
+    <>
+      {/* Mobile Backdrop */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+          onClick={onClose}
+          role="button"
+          tabIndex={-1}
+          onKeyDown={(e) => { if (e.key === 'Escape') onClose?.() }}
+          aria-label="Close Sidebar Overflow"
+        />
+      )}
+
+      {/* Sidebar Panel */}
+      <div className={`
+        fixed inset-y-0 right-0 w-full max-w-[350px] bg-black/90 backdrop-blur-md border-l border-zinc-800 
+        flex flex-col z-50 font-sans shadow-2xl transition-transform duration-300 ease-in-out
+        md:relative md:translate-x-0 md:bg-black/80
+        ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+      `}>
+        <div className="p-5 border-b border-zinc-800 bg-black/50 backdrop-blur-xl relative">
+          {/* Mobile Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 text-zinc-400 hover:text-white md:hidden"
+            aria-label="Close Sidebar"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+
+          <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest mb-1">
+            Global Network
+          </h2>
+          <div className="grid grid-cols-2 gap-4 mt-4">
+            <div>
+              <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">Total Nodes</div>
+              <div className="text-2xl font-mono text-white">{globalStats.nodes.toLocaleString()}</div>
+            </div>
+            <div>
+              <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">Global Compute</div>
+              <div className="text-2xl font-mono text-cyan-400">{(globalStats.flops / 1000).toFixed(1)} <span className="text-xs text-zinc-500">PFLOPS</span></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex-1 overflow-y-auto p-2 space-y-2 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
-        {stats.map((country) => (
-          <div
-            key={country.name}
-            onClick={() => onCountrySelect?.(country)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
+        <div className="flex-1 overflow-y-auto p-2 space-y-2 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
+          {stats.map((country) => (
+            <div
+              key={country.name}
+              onClick={() => {
                 onCountrySelect?.(country);
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            className="group relative p-4 bg-zinc-900/40 rounded-sm border border-white/5 hover:border-cyan-500/30 transition-all hover:bg-zinc-900/60 cursor-pointer focus:outline-none focus:border-cyan-500/50"
-          >
-            {/* Header */}
-            <div className="flex justify-between items-start mb-3">
-              <div>
-                <h3 className="font-bold text-zinc-100 text-lg leading-none">{country.name}</h3>
-                <div className="flex items-center gap-1 mt-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
-                  <span className="text-xs text-green-400/80 font-mono tracking-tight uppercase">Operational</span>
+                // Optional: Close sidebar on selection on mobile
+                if (window.innerWidth < 768) {
+                  onClose?.();
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  onCountrySelect?.(country);
+                  if (window.innerWidth < 768) onClose?.();
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              className="group relative p-4 bg-zinc-900/40 rounded-sm border border-white/5 hover:border-cyan-500/30 transition-all hover:bg-zinc-900/60 cursor-pointer focus:outline-none focus:border-cyan-500/50"
+            >
+              {/* Header */}
+              <div className="flex justify-between items-start mb-3">
+                <div>
+                  <h3 className="font-bold text-zinc-100 text-lg leading-none">{country.name}</h3>
+                  <div className="flex items-center gap-1 mt-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)] animate-pulse"></span>
+                    <span className="text-xs text-green-400/80 font-mono tracking-tight uppercase">Operational</span>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-2xl font-mono text-white tracking-tight">{country.count.toLocaleString()}</div>
+                  <div className="text-[10px] text-zinc-500 uppercase">Active Nodes</div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-2xl font-mono text-white tracking-tight">{country.count.toLocaleString()}</div>
-                <div className="text-[10px] text-zinc-500 uppercase">Active Nodes</div>
-              </div>
-            </div>
 
-            {/* Metrics Grid - Adaptive */}
-            <div className="grid grid-cols-3 gap-2 pt-3 border-t border-white/5 text-center">
-              <div className="group/metric">
-                <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-cyan-400 transition-colors">FLOPS</div>
-                <div className="font-mono text-sm text-cyan-200">{country.flops.toLocaleString()} <span className="text-[9px] opacity-50">T</span></div>
+              {/* Metrics Grid - Adaptive */}
+              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-white/5 text-center">
+                <div className="group/metric">
+                  <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-cyan-400 transition-colors">FLOPS</div>
+                  <div className="font-mono text-sm text-cyan-200">{country.flops.toLocaleString()} <span className="text-[9px] opacity-50">T</span></div>
+                </div>
+                <div className="group/metric border-l border-white/5">
+                  <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-purple-400 transition-colors">Storage</div>
+                  <div className="font-mono text-sm text-purple-200">{country.storage} <span className="text-[9px] opacity-50">TB</span></div>
+                </div>
+                <div className="group/metric border-l border-white/5">
+                  <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-blue-400 transition-colors">RAM</div>
+                  <div className="font-mono text-sm text-blue-200">{country.ram} <span className="text-[9px] opacity-50">TB</span></div>
+                </div>
               </div>
-              <div className="group/metric border-l border-white/5">
-                <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-purple-400 transition-colors">Storage</div>
-                <div className="font-mono text-sm text-purple-200">{country.storage} <span className="text-[9px] opacity-50">TB</span></div>
-              </div>
-              <div className="group/metric border-l border-white/5">
-                <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-blue-400 transition-colors">RAM</div>
-                <div className="font-mono text-sm text-blue-200">{country.ram} <span className="text-[9px] opacity-50">TB</span></div>
-              </div>
-            </div>
 
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-10 transition-opacity">
-              <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="text-cyan-500">
-                <path d="M0 0H100V100H0V0Z" stroke="currentColor" strokeWidth="0.5" fill="url(#grid)" />
-              </svg>
+              {/* Background Decor */}
+              <div className="absolute top-0 right-0 p-1 opacity-0 group-hover:opacity-10 transition-opacity">
+                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" className="text-cyan-500">
+                  <path d="M0 0H100V100H0V0Z" stroke="currentColor" strokeWidth="0.5" fill="url(#grid)" />
+                </svg>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className="p-3 border-t border-zinc-800 bg-black/80 text-center">
+          <div className="flex justify-center items-center gap-2 text-[10px] text-zinc-600 uppercase tracking-widest">
+            <span className="w-2 h-2 border border-zinc-700 block rotate-45"></span>
+            <span>Real-time Telemetry</span>
+            <span className="w-2 h-2 border border-zinc-700 block rotate-45"></span>
           </div>
-        ))}
-      </div>
-
-      <div className="p-3 border-t border-zinc-800 bg-black/80 text-center">
-        <div className="flex justify-center items-center gap-2 text-[10px] text-zinc-600 uppercase tracking-widest">
-          <span className="w-2 h-2 border border-zinc-700 block rotate-45"></span>
-          <span>Real-time Telemetry</span>
-          <span className="w-2 h-2 border border-zinc-700 block rotate-45"></span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
