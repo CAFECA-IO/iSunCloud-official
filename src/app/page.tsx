@@ -1,8 +1,40 @@
 "use client";
 
+import Image from "next/image";
+import Link from 'next/link';
 import { EarthScene } from "@/components/earth_scene";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [stats, setStats] = useState({
+    activeNodes: 0,
+    storage: 0,
+    compute: 0
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/api/v1/nodes');
+        const data = await res.json();
+        if (data.stats) {
+          setStats({
+            activeNodes: data.total_nodes,
+            storage: data.stats.storage,
+            compute: data.stats.flops
+          });
+        }
+      } catch (e) {
+        console.error("Failed to fetch home stats", e);
+      }
+    };
+
+    fetchData();
+    // Optional polling?
+    const interval = setInterval(fetchData, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="w-full h-screen relative bg-black overflow-hidden relative">
       <EarthScene />
@@ -13,14 +45,19 @@ export default function Home() {
         {/* Header */}
         <header className="flex justify-between items-center animate-fade-in-down">
           <div className="flex items-center gap-2">
-            {/* Logo placeholder */}
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 shadow-[0_0_15px_rgba(0,255,255,0.5)]"></div>
+            <Image
+              src="/isuncloud.svg"
+              alt="iSunCloud Logo"
+              width={40}
+              height={40}
+              className="drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]"
+            />
             <h1 className="text-2xl font-bold tracking-wider font-mono">iSunCloud</h1>
           </div>
           <nav className="hidden md:flex gap-6 pointer-events-auto">
-            <a href="#" className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Nodes</a>
-            <a href="#" className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Marketplace</a>
-            <a href="#" className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">About</a>
+            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Nodes</button>
+            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">Marketplace</button>
+            <button className="text-sm text-cyan-200/70 hover:text-cyan-400 transition-colors uppercase tracking-widest text-[10px]">About</button>
           </nav>
         </header>
 
@@ -30,7 +67,7 @@ export default function Home() {
             Global Shared <br /> Computing Network
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Monetize your idle resources. Connect to the world's first decentralized supercomputer.
+            Monetize your idle resources. Connect to the world&apos;s first decentralized supercomputer.
             <br />
           </p>
 
@@ -38,9 +75,9 @@ export default function Home() {
             <button className="px-8 py-3 bg-cyan-600/20 border border-cyan-500/50 hover:bg-cyan-500/30 text-cyan-300 rounded-sm uppercase tracking-widest text-sm font-semibold transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(0,255,255,0.2)] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]">
               Join Network
             </button>
-            <button className="px-8 py-3 bg-transparent border border-gray-700 hover:border-gray-500 text-gray-300 rounded-sm uppercase tracking-widest text-sm font-semibold transition-all hover:bg-white/5">
+            <Link href="/explorer" className="px-8 py-3 bg-transparent border border-gray-700 hover:border-gray-500 text-gray-300 rounded-sm uppercase tracking-widest text-sm font-semibold transition-all hover:bg-white/5">
               View Explorer
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -48,15 +85,15 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-white/10 pt-6 backdrop-blur-[2px]">
           <div className="text-left">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Active Nodes</div>
-            <div className="text-xl md:text-2xl font-mono text-cyan-400">12,842</div>
+            <div className="text-xl md:text-2xl font-mono text-cyan-400">{stats.activeNodes.toLocaleString()}</div>
           </div>
           <div className="text-left">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Total Storage</div>
-            <div className="text-xl md:text-2xl font-mono text-purple-400">84.5 PB</div>
+            <div className="text-xl md:text-2xl font-mono text-purple-400">{(stats.storage / 1000).toFixed(1)} PB</div>
           </div>
           <div className="text-left">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Compute Power</div>
-            <div className="text-xl md:text-2xl font-mono text-blue-400">425 PFLOPS</div>
+            <div className="text-xl md:text-2xl font-mono text-blue-400">{(stats.compute / 1000).toFixed(1)} PFLOPS</div>
           </div>
           <div className="text-left hidden md:block">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Network Status</div>

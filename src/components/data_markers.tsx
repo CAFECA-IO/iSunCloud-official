@@ -1,10 +1,9 @@
-import { useRef, useMemo, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
-import { NodeData } from "@/data/mock_data";
+import { INodeData } from "@/data/mock_data";
 
 // Helper to convert lat/lng to 3D position
-const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector3 => {
+export const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector3 => {
   const phi = (90 - lat) * (Math.PI / 180);
   const theta = (lng + 180) * (Math.PI / 180);
 
@@ -15,25 +14,24 @@ const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector
   return new THREE.Vector3(x, y, z);
 };
 
-interface DataMarkersProps {
-  data: NodeData[];
+interface IDataMarkersProps {
+  data: INodeData[];
   radius: number;
 }
 
-export const DataMarkers = ({ data, radius }: DataMarkersProps) => {
+export const DataMarkers = ({ data, radius }: IDataMarkersProps) => {
   const meshRef = useRef<THREE.InstancedMesh>(null);
-  const tempObject = new THREE.Object3D();
-  const color = new THREE.Color();
-
-  // Color palette for data points (Cyan/Blue/Purple)
-  const colors = useMemo(() => [
-    "#00ffff", // Cyan
-    "#0088ff", // Blue
-    "#bd00ff", // Purple
-  ], []);
-
   useEffect(() => {
     if (!meshRef.current) return;
+
+    const tempObject = new THREE.Object3D();
+    const color = new THREE.Color();
+    // Color palette for data points (Cyan/Blue/Purple)
+    const colors = [
+      "#00ffff", // Cyan
+      "#0088ff", // Blue
+      "#bd00ff", // Purple
+    ];
 
     data.forEach((point, i) => {
       // Calculate position
@@ -46,7 +44,7 @@ export const DataMarkers = ({ data, radius }: DataMarkersProps) => {
       // Scale based on "connections" or "flops". 
       // Base height 0.05 to 0.3 depending on value
       const scaleValue = Math.min(point.connections / 10, 3);
-      tempObject.scale.set(1, 1, scaleValue * 5); // Scale Z is length since we rotate it
+      tempObject.scale.set(1, 1, scaleValue * 2.5); // Scale Z is length since we rotate it
 
       tempObject.updateMatrix();
       meshRef.current?.setMatrixAt(i, tempObject.matrix);
@@ -58,13 +56,13 @@ export const DataMarkers = ({ data, radius }: DataMarkersProps) => {
 
     meshRef.current.instanceMatrix.needsUpdate = true;
     if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
-  }, [data, radius, colors]);
+  }, [data, radius]);
 
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, data.length]}>
       {/* Small cylinder as a "spike" */}
       {/* radiusTop, radiusBottom, height, radialSegments */}
-      <cylinderGeometry args={[0.02, 0.02, 1, 6]} >
+      <cylinderGeometry args={[0.01, 0.01, 1, 3]} >
         <instancedBufferAttribute attach="attributes-color" args={[new Float32Array(data.length * 3), 3]} />
       </cylinderGeometry>
       <meshBasicMaterial

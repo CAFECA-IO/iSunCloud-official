@@ -11,7 +11,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import nextPlugin from '@next/eslint-plugin-next';
-import tailwindcss from 'eslint-plugin-tailwindcss';
+// import tailwindcss from 'eslint-plugin-tailwindcss'; // Incompatible with Tailwind CSS v4
 import prettierConfig from 'eslint-config-prettier';
 
 // Info: (20251113 - Tzuhan)  --- 抽離出的共用規則 (同時適用於 Next.js 和 Hardhat) ---
@@ -30,8 +30,8 @@ const commonRules = {
     // Info: (20251113 - Tzuhan) 介面採用 IPascalCase，名稱強制以 I 開頭
     { selector: 'interface', format: ['PascalCase'], custom: { regex: '^I[A-Z]', match: true } },
   ],
-  'tailwindcss/no-custom-classname': 'warn',
-  'tailwindcss/classnames-order': 'error',
+  // 'tailwindcss/no-custom-classname': 'warn',
+  // 'tailwindcss/classnames-order': 'error',
 };
 
 const tslintConfigs = [
@@ -52,7 +52,7 @@ const tslintConfigs = [
 
   // Info: (20250918 - Luphia) 基礎設定
   ...tseslint.configs.recommended,
-  ...tailwindcss.configs['flat/recommended'],
+  // ...tailwindcss.configs['flat/recommended'],
 
   // Info: (20251113 - Tzuhan) --- CONFIG 1: Next.js / React App (src) ---
   {
@@ -62,7 +62,7 @@ const tslintConfigs = [
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       '@next/next': nextPlugin,
-      tailwindcss,
+      // tailwindcss,
     },
     languageOptions: {
       parser: tseslint.parser,
@@ -99,12 +99,20 @@ const tslintConfigs = [
 
       'no-restricted-imports': [
         'error',
-        { patterns: [{ group: ['../*'], message: "請使用 '@/' 路徑別名取代相對路徑 '..'" }] },
+        {
+          patterns: [
+            {
+              group: ['./*', '../*', '.', '..'],
+              message: "請使用 '@/' 路徑別名取代相對路徑 (./ 或 ../)"
+            }
+          ]
+        },
       ],
 
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
       'jsx-a11y/control-has-associated-label': 'warn',
+      'react/no-unknown-property': ['error', { ignore: ['args', 'attach', 'intensity', 'position', 'transparent', 'wireframe', 'dispose', 'side', 'blending', 'depthWrite', 'vertexColors', 'toneMapped', 'count'] }],
     },
   },
 
@@ -112,7 +120,7 @@ const tslintConfigs = [
   {
     files: ['scripts/**/*.ts', 'test/**/*.ts', 'ignition/**/*.ts', 'hardhat.config.ts'], // Info: (20251113 - Tzuhan) <-- 鎖定 Hardhat 相關檔案
     plugins: {
-      tailwindcss, // Info: (20251113 - Tzuhan) 這些檔案不需要 React/Next 外掛
+      // tailwindcss, // Info: (20251113 - Tzuhan) 這些檔案不需要 React/Next 外掛
     },
     languageOptions: {
       parser: tseslint.parser,

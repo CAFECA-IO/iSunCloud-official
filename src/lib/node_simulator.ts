@@ -1,26 +1,26 @@
 
 
-export interface NodePosition {
+export interface INodePosition {
   latitude: number;
   longitude: number;
 }
 
-export interface EthereumNodeInfo {
+export interface IEthereumNodeInfo {
   enode: string;
   networkId: number;
   client: string;
 }
 
-export interface NodeSimulationData {
+export interface INodeSimulationData {
   id: string;
   timestamp: string;
-  nodeInfo: EthereumNodeInfo;
+  nodeInfo: IEthereumNodeInfo;
   resources: {
     flops: number; // TeraFLOPS
     storage: number; // Terabytes
     ram: number; // Gigabytes
   };
-  position: NodePosition;
+  position: INodePosition;
 }
 
 /**
@@ -36,7 +36,7 @@ const generateEnode = (): string => {
 /**
  * Generates random node simulation data
  */
-export const generateNodeData = (): NodeSimulationData => {
+export const generateNodeData = (): INodeSimulationData => {
   // Random coordinates (weighted slightly towards populated areas to be realistic? Or just random)
   // For now simple random
   const lat = (Math.random() * 160) - 80; // Avoid extreme poles
