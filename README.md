@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# iSunCloud Official
 
-## Getting Started
+iSunCloud is a decentralized cloud infrastructure visualization platform. It provides a real-time, 3D interactive dashboard to view the global distribution of iSunCloud nodes, their resource contributions (FLOPS, Storage, RAM), and operational status.
 
-First, run the development server:
+## Features
+
+-   **3D Globe Visualization**: Interactive WebGL-based Earth visualization showing node distribution across countries.
+-   **Real-time Stats**: Dynamic statistics aggregation from live node data.
+-   **Resource Monitoring**: Track global and country-specific Compute (FLOPS), Storage (TB), and RAM (GB) metrics.
+-   **Responsive Design**: Fully responsive interface with mobile-friendly sidebar and controls.
+
+## Deployment
+
+### Prerequisites
+
+-   Node.js 18+
+-   npm or yarn
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/CAFECA-IO/iSunCloud-official.git
+    cd iSunCloud-official
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Build the project:
+    ```bash
+    npm run build
+    ```
+
+### Production Start
+
+To start the server in production mode (port 80):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run production
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **Note**: Port 80 requires root privileges. You may need to run with `sudo`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Alternatively, standard Next.js start:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm start
+```
 
-## Learn More
+### Auto-Redeploy Script
 
-To learn more about Next.js, take a look at the following resources:
+A helper script is available at `shell/auto_redeploy.sh` for automated updates from git.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Node Registration & Management
 
-## Deploy on Vercel
+**Endpoint**: `GET /api/v1/nodes`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Retrieves a list of all active nodes and aggregated global statistics.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Response**:
+```json
+{
+  "total_nodes": 1234,
+  "stats": {
+    "flops": 150.5,
+    "storage": 500.2,
+    "ram": 10240
+  },
+  "countries": [ ... ],
+  "nodes": [ ... ]
+}
+```
+
+---
+
+**Endpoint**: `POST /api/v1/nodes`
+
+Registers a new node or updates an existing one. Nodes are identified by `enode`.
+
+**Body**:
+```json
+{
+  "id": "optional-uuid",
+  "nodeInfo": {
+    "enode": "enode://pubkey@ip:port",
+    "networkId": 8017,
+    "client": "iSunCoin/v1.12.3"
+  },
+  "resources": {
+    "flops": 1.5, // TeraFLOPS
+    "storage": 2.0, // TB
+    "ram": 16 // GB
+  }
+}
+```
+
+-   **Expiration**: Nodes must check in at least once per hour. Nodes older than 1 hour are automatically removed.
+-   **De-duplication**: If an `enode` already exists, submitting it again updates the node's timestamp and resources.

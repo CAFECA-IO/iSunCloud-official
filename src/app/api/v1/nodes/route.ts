@@ -10,7 +10,13 @@ interface IDynamicNode extends INodeSimulationData {
 }
 
 // Data persistence
-const DATA_FILE = path.join(process.cwd(), 'data', 'nodes.json');
+const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_FILE = path.join(DATA_DIR, 'nodes.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
 
 // In-memory store for all nodes
 let nodes: IDynamicNode[] = [];
@@ -143,9 +149,12 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    // only accept networkId 8017
     const body = await req.json();
     const ip = req.headers.get('x-forwarded-for') || '127.0.0.1';
-
+    if (body.nodeInfo?.networkId !== 8017) {
+      return NextResponse.json({ success: false, error: "Invalid networkId" }, { status: 400 });
+    }
     // Validate enode presence (it's the key)
     const enode = body.nodeInfo?.enode;
     if (!enode) {
@@ -192,14 +201,14 @@ export async function POST(req: NextRequest) {
         country: country.name,
         position: { latitude: country.lat, longitude: country.lng },
         resources: {
-          flops: body.resources?.flops || Number((0.15 + Math.random() * 0.85).toFixed(2)),
-          storage: body.resources?.storage || Number((0.1 + Math.random() * 0.9).toFixed(2)),
-          ram: body.resources?.ram || (Math.floor(Math.random() * 8) + 1) * 4
+          flops: body.resources?.flops || 0,
+          storage: body.resources?.storage || 0,
+          ram: body.resources?.ram || 0
         },
         nodeInfo: {
           enode: enode,
-          networkId: body.nodeInfo?.networkId || 1,
-          client: body.nodeInfo?.client || 'OfficialClient/v1.0'
+          networkId: body.nodeInfo?.networkId || 8017,
+          client: body.nodeInfo?.client || 'iSunCoin/v1.12.3'
         }
       };
 
