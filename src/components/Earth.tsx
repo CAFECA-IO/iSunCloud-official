@@ -2,8 +2,8 @@ import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Sphere } from '@react-three/drei';
-import { DataMarkers } from './DataMarkers';
-import { generateMockData } from '@/data/mockData';
+import { DataMarkers } from './data_markers';
+import { generateMockData } from '@/data/mock_data';
 
 export const Earth = () => {
   const earthRef = useRef<THREE.Group>(null);

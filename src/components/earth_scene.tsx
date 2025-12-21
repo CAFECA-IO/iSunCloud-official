@@ -2,7 +2,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
-import { Earth } from './Earth';
+import { Earth } from './earth';
 import { Suspense } from 'react';
 
 export const EarthScene = () => {

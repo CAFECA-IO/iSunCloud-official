@@ -1,7 +1,7 @@
 import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
-import { NodeData } from "@/data/mockData";
+import { NodeData } from "@/data/mock_data";
 
 // Helper to convert lat/lng to 3D position
 const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector3 => {

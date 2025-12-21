@@ -1,6 +1,6 @@
 "use client";
 
-import { EarthScene } from "@/components/EarthScene";
+import { EarthScene } from "@/components/earth_scene";
 
 export default function Home() {
   return (
