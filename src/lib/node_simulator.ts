@@ -51,9 +51,9 @@ export const generateNodeData = (): INodeSimulationData => {
       client: Math.random() > 0.5 ? 'Geth/v1.10.0/linux-amd64/go1.16' : 'Nethermind/v1.10.79/linux-x64/dotnet5.0',
     },
     resources: {
-      flops: Number((Math.random() * 100).toFixed(2)), // 0-100 TFLOPS
-      storage: Number((Math.random() * 20).toFixed(2)), // 0-20 TB
-      ram: Math.floor(Math.random() * 128) + 16, // 16-144 GB
+      flops: Number((0.15 + Math.random() * 0.85).toFixed(2)), // 0.15 - 1.0 TFLOPS
+      storage: Number((0.1 + Math.random() * 0.9).toFixed(2)), // 0.1 - 1.0 TB (100GB - 1TB)
+      ram: (Math.floor(Math.random() * 8) + 1) * 4, // 4, 8, 12 ... 32 GB
     },
     position: {
       latitude: lat,

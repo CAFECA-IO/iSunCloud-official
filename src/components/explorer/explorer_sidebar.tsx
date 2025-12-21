@@ -23,9 +23,9 @@ interface IApiResponse {
 const generateCountryStats = (countries: ICountryData[]): ICountryStats[] => {
   return countries.map(country => ({
     ...country,
-    flops: Number((country.count * 0.15 + (Math.random() * 20)).toFixed(1)),
-    storage: Number((country.count * 0.05 + (Math.random() * 5)).toFixed(1)),
-    ram: Number((country.count * 0.02 + (Math.random() * 2)).toFixed(1))
+    flops: Number((country.count * 0.6 + (Math.random() * 5)).toFixed(1)),
+    storage: Number((country.count * 0.6 + (Math.random() * 2)).toFixed(1)),
+    ram: Number((country.count * 0.02 + (Math.random() * 0.5)).toFixed(1))
   })).sort((a, b) => b.count - a.count);
 };
 
@@ -118,7 +118,7 @@ export const ExplorerSidebar = ({ onCountrySelect }: IExplorerSidebarProps) => {
               </div>
               <div className="group/metric border-l border-white/5">
                 <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-purple-400 transition-colors">Storage</div>
-                <div className="font-mono text-sm text-purple-200">{country.storage} <span className="text-[9px] opacity-50">PB</span></div>
+                <div className="font-mono text-sm text-purple-200">{country.storage} <span className="text-[9px] opacity-50">TB</span></div>
               </div>
               <div className="group/metric border-l border-white/5">
                 <div className="text-[9px] text-zinc-500 uppercase tracking-wider mb-0.5 group-hover/metric:text-blue-400 transition-colors">RAM</div>

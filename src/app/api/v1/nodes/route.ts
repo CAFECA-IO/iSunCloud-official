@@ -128,20 +128,14 @@ export async function POST(req: NextRequest) {
     const newNode: IDynamicNode = {
       id: body.id || `node-${Date.now()}`,
       timestamp: new Date().toISOString(),
-      // city: country.name, // Keep property 'city' for compatibility with INodeSimulationData? 
-      // Wait, IDynamicNode I redefined above to have `country`. 
-      // But `generateNodeData()` returns INodeSimulationData which might not have city or country?
-      // Step 650 shows INodeSimulationData. Let's check lib/node_simulator.ts if needed.
-      // Assuming I can just extend it.
-      // I'll use `country` string effectively.
-      // But verify if INodeSimulationData has `city`. If so I might need to populate it too.
-      // Let's assume it doesn't or I can override.
+      // map country name to city for backward compat if needed, or just use country
+      // but IDynamicNode definition handles it.
       country: country.name,
       position: { latitude: country.lat, longitude: country.lng },
       resources: {
-        flops: body.resources?.flops || Math.random() * 100,
-        storage: body.resources?.storage || Math.random() * 20,
-        ram: body.resources?.ram || 32
+        flops: body.resources?.flops || Number((0.15 + Math.random() * 0.85).toFixed(2)),
+        storage: body.resources?.storage || Number((0.1 + Math.random() * 0.9).toFixed(2)),
+        ram: body.resources?.ram || (Math.floor(Math.random() * 8) + 1) * 4
       },
       nodeInfo: {
         enode: body.nodeInfo?.enode || `enode://mock-${Date.now()}`,
