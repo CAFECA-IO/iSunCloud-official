@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "explorer": "瀏覽器",
+    "downloads": "下載",
+    "marketplace": "市集",
+    "about": "關於我們",
+    "backToHome": "返回首頁"
+  },
+  "home": {
+    "heroTitle": "全球共享算力網絡",
+    "heroSubtitle": "分享閒置資源，建立世界上第一個去中心化公共算力平臺",
+    "viewExplorer": "查看瀏覽器",
+    "activeNodes": "活躍節點",
+    "totalStorage": "總存儲量",
+    "computePower": "總算力",
+    "networkStatus": "網絡狀態",
+    "online": "在線"
+  },
+  "marketplace": {
+    "title": "市集",
+    "productSubtitle": "旗艦級節點設備",
+    "description": "釋放去中心化雲端的全部潛力。Ascent GX10 專為 iSunCloud 網絡上的最大收益潛力而設計，配備企業級安全性和 AI 優化處理單元。",
+    "specs": {
+      "compute": "運算能力",
+      "memory": "記憶體",
+      "storage": "存儲空間",
+      "network": "網絡",
+      "efficiency": "效能"
+    },
+    "buyNow": "立即購買"
+  },
+  "about": {
+    "header": "關於我們的使命",
+    "heroTitlePart1": "開放知識",
+    "heroTitlePart2": "奇點",
+    "missionStatement": "我們正在構建世界上第一個去中心化公共算力平臺，將人類知識的總和蒸餾成開放的多模態人工智能模型。",
+    "pillars": {
+      "sharedCompute": {
+        "title": "共享算力",
+        "desc": "聚合全球數百萬台設備的閒置算力，為 AI 訓練和分析創造前所未有的資源。"
+      },
+      "knowledgeDistillation": {
+        "title": "知識蒸餾",
+        "desc": "分析並提取整個公共互聯網的資訊，轉化為能夠理解文本、圖像和代碼的連貫多模態模型。"
+      },
+      "openSource": {
+        "title": "完全開源",
+        "desc": "我們相信社群的智慧能最大化應用這份成果，原始訓練數據和最終模型都將透過以下協議發布："
+      }
+    },
+    "mitLicense": "MIT 授權條款",
+    "footerQuote": "社群共治，社群共享"
+  },
+  "downloads": {
+    "title": "下載 iSunCloud",
+    "subtitle": "獲取適用於您操作系統的最新版本 iSunCloud。體驗去中心化計算的未來。",
+    "recommended": {
+      "title": "為您推薦",
+      "downloadFor": "下載適用於",
+      "version": "版本"
+    },
+    "selectVersion": "在下方選擇您的版本...",
+    "allVersions": "所有版本",
+    "downloadBtn": "下載"
+  }
+}

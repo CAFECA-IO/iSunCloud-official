@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "explorer": "Explorer",
+    "downloads": "Downloads",
+    "marketplace": "Marketplace",
+    "about": "About",
+    "backToHome": "Back to Home"
+  },
+  "home": {
+    "heroTitle": "Global Shared Computing Network",
+    "heroSubtitle": "Monetize your idle resources. Connect to the world's first decentralized supercomputer.",
+    "viewExplorer": "View Explorer",
+    "activeNodes": "Active Nodes",
+    "totalStorage": "Total Storage",
+    "computePower": "Compute Power",
+    "networkStatus": "Network Status",
+    "online": "ONLINE"
+  },
+  "marketplace": {
+    "title": "MARKETPLACE",
+    "productSubtitle": "Flagship Node Device",
+    "description": "Unleash the full potential of the decentralized cloud. The Ascent GX10 is engineered for maximum earning potential on the iSunCloud network, featuring enterprise-grade security and AI-optimized processing units.",
+    "specs": {
+      "compute": "Compute Power",
+      "memory": "Memory",
+      "storage": "Storage",
+      "network": "Network",
+      "efficiency": "Efficiency"
+    },
+    "buyNow": "Buy Now"
+  },
+  "about": {
+    "header": "ABOUT MISSION",
+    "heroTitlePart1": "The Open Knowledge",
+    "heroTitlePart2": "Singularity",
+    "missionStatement": "We are building the world's first decentralized supercomputer to distill the sum of human knowledge into a single, open, multimodal intelligence.",
+    "pillars": {
+      "sharedCompute": {
+        "title": "Shared Computing",
+        "desc": "Aggregating idle computational power from millions of devices globally to create an unprecedented resource for AI training and analysis."
+      },
+      "knowledgeDistillation": {
+        "title": "Knowledge Distillation",
+        "desc": "Analyzing and distilling the entire public internet into a cohesive, multimodal model that understands text, image, and code."
+      },
+      "openSource": {
+        "title": "Fully Open Source",
+        "desc": "We believe in democratizing intelligence. Both the raw training data and the final model will be released under the"
+      }
+    },
+    "mitLicense": "MIT License",
+    "footerQuote": "For the people, by the people"
+  },
+  "downloads": {
+    "title": "Download iSunCloud",
+    "subtitle": "Get the latest version of iSunCloud for your operating system. Experience the future of decentralized computing.",
+    "recommended": {
+      "title": "Recommended for you",
+      "downloadFor": "Download for",
+      "version": "Version"
+    },
+    "selectVersion": "Select your version below...",
+    "allVersions": "All Versions",
+    "downloadBtn": "Download"
+  }
+}

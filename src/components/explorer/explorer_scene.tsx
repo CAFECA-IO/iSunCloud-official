@@ -8,6 +8,8 @@ import { DotEarth } from '@/components/explorer/dot_earth';
 import { CountryMarkers, ICountryData } from '@/components/explorer/country_markers';
 import { latLngToVector3 } from '@/components/data_markers';
 
+const EARTH_OFFSET_Y = -2;
+
 // Sub-component to handle camera animation
 const CameraAnimator = ({ selectedCountry }: { selectedCountry: ICountryData | null }) => {
   const { camera, controls } = useThree();
@@ -19,6 +21,10 @@ const CameraAnimator = ({ selectedCountry }: { selectedCountry: ICountryData | n
       // Distance should be maintained or fixed. Let's use current distance or fixed 8.
       const currentDist = camera.position.length();
       const targetVec = latLngToVector3(selectedCountry.lat, selectedCountry.lng, currentDist);
+
+      // Adjust target vector by adding the Earth's offset
+      targetVec.add(new THREE.Vector3(0, EARTH_OFFSET_Y, 0));
+
       targetPosRef.current = targetVec;
 
       // Stop auto-rotation temporarily if we want to focus? 
@@ -42,10 +48,21 @@ const CameraAnimator = ({ selectedCountry }: { selectedCountry: ICountryData | n
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const orbitalControls = controls as any;
       if (orbitalControls) {
+        orbitalControls.target.lerp(new THREE.Vector3(0, EARTH_OFFSET_Y, 0), 3 * delta);
         orbitalControls.update();
       }
     }
   });
+
+  // Also update default control target to center on the new earth position
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const orbitalControls = controls as any;
+    if (orbitalControls) {
+      orbitalControls.target.set(0, EARTH_OFFSET_Y, 0);
+      orbitalControls.update();
+    }
+  }, [controls]);
 
   return null;
 };
@@ -58,7 +75,7 @@ export const ExplorerScene = ({ selectedCountry }: IExplorerSceneProps) => {
   return (
     <div className="w-full h-full min-h-screen bg-black relative overflow-hidden">
       {/* Taiwan centered approx: scaled to distance 8 */}
-      <Canvas camera={{ position: [-3.78, 3.15, -6.30], fov: 45 }}>
+      <Canvas camera={{ position: [-3.78, 3.15 + EARTH_OFFSET_Y, -6.30], fov: 45 }}>
         <color attach="background" args={['#000000']} />
 
         {/* Subtle ambient light */}
@@ -66,8 +83,10 @@ export const ExplorerScene = ({ selectedCountry }: IExplorerSceneProps) => {
 
         <Suspense fallback={null}>
           <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-          <DotEarth />
-          <CountryMarkers />
+          <group position={[0, EARTH_OFFSET_Y, 0]}>
+            <DotEarth />
+            <CountryMarkers />
+          </group>
         </Suspense>
 
         <OrbitControls
@@ -77,6 +96,7 @@ export const ExplorerScene = ({ selectedCountry }: IExplorerSceneProps) => {
           maxDistance={10}
           autoRotate
           autoRotateSpeed={0.5}
+          target={[0, EARTH_OFFSET_Y, 0]} // Set initial target
           makeDefault // This makes it available in useThree().controls
         />
 

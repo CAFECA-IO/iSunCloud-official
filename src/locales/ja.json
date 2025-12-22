@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "explorer": "エクスプローラー",
+    "downloads": "ダウンロード",
+    "marketplace": "マーケットプレイス",
+    "about": "私たちについて",
+    "backToHome": "ホームに戻る"
+  },
+  "home": {
+    "heroTitle": "グローバル共有計算ネットワーク",
+    "heroSubtitle": "アイドルリソースを収益化。世界初の分散型スーパーコンピューターに接続しましょう。",
+    "viewExplorer": "エクスプローラーを見る",
+    "activeNodes": "アクティブノード",
+    "totalStorage": "総ストレージ",
+    "computePower": "計算能力",
+    "networkStatus": "ネットワーク状態",
+    "online": "オンライン"
+  },
+  "marketplace": {
+    "title": "マーケットプレイス",
+    "productSubtitle": "フラッグシップノードデバイス",
+    "description": "分散型クラウドの可能性を最大限に引き出します。Ascent GX10は、iSunCloudネットワークでの収益の可能性を最大化するために設計されており、エンタープライズグレードのセキュリティとAINPUを搭載しています。",
+    "specs": {
+      "compute": "計算能力",
+      "memory": "メモリ",
+      "storage": "ストレージ",
+      "network": "ネットワーク",
+      "efficiency": "効率"
+    },
+    "buyNow": "今すぐ購入"
+  },
+  "about": {
+    "header": "ミッションについて",
+    "heroTitlePart1": "オープンナレッジ",
+    "heroTitlePart2": "シンギュラリティ",
+    "missionStatement": "私たちは、人類の知識の総和を単一のオープンなマルチモーダルインテリジェンスに蒸留するための、世界初の分散型スーパーコンピューターを構築しています。",
+    "pillars": {
+      "sharedCompute": {
+        "title": "共有コンピューティング",
+        "desc": "世界中の数百万のデバイスからアイドル状態の計算能力を集約し、AIトレーニングと分析のための前例のないリソースを作成します。"
+      },
+      "knowledgeDistillation": {
+        "title": "知識の蒸留",
+        "desc": "パブリックインターネット全体を分析および蒸留し、テキスト、画像、コードを理解する一貫したマルチモーダルモデルにします。"
+      },
+      "openSource": {
+        "title": "完全オープンソース",
+        "desc": "私たちはインテリジェンスの民主化を信じています。生のトレーニングデータと最終モデルの両方が、以下のライセンスの下で公開されます："
+      }
+    },
+    "mitLicense": "MITライセンス",
+    "footerQuote": "人々のために、人々によって"
+  },
+  "downloads": {
+    "title": "iSunCloudをダウンロード",
+    "subtitle": "お使いのオペレーティングシステム用の最新バージョンのiSunCloudを入手してください。分散型コンピューティングの未来を体験しましょう。",
+    "recommended": {
+      "title": "あなたにおすすめ",
+      "downloadFor": "ダウンロード：",
+      "version": "バージョン"
+    },
+    "selectVersion": "以下からバージョンを選択...",
+    "allVersions": "すべてのバージョン",
+    "downloadBtn": "ダウンロード"
+  }
+}

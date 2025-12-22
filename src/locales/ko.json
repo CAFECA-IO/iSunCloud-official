@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "explorer": "탐색기",
+    "downloads": "다운로드",
+    "marketplace": "마켓플레이스",
+    "about": "소개",
+    "backToHome": "홈으로 돌아가기"
+  },
+  "home": {
+    "heroTitle": "글로벌 공유 컴퓨팅 네트워크",
+    "heroSubtitle": "유휴 자원을 수익화하세요. 세계 최초의 탈중앙화 슈퍼컴퓨터에 연결하세요.",
+    "viewExplorer": "탐색기 보기",
+    "activeNodes": "활성 노드",
+    "totalStorage": "총 스토리지",
+    "computePower": "계산 능력",
+    "networkStatus": "네트워크 상태",
+    "online": "온라인"
+  },
+  "marketplace": {
+    "title": "마켓플레이스",
+    "productSubtitle": "플래그십 노드 장치",
+    "description": "탈중앙화 클라우드의 잠재력을 최대한 발휘하세요. Ascent GX10은 iSunCloud 네트워크에서 수익 잠재력을 극대화하도록 설계되었으며, 엔터프라이즈급 보안과 AI 최적화 처리 장치를 갖추고 있습니다.",
+    "specs": {
+      "compute": "계산 능력",
+      "memory": "메모리",
+      "storage": "스토리지",
+      "network": "네트워크",
+      "efficiency": "효율성"
+    },
+    "buyNow": "지금 구매"
+  },
+  "about": {
+    "header": "미션 소개",
+    "heroTitlePart1": "오픈 지식",
+    "heroTitlePart2": "특이점",
+    "missionStatement": "우리는 인류 지식의 총합을 단일하고 개방적인 멀티모달 지능으로 정제하기 위해 세계 최초의 탈중앙화 슈퍼컴퓨터를 구축하고 있습니다.",
+    "pillars": {
+      "sharedCompute": {
+        "title": "공유 컴퓨팅",
+        "desc": "전 세계 수백만 대 기기의 유휴 계산 능력을 집계하여 AI 훈련 및 분석을 위한 전례 없는 자원을 생성합니다."
+      },
+      "knowledgeDistillation": {
+        "title": "지식 정제",
+        "desc": "전체 공용 인터넷을 분석하고 정제하여 텍스트, 이미지 및 코드를 이해하는 응집력 있는 멀티모달 모델로 만듭니다."
+      },
+      "openSource": {
+        "title": "완전 오픈 소스",
+        "desc": "우리는 지능의 민주화를 믿습니다. 원시 훈련 데이터와 최종 모델 모두 다음 라이선스 하에 공개됩니다:"
+      }
+    },
+    "mitLicense": "MIT 라이선스",
+    "footerQuote": "국민을 위한, 국민에 의한"
+  },
+  "downloads": {
+    "title": "iSunCloud 다운로드",
+    "subtitle": "운영 체제에 맞는 최신 버전의 iSunCloud를 받으세요. 탈중앙화 컴퓨팅의 미래를 경험하세요.",
+    "recommended": {
+      "title": "추천",
+      "downloadFor": "다운로드:",
+      "version": "버전"
+    },
+    "selectVersion": "아래에서 버전을 선택하세요...",
+    "allVersions": "모든 버전",
+    "downloadBtn": "다운로드"
+  }
+}
