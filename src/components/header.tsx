@@ -17,7 +17,7 @@ export function Header({ className = "" }: IHeaderProps) {
 
   return (
     <>
-      <header className={`flex justify-between items-center p-8 animate-fade-in-down relative z-[1001] ${className}`}>
+      <header className={`fixed top-0 left-0 w-full flex justify-between items-center p-6 md:p-8 animate-fade-in-down z-[1001] bg-gradient-to-b from-black/90 via-black/60 to-transparent backdrop-blur-[2px] ${className}`}>
         <Link href="/" className="flex items-center gap-2 relative z-[1001]" onClick={() => setIsMenuOpen(false)}>
           <Image
             src="/isuncloud.svg"

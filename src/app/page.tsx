@@ -39,17 +39,20 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="w-full h-screen relative bg-black overflow-hidden relative">
+    <main className="w-full min-h-screen relative bg-black overflow-x-hidden text-white selection:bg-cyan-500/30">
       {/* Header */}
       <Header />
 
-      <EarthScene />
+      {/* Fixed Background Scene */}
+      <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+        <EarthScene />
+      </div>
 
-      {/* UI Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none flex flex-col justify-between p-8 md:p-16 z-10 text-white">
+      {/* Scrollable Content Overlay */}
+      <div className="relative z-10 flex flex-col justify-between p-8 pb-[50px] min-h-screen pt-32">
 
         {/* Hero Content */}
-        <div className="max-w-4xl space-y-6 self-start md:self-center md:text-center mt-60 pointer-events-auto">
+        <div className="max-w-4xl space-y-6 self-start md:self-center md:text-center mt-20 pointer-events-auto">
           <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-500 to-purple-600 drop-shadow-[0_0_10px_rgba(0,100,255,0.5)]">
             {t('home.heroTitle')}
           </h2>

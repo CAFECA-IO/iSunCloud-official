@@ -34,7 +34,7 @@ export default function DownloadPage() {
     <>
       {/* Header */}
       <Header />
-      <div className="h-screen overflow-y-auto pt-10 pb-12 px-6 flex flex-col items-center scrollbar-thin scrollbar-thumb-cyan-900 scrollbar-track-black">
+      <div className="h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-900 scrollbar-track-black min-h-screen pt-32 pb-[50px] px-6 flex flex-col items-center">
         <div className="max-w-4xl w-full space-y-12">
           {/* Header Section */}
           <div className="text-center space-y-6">

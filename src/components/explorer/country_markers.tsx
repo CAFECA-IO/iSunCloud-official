@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 import { Html } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import { useNodes } from '@/contexts/nodes_context';
 
 export interface ICountryData {
   name: string;
@@ -66,25 +67,8 @@ const PulsingMarker = ({ position, count }: { position: THREE.Vector3, count: nu
 }
 
 export const CountryMarkers = () => {
-  const [countries, setCountries] = useState<ICountryData[]>([]);
+  const { countries } = useNodes();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('/api/v1/nodes');
-        const data = await res.json();
-        if (data.countries) {
-          setCountries(data.countries);
-        }
-      } catch (e) {
-        console.error("Failed to fetch node data", e);
-      }
-    };
-
-    fetchData();
-    const interval = setInterval(fetchData, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <group>

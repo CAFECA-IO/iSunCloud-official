@@ -1,107 +1,15 @@
 "use client";
 
-import { useEffect, useState } from 'react';
 import { ICountryData } from '@/components/explorer/country_markers';
-
-interface ICountryStats extends ICountryData {
-  flops: number;
-  storage: number; // TB
-  ram: number; // GB
-}
-
-interface INodeResource {
-  flops: number;
-  storage: number;
-  ram: number;
-}
-
-interface INode {
-  country: string;
-  resources: INodeResource;
-}
-
-interface IApiResponse {
-  total_nodes: number;
-  stats: {
-    flops: number;
-    storage: number;
-    ram: number;
-  };
-  countries: ICountryData[];
-  nodes: INode[];
-}
-
-const aggregateCountryStats = (countries: ICountryData[], nodes: INode[]): ICountryStats[] => {
-  const countryMap = new Map<string, ICountryStats>();
-
-  // Initialize map with country data
-  countries.forEach(c => {
-    countryMap.set(c.name, {
-      ...c,
-      flops: 0,
-      storage: 0,
-      ram: 0
-    });
-  });
-
-  // Aggregate resources from nodes
-  nodes.forEach(node => {
-    const countryStat = countryMap.get(node.country);
-    if (countryStat) {
-      countryStat.flops += node.resources.flops || 0;
-      countryStat.storage += node.resources.storage || 0;
-      // RAM from API is in GB, keep it in GB for display or convert to TB if needed.
-      // The previous code had RAM in TB label but generated small numbers (0.5).
-      // Let's check the display logic.
-      // Node sim generates: ram: (1-8)*4 = 4-32 GB.
-      // Previous display: "0.2 TB".
-      // Let's store raw GB in the stats and format in UI.
-      countryStat.ram += node.resources.ram || 0;
-    }
-  });
-
-  return Array.from(countryMap.values())
-    .map(stat => ({
-      ...stat,
-      flops: Number(stat.flops.toFixed(1)),
-      storage: Number(stat.storage.toFixed(1)),
-      ram: Number(stat.ram.toFixed(1))
-    }))
-    .sort((a, b) => b.count - a.count);
-};
+import { useNodes } from '@/contexts/nodes_context';
 
 interface IExplorerSidebarProps {
   onCountrySelect?: (country: ICountryData) => void;
 }
 
 export const ExplorerSidebar = ({ onCountrySelect }: IExplorerSidebarProps) => {
-  const [stats, setStats] = useState<ICountryStats[]>([]);
-  const [globalStats, setGlobalStats] = useState({ nodes: 0, flops: 0 });
+  const { stats, globalStats } = useNodes();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('/api/v1/nodes');
-        const data: IApiResponse = await res.json();
-
-        if (data.countries && data.nodes) {
-          const countryStats = aggregateCountryStats(data.countries, data.nodes);
-          setStats(countryStats);
-
-          setGlobalStats({
-            nodes: data.total_nodes,
-            flops: data.stats.flops
-          });
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    };
-
-    fetchData();
-    const interval = setInterval(fetchData, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
