@@ -71,26 +71,26 @@ export default function Home() {
 
         {/* Footer Stats / Ticker */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-white/10 pt-6 backdrop-blur-[2px]">
-          <div className="text-left">
+          <div className="text-center">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">{t('home.activeNodes')}</div>
             <div className="text-xl md:text-2xl font-mono text-cyan-400">{stats.activeNodes.toLocaleString()}</div>
           </div>
-          <div className="text-left">
+          <div className="text-center">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">{t('home.totalStorage')}</div>
             <div className="text-xl md:text-2xl font-mono text-purple-400">{(stats.storage / 1000).toFixed(1)} PB</div>
           </div>
-          <div className="text-left">
+          <div className="text-center">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">{t('home.computePower')}</div>
             <div className="text-xl md:text-2xl font-mono text-blue-400">{(stats.compute / 1000).toFixed(1)} PFLOPS</div>
           </div>
-          <div className="text-left hidden md:block">
+          <div className="text-center">
             <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">{t('home.networkStatus')}</div>
-            <div className="flex items-center gap-2 text-xl md:text-2xl font-mono text-green-400">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            <div className="text-xl md:text-2xl font-mono text-green-400">
+              <span className="relative h-2 w-2">
+                <span className="absolute mt-2 animate-ping h-4 w-4 rounded-full bg-green-400 opacity-75"></span>
+                <span className="absolute mt-3 ml-1 h-2 w-2 rounded-full bg-green-500"></span>
               </span>
-              {t('home.online')}
+              <span className="ml-6">{t('home.online')}</span>
             </div>
           </div>
         </div>
