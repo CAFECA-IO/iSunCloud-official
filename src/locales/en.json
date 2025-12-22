@@ -19,7 +19,7 @@
   "marketplace": {
     "title": "MARKETPLACE",
     "productSubtitle": "Flagship Node Device",
-    "description": "Unleash the full potential of the decentralized cloud. The Ascent GX10 is engineered for maximum earning potential on the iSunCloud network, featuring enterprise-grade security and AI-optimized processing units.",
+    "description": "The Ascent GX10 features an ARM v9.2 architecture CPU and an integrated NVIDIA Blackwell GPU, complemented by ultra-fast 10G LAN and Wi-Fi 7 connectivity. Its built-in 128GB Coherent Unified Memory is optimized for large model fine-tuning and inference , while support for PCIe 5.0 NVMe SSDs makes it one of the most compact and high-density AI compute nodes on the market.",
     "specs": {
       "compute": "Compute Power",
       "memory": "Memory",
@@ -27,7 +27,27 @@
       "network": "Network",
       "efficiency": "Efficiency"
     },
-    "buyNow": "Buy Now"
+    "buyNow": "Buy Now",
+    "aiChat": {
+      "title": "What can this machine do?",
+      "placeholder": "Ask about specs, compare with Apple Studio, or ask AI to complete a task...",
+      "send": "Send",
+      "askBtn": "Ask",
+      "inputLabel": "Ask AI Question",
+      "like": "Like",
+      "dislike": "Dislike",
+      "recentReports": "Recently Generated Reports",
+      "generatedLabel": "AI Generated Report",
+      "disclaimer": "AI generated responses.",
+      "errors": {
+        "generating": "Error generating report:",
+        "connection": "Connection Error: Failed to generate report. Please check your network.",
+        "loading": "Error loading report:",
+        "connectionLoad": "Connection Error: Failed to load report.",
+        "notFound": "Report not found",
+        "unknown": "Unknown error"
+      }
+    }
   },
   "about": {
     "header": "ABOUT MISSION",

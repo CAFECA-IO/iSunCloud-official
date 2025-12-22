@@ -47,12 +47,13 @@ export const Earth = () => {
       </Sphere>
 
       {/* 2. Wireframe / Grid Layer (Digital Look) */}
+      {/* 加入光暈 */}
       <Sphere args={[radius + 0.01, 32, 32]}>
         <meshBasicMaterial
           color="#0044aa"
           wireframe
           transparent
-          opacity={0.15}
+          opacity={0.3}
         />
       </Sphere>
 

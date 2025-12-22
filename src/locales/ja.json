@@ -19,7 +19,7 @@
   "marketplace": {
     "title": "マーケットプレイス",
     "productSubtitle": "フラッグシップノードデバイス",
-    "description": "分散型クラウドの可能性を最大限に引き出します。Ascent GX10は、iSunCloudネットワークでの収益の可能性を最大化するために設計されており、エンタープライズグレードのセキュリティとAINPUを搭載しています。",
+    "description": "Ascent GX10は、ARM v9.2アーキテクチャCPUと統合型NVIDIA Blackwell GPUを搭載し、10G LANおよびWi-Fi 7による超高速通信機能を実現します。大規模モデルのファインチューニングと推論に最適化された128GBのコヒーレントユニファイドメモリを内蔵し、PCIe 5.0 NVMe SSDにも対応。現在市場で最もコンパクトかつ高密度なAIコンピューティングノードの一つです。",
     "specs": {
       "compute": "計算能力",
       "memory": "メモリ",
@@ -27,7 +27,27 @@
       "network": "ネットワーク",
       "efficiency": "効率"
     },
-    "buyNow": "今すぐ購入"
+    "buyNow": "今すぐ購入",
+    "aiChat": {
+      "title": "このマシンは何ができますか？",
+      "placeholder": "スペックの確認、Apple Studioとの比較、またはAIへのタスク依頼...",
+      "send": "送信",
+      "askBtn": "質問する",
+      "inputLabel": "AIへの質問",
+      "like": "いいね",
+      "dislike": "よくないね",
+      "recentReports": "最近生成されたレポート",
+      "generatedLabel": "AI生成レポート",
+      "disclaimer": "AIが生成した回答です。",
+      "errors": {
+        "generating": "レポート生成エラー:",
+        "connection": "接続エラー: レポートを生成できません。ネットワークを確認してください。",
+        "loading": "レポート読み込みエラー:",
+        "connectionLoad": "接続エラー: レポートを読み込めません。",
+        "notFound": "レポートが見つかりません",
+        "unknown": "不明なエラー"
+      }
+    }
   },
   "about": {
     "header": "ミッションについて",

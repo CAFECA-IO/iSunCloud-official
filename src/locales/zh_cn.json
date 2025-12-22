@@ -19,7 +19,7 @@
   "marketplace": {
     "title": "市场",
     "productSubtitle": "旗舰级节点设备",
-    "description": "释放去中心化云端的全部潜力。Ascent GX10 专为 iSunCloud 网络上的最大收益潜力而设计，配备企业级安全性和 AI 优化处理单元。",
+    "description": "Ascent GX10 配备 ARM v9.2 架构 CPU 与集成式 NVIDIA Blackwell GPU，辅以 10G LAN 与 Wi-Fi 7 的极速联网能力。内置 128GB Coherent Unified Memory 专为大模型微调与推理优化，并支持 PCIe 5.0 NVMe SSD，是目前市面上体积最小、密度最高的 AI 计算节点之一。",
     "specs": {
       "compute": "计算能力",
       "memory": "内存",
@@ -27,7 +27,27 @@
       "network": "网络",
       "efficiency": "能效"
     },
-    "buyNow": "立即购买"
+    "buyNow": "立即购买",
+    "aiChat": {
+      "title": "这部机器能做什么？",
+      "placeholder": "询问机器的规格、和 Apple Studio 做比较、或是请 AI 帮你完成一项任务...",
+      "send": "发送",
+      "askBtn": "提问",
+      "inputLabel": "询问 AI 问题",
+      "like": "喜欢",
+      "dislike": "不喜欢",
+      "recentReports": "最近生成的报告",
+      "generatedLabel": "AI 生成的报告",
+      "disclaimer": "AI 生成的回答。",
+      "errors": {
+        "generating": "生成报告时发生错误：",
+        "connection": "连接错误：无法生成报告。请检查您的网络。",
+        "loading": "加载报告时发生错误：",
+        "connectionLoad": "连接错误：无法加载报告。",
+        "notFound": "找不到报告",
+        "unknown": "未知错误"
+      }
+    }
   },
   "about": {
     "header": "关于我们的使命",
@@ -53,7 +73,7 @@
   },
   "downloads": {
     "title": "下载 iSunCloud",
-    "subtitle": "获取适用于您操作系统的最新版本 iSunCloud。体验去中心化计算的未来。",
+    "subtitle": "获取适用于您操作系统的最新版本 iSunCloud，参与去中心化计算的未来。",
     "recommended": {
       "title": "为您推荐",
       "downloadFor": "下载适用于",
