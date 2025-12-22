@@ -8,7 +8,7 @@ import { DotEarth } from '@/components/explorer/dot_earth';
 import { CountryMarkers, ICountryData } from '@/components/explorer/country_markers';
 import { latLngToVector3 } from '@/components/data_markers';
 
-const EARTH_OFFSET_Y = -2;
+const EARTH_OFFSET_Y = 0;
 
 // Sub-component to handle camera animation
 const CameraAnimator = ({ selectedCountry }: { selectedCountry: ICountryData | null }) => {
@@ -73,7 +73,7 @@ interface IExplorerSceneProps {
 
 export const ExplorerScene = ({ selectedCountry }: IExplorerSceneProps) => {
   return (
-    <div className="w-full h-full min-h-screen bg-black relative overflow-hidden">
+    <div className="w-full h-[80vh] bg-black relative overflow-hidden">
       {/* Taiwan centered approx: scaled to distance 8 */}
       <Canvas camera={{ position: [-3.78, 3.15 + EARTH_OFFSET_Y, -6.30], fov: 45 }}>
         <color attach="background" args={['#000000']} />

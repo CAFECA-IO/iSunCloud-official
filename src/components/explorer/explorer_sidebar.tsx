@@ -72,12 +72,9 @@ const aggregateCountryStats = (countries: ICountryData[], nodes: INode[]): ICoun
 
 interface IExplorerSidebarProps {
   onCountrySelect?: (country: ICountryData) => void;
-  isOpen?: boolean;
-  onClose?: () => void;
-  onToggle?: () => void;
 }
 
-export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose, onToggle }: IExplorerSidebarProps) => {
+export const ExplorerSidebar = ({ onCountrySelect }: IExplorerSidebarProps) => {
   const [stats, setStats] = useState<ICountryStats[]>([]);
   const [globalStats, setGlobalStats] = useState({ nodes: 0, flops: 0 });
 
@@ -116,28 +113,12 @@ export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose, onTo
       */}
 
       {/* Sidebar Panel */}
-      <div className={`
-        fixed bottom-0 left-0 w-full h-auto max-h-[40vh] bg-black/90 backdrop-blur-md border-t border-zinc-800 
-        flex flex-col md:flex-col z-[1000] font-sans shadow-2xl transition-transform duration-300 ease-in-out
-        translate-y-0
-        md:inset-y-0 md:right-0 md:h-full md:max-h-full md:w-full md:max-w-[350px] md:border-l md:border-t-0 
-        md:translate-y-0
-      `}>
+      <div className="fixed bottom-0 left-0 w-full h-auto max-h-[40vh] bg-black/90 backdrop-blur-md border-t border-zinc-800 flex flex-col z-[100] font-sans shadow-2xl transition-transform duration-300 ease-in-out translate-y-0">
         {/* Header - Clickable on Mobile */}
         <div
-          onClick={() => {
-            if (window.innerWidth < 768) {
-              onToggle?.();
-            }
-          }}
-          onKeyDown={(e) => {
-            if ((e.key === 'Enter' || e.key === ' ') && window.innerWidth < 768) {
-              onToggle?.();
-            }
-          }}
           role="button"
           tabIndex={0}
-          className="p-3 md:p-5 border-t md:border-t-0 md:border-b border-zinc-800 bg-black/50 backdrop-blur-xl relative flex-shrink-0 cursor-pointer md:cursor-default outline-none focus:bg-black/70"
+          className="p-3 border-b border-zinc-800 bg-black/50 backdrop-blur-xl relative flex-shrink-0 outline-none focus:bg-black/70"
         >
 
           <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest mb-1 pointer-events-none">
@@ -156,32 +137,23 @@ export const ExplorerSidebar = ({ onCountrySelect, isOpen = false, onClose, onTo
         </div>
 
         {/* Collapsible Content Wrapper */}
-        <div className={`
-            grid transition-[grid-template-rows] duration-300 ease-in-out
-            ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}
-            md:grid-rows-[1fr] md:flex-1 md:flex md:flex-col
-        `}>
-          <div className={`overflow-hidden flex flex-col ${!isOpen ? 'invisible md:visible' : ''}`}> {/* Invisible when closed to prevent focus/interaction */}
-            <div className="flex-1 overflow-x-auto flex flex-row space-x-4 p-4 md:flex-col md:overflow-y-auto md:overflow-x-hidden md:space-x-0 md:space-y-2 md:p-2 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
+        <div className="grid transition-[grid-template-rows] duration-300 ease-in-out grid-rows-[1fr] flex-1 flex flex-col">
+          <div className="overflow-hidden flex flex-col">
+            <div className="flex-1 overflow-x-auto flex flex-row space-x-4 p-4 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent">
               {stats.map((country) => (
                 <div
                   key={country.name}
                   onClick={() => {
                     onCountrySelect?.(country);
-                    // Optional: Close sidebar on selection on mobile
-                    if (window.innerWidth < 768) {
-                      onClose?.(); // Or onToggle
-                    }
                   }}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       onCountrySelect?.(country);
-                      if (window.innerWidth < 768) onClose?.();
                     }
                   }}
                   role="button"
                   tabIndex={0}
-                  className="group relative p-4 bg-zinc-900/40 rounded-sm border border-white/5 hover:border-cyan-500/30 transition-all hover:bg-zinc-900/60 cursor-pointer focus:outline-none focus:border-cyan-500/50 min-w-[280px] md:min-w-0 flex-shrink-0 md:flex-shrink"
+                  className="group relative p-4 bg-zinc-900/40 rounded-sm border border-white/5 hover:border-cyan-500/30 transition-all hover:bg-zinc-900/60 cursor-pointer focus:outline-none focus:border-cyan-500/50 min-w-[280px] flex-shrink-0"
                 >
                   {/* Header */}
                   <div className="flex justify-between items-start mb-3">

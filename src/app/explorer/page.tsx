@@ -8,7 +8,6 @@ import { Header } from "@/components/header";
 
 export default function ExplorerPage() {
   const [selectedCountry, setSelectedCountry] = useState<ICountryData | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleCountrySelect = (country: ICountryData) => {
     setSelectedCountry(country);
@@ -27,9 +26,6 @@ export default function ExplorerPage() {
         {/* Sidebar */}
         <ExplorerSidebar
           onCountrySelect={handleCountrySelect}
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         />
       </div>
     </>
