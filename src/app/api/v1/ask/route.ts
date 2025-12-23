@@ -3,6 +3,8 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import fs from 'fs';
 import path from 'path';
 
+import { DEFAULT_GOOGLE_MODEL_NAME } from '@/constants/default/ai';
+
 export async function POST(req: NextRequest) {
   try {
     const { message, language } = await req.json();
@@ -22,7 +24,8 @@ export async function POST(req: NextRequest) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const modelName = process.env.GOOGLE_MODEL_NAME || DEFAULT_GOOGLE_MODEL_NAME;
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     const context = `
 You are an expert AI analyst for the "Ascent GX10" and iSunCloud ecosystem.
