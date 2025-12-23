@@ -36,7 +36,7 @@ const PulsingMarker = ({ position, count }: { position: THREE.Vector3, count: nu
 
     // Inner Core Pulse
     if (meshRef.current) {
-      const scale = 0.5 + Math.sin(t * 3) * 0.1;
+      const scale = 1 + Math.sin(t * 3) * 0.1;
       meshRef.current.scale.set(scale, scale, scale);
     }
 
