@@ -4,10 +4,13 @@ import fs from 'fs';
 import path from 'path';
 
 import { DEFAULT_GOOGLE_MODEL_NAME } from '@/constants/default/ai';
+import { getRandomErrorMessage } from '@/constants/chat_errors';
 
 export async function POST(req: NextRequest) {
+  let errorLanguage = 'en';
   try {
     const { message, language } = await req.json();
+    errorLanguage = language;
 
     if (!message) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
@@ -91,7 +94,27 @@ Instructions:
 
   } catch (error) {
     console.error('Error generating AI response:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    return NextResponse.json({ error: `Failed to process request: ${errorMessage}` }, { status: 500 });
+    // Extract language from request if possible, otherwise default to 'en'
+    // Since we can't easily access req.json() again here if it was already read, 
+    // we might need to rely on the scope. 
+    // However, `language` is defined inside the try block. 
+    // We can try to parse it again or default to 'en'.
+    // A safer way is to declare language outside try or just default to en.
+    // For simplicity, we'll default to 'en' or try to reuse if we handle scope better, 
+    // but here we simply assume 'en' if not available, OR 
+    // actually providing a fallback mechanism.
+
+    // Let's assume we want to support the requested language if we reached that point.
+    // Since we cannot access `language` from the catch block due to block scope,
+    // we will default to 'en' for now, but to be better we could move the declaration up.
+    // For this implementation, I will just call getRandomErrorMessage('en') 
+    // unless I refactor the scope. 
+
+    // Refactoring scope:
+    // let language = 'en'; ... try { const body = ... language = body.language ... }
+
+    // Implementing the refactor in this replacement:
+
+    return NextResponse.json({ error: getRandomErrorMessage(errorLanguage) }, { status: 500 });
   }
 }
