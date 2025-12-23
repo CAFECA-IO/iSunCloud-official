@@ -36,7 +36,7 @@ const PulsingMarker = ({ position, count }: { position: THREE.Vector3, count: nu
 
     // Inner Core Pulse
     if (meshRef.current) {
-      const scale = 1 + Math.sin(t * 3) * 0.1;
+      const scale = 0.5 + Math.sin(t * 3) * 0.1;
       meshRef.current.scale.set(scale, scale, scale);
     }
 
@@ -54,7 +54,7 @@ const PulsingMarker = ({ position, count }: { position: THREE.Vector3, count: nu
       {/* Core: Bright, solid */}
       <mesh ref={meshRef}>
         <sphereGeometry args={[size, 16, 16]} />
-        <meshBasicMaterial color="#ffffff" />
+        <meshBasicMaterial color="#30c0ff" />
       </mesh>
 
       {/* Glow: Cyan, Transparent, Larger */}
@@ -99,7 +99,7 @@ export const CountryMarkers = () => {
 
             <PulsingMarker position={lightPos} count={country.count} />
 
-            <Html position={labelPos} center distanceFactor={5} zIndexRange={[100, 0]} style={{ pointerEvents: 'none' }} occlude>
+            <Html position={labelPos} center distanceFactor={4} zIndexRange={[100, 0]} style={{ pointerEvents: 'none' }} occlude>
               <div className="flex flex-col items-center">
                 <div className="text-[8px] sm:text-[10px] font-bold text-cyan-400 bg-black/60 px-2 py-0.5 rounded border border-cyan-500/30 backdrop-blur-[2px] whitespace-nowrap">
                   {country.name}
