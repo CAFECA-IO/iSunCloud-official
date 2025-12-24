@@ -53,8 +53,8 @@ export const ProductHero = () => {
             <div className="text-sm text-gray-400 line-through mb-1">{product.price.currency} {product.price.original}</div>
             <div className="text-4xl font-bold font-mono text-white">{product.price.currency} {product.price.current}</div>
           </div>
-          <button className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold uppercase tracking-widest rounded-sm transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
-            {t('marketplace.buyNow')}
+          <button disabled className="w-full sm:w-auto px-10 py-4 bg-gray-600 text-gray-400 font-bold uppercase tracking-widest rounded-sm cursor-not-allowed shadow-none opacity-50">
+            {t('marketplace.comingSoon')}
           </button>
         </div>
       </div>
